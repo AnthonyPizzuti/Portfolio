@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -5,11 +6,20 @@ import { FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
+  isError: boolean = false;
+  isChecked: boolean = false;
+  showError: boolean = false;
+  sendButtonDisabled: string = './../../assets/buttons/send-button-disable.png';
+  sendButtonEnabled: string = './../../assets/buttons/send-button-enable.png';
+  checkBoxDefault: string =
+    './../../assets/buttons/check_box_outline_blank.png';
+  checkBoxHover: string = './../../assets/buttons/check.png';
+  checkBoxChecked: string = './../../assets/buttons/checked.png';
   http = inject(HttpClient);
 
   contactData = {
@@ -47,5 +57,24 @@ export class ContactComponent {
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
       ngForm.resetForm();
     }
+  }
+
+  validateInput(): void {
+    this.isError = this.contactData.name.trim() === '';
+  }
+
+  toggleCheckbox() {
+    this.isChecked = !this.isChecked;
+  }
+
+  validateCheckbox(): void {
+    this.showError = !this.isChecked;
+  }
+
+  getCheckboxImage(): string {
+    if (this.isChecked) {
+      return this.checkBoxChecked;
+    }
+    return this.checkBoxDefault;
   }
 }

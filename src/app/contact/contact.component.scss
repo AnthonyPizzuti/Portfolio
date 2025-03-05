@@ -1,33 +1,335 @@
-/* Style inputs with type="text", select elements and textareas */
-input[type=text], [type=email], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-image: url(./../../assets/backgrounds/contact.png);
+  background-size: cover;
+  height: 80vh;
+}
+
+/* Linke Textseite */
+.contact-text {
+  max-width: 30%;
+  color: #f8f9fa;
+}
+
+.contact-text h3 {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #f8f9fa;
+}
+
+.contact-text h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #f8f9fa;
+}
+
+.contact-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #f8f9fa;
+}
+
+.contact-underline {
+  width: 60px;
+  height: 5px;
+  background-color: #f7c518;
+  margin-top: 20px;
+}
+
+/* Rechte Formularseite */
+.contact-form {
+  width: 50%;
+  font-family: Bricolage;
+}
+
+.input-container {
+  position: relative;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f7c518;
+  border-radius: 200px;
+  &:hover {
+    border-bottom: 1px solid #3355ff;
   }
-  
-  /* Style the submit button with a specific background color etc */
-  input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
+
+  input {
+    width: 100%;
     border: none;
-    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    padding: 8px 0;
+    color: #f8f9fa;
+    font-family: Bricolage;
+  }
+
+  label {
+    left: 24px;
+    top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #f8f9fa;
+  }
+
+  .error-message {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #ff5500;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.error {
+    border-top: 1px solid #f8f9fa;
+    border-bottom: 1px solid #f8f9fa;
+
+    label {
+      color: #f87a55;
+    }
+
+    input::placeholder {
+      color: transparent;
+    }
+
+    .error-message {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    border-bottom: 1px solid #3355ff;
+
+    label {
+      color: #f87a55;
+    }
+  }
+}
+
+.input-container textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  color: #f8f9fa;
+  padding: 8px 0;
+  resize: none;
+}
+
+.input-container textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-container textarea:focus {
+  border: none;
+  outline: none;
+}
+
+/* Datenschutz Checkbox */
+.checkbox-button-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+  a {
+    text-decoration: none;
+    color: #3355ff;
+    &:hover {
+      color: #f7c518;
+    }
+  }
+
+  .checkbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 480px;
+    position: relative;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    gap: 8px;
+    color: #f8f9fa;
+    flex-wrap: wrap;
+    line-height: 1.4;
+    width: 100%;
+  }
+
+  input {
+    display: none;
+  }
+
+  .custom-checkbox {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     cursor: pointer;
+    &:hover {
+      background-color: #3355ff4d;
+    }
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Fehlertext */
+  .error-message {
+    color: #f87a55;
+    font-size: 14px;
+    line-height: 16.8px;
+    font-weight: 400;
+    width: 215px;
+    height: 17px;
+    position: absolute;
+    top: 100%;
+    left: 32px;
+  }
+}
+
+/* Button */
+.send-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 154px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+
+  img {
+    width: 154px;
+    height: auto;
+    a:hover {
+      background-color: transparent !important;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.arrow-container {
+    position: relative;
+    width: 280px;
+    height: 45px;
   }
   
-  /* When moving the mouse over the submit button, add a darker green color */
-  input[type=submit]:hover {
-    background-color: #45a049;
+  /* Der gelbe Pfeil bleibt fest */
+  .arrow-yellow {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 100%;
+    height: auto;
   }
   
-  /* Add a background color and some padding around the form */
-  .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+  /* Der schwarze Pfeil bewegt sich */
+  .arrow-black {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 100%;
+    height: auto;
+    animation: arrowReveal 1s ease-in-out infinite;
   }
+  
+  /* Animation für das Erscheinen */
+  @keyframes arrowReveal {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    51% {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+@keyframes rotateText {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sticker {
+  width: 150px; 
+  height: 150px;
+  background: url("./../../assets/backgrounds/crumpled-paper.png") no-repeat
+    center/cover;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  left: 850px;
+  bottom: 220px;
+}
+
+/* Logo mittig platzieren */
+.logo {
+  width: 65px;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  transform: rotate(15deg);
+}
+
+/* Kreisförmiger Text */
+.circle-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-size: x-large;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateText 8s linear infinite; // Dreht sich langsam
+  transform-origin: center;
+  font-family: Bricolage;
+}
+
+/* Trick für kreisförmigen Text */
+.circle-text::before {
+  content: "Anthony Pizzuti - Frontend Developer - ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  white-space: nowrap;
+  transform: rotate(0deg);
+}

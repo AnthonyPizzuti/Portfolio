@@ -1,49 +1,113 @@
-<div class="container">
-  <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-    <label for="name">First Name</label>
-    <input
-      #name="ngModel"
-      [(ngModel)]="contactData.name"
-      type="text"
-      id="name"
-      name="name"
-      placeholder="Your name.."
-      required
-    />
-    @if (!name.valid && name.touched && !name.disabled) {
-    <span>Please enter a Name</span>
-    }
+<section class="contact-section">
+  <div class="contact-text">
+    <h3>CONTACT ME</h3>
+    <h1>Bereit, gemeinsam etwas Großartiges zu schaffen?</h1>
+    <p>
+      Ich bin immer offen für neue Herausforderungen, spannende Projekte und
+      inspirierende Zusammenarbeit. Wenn du auf der Suche nach einem engagierten
+      und leidenschaftlichen Entwickler bist, der deine Ideen in die Realität
+      umsetzt, dann lass uns in Kontakt treten!
+    </p>
+    <p>Melde dich und lass uns gemeinsam Großes erschaffen!</p>
+    <div class="arrow-container">
+        <img src="./../../assets/animations/arrow_black.png" alt="Black Arrow" class="arrow-black" />
+        <img src="./../../assets/animations/arrow_hover.png" alt="Yellow Arrow" class="arrow-yellow" />
+      </div>
+  </div>
 
-    <label for="email">Email</label>
-    <input
-      #email="ngModel"
-      [(ngModel)]="contactData.email"
-      type="email"
-      id="email"
-      name="email"
-      placeholder="Your E-Mail.."
-      required
-      pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-    />
-    @if (!email.valid && email.touched && !email.disabled) {
-    <span>Please enter an Email</span>
-    }
+  <div class="sticker">
+    <img src="./../../assets/logo/ap-logo.png" alt="AP Logo" class="logo" />
+    <svg viewBox="0 0 200 200" class="circle-text">
+      <path id="textPath" fill="transparent" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+      <text>
+        <textPath href="#textPath"> Anthony Pizzuti -- Frontend Developer -- </textPath>
+    </text>
+    </svg>
+  </div>
+  
 
-    <label for="message">Subject</label>
-    <textarea
-      #message="ngModel"
-      minlength="4"
-      [(ngModel)]="contactData.message"
-      id="message"
-      name="messasge"
-      placeholder="Write something.."
-      style="height: 200px"
-      required
-    ></textarea>
-    @if (!message.valid && message.touched && !message.disabled) {
-    <span>Please enter a Message</span>
-    }
+  <div class="contact-form">
+    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+      <div class="input-container" [class.error]="isError">
+        <label for="name">What's your name?</label>
+        <input
+          #name="ngModel"
+          [(ngModel)]="contactData.name"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name goes here"
+          required
+        />
+        @if (!name.valid && name.touched && !name.disabled) {
+        <span class="error-message">Oops! It seems your name is missing</span>
+        }
+      </div>
 
-    <input type="submit" value="Submit" />
-  </form>
-</div>
+      <div class="input-container">
+        <label for="email">What's your email?</label>
+        <input
+          #email="ngModel"
+          [(ngModel)]="contactData.email"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="youremail@email.com"
+          required
+          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+        />
+
+        @if (!email.valid && email.touched && !email.disabled) {
+        <span class="error-message">Hoppla! your email is required</span>
+        }
+      </div>
+      <div class="input-container">
+        <label for="message">How can i help you?</label>
+        <textarea
+          #message="ngModel"
+          minlength="4"
+          [(ngModel)]="contactData.message"
+          id="message"
+          name="messasge"
+          placeholder="Write something.."
+          style="height: 40px"
+          required
+        ></textarea>
+
+        @if (!message.valid && message.touched && !message.disabled) {
+        <span class="error-message">What do you need to develop?</span>
+        }
+      </div>
+    </form>
+
+    <div class="checkbox-button-container">
+      <!-- Checkbox -->
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          id="privacy"
+          name="privacy"
+          [(ngModel)]="isChecked"
+          (change)="validateCheckbox()"
+        />
+        <span class="custom-checkbox">
+          <img [src]="getCheckboxImage()" alt="Checkbox state" />
+        </span>
+        I've read the <a href="#">privacy policy</a> and agree to the
+        processingof my data as outlined.
+        <!-- Fehlermeldung, falls Checkbox nicht angehakt wurde -->
+        <p class="error-message" *ngIf="showError">
+          Please accept the privacy policy.
+        </p>
+      </label>
+
+      <!-- Button mit Bildwechsel -->
+      <button type="submit" class="send-button" [disabled]="!isChecked">
+        <img
+          [src]="isChecked ? sendButtonEnabled : sendButtonDisabled"
+          alt="Send Button"
+        />
+      </button>
+    </div>
+  </div>
+</section>
