@@ -6,6 +6,7 @@
   background-image: url(./../../assets/backgrounds/contact.png);
   background-size: cover;
   height: 80vh;
+  font-family: 'Bricolage';
 }
 
 /* Linke Textseite */
@@ -57,7 +58,8 @@
     border-bottom: 1px solid #3355ff;
   }
 
-  input {
+  input,
+  textarea {
     width: 100%;
     border: none;
     outline: none;
@@ -76,15 +78,27 @@
     color: #f8f9fa;
   }
 
+  &.error {
+    border-top: 1px solid #f8f9fa;
+    border-bottom: 1px solid #f8f9fa;
+
+    label {
+      color: #f87a55;
+    }
+
+    input::placeholder {
+      color: transparent;
+    }
+  }
+
   .error-message {
-    position: absolute;
-    top: 50%;
-    left: 24px;
-    transform: translateY(-50%);
-    font-size: 16px;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    top: 5px;
+    left: 0;
+    font-size: 14px;
     color: #ff5500;
-    opacity: 0;
-    pointer-events: none;
   }
 
   &.error {
@@ -230,49 +244,40 @@
 }
 
 .arrow-container {
-    position: relative;
-    width: 280px;
-    height: 45px;
+  position: relative;
+  width: 280px;
+  height: 45px;
+  left: 280px;
+  overflow: hidden;
+}
+
+/* Der gelbe Pfeil bleibt fest */
+.arrow-yellow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  animation: arrowAppear 2s ease-in-out infinite;
+}
+
+/* Animation für das Erscheinen */
+@keyframes arrowAppear {
+  0% {
+    clip-path: inset(
+      0 100% 0 0
+    ); // Komplett ausgeblendet (zieht sich von rechts ein)
   }
-  
-  /* Der gelbe Pfeil bleibt fest */
-  .arrow-yellow {
-    position: absolute;
-    top: 0;
-    left: 250px;
-    width: 100%;
-    height: auto;
+  40% {
+    clip-path: inset(0 0 0 0); // Vollständig sichtbar
   }
-  
-  /* Der schwarze Pfeil bewegt sich */
-  .arrow-black {
-    position: absolute;
-    top: 0;
-    left: 250px;
-    width: 100%;
-    height: auto;
-    animation: arrowReveal 1s ease-in-out infinite;
+  70% {
+    clip-path: inset(0 0 0); // 3 Sek. sichtbar bleiben
   }
-  
-  /* Animation für das Erscheinen */
-  @keyframes arrowReveal {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateX(-20px);
-      opacity: 0;
-    }
-    51% {
-      transform: translateX(20px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  100% {
+    clip-path: inset(0 100% 0 0); // Wieder einziehen
   }
+}
 
 @keyframes rotateText {
   from {
@@ -284,7 +289,7 @@
 }
 
 .sticker {
-  width: 150px; 
+  width: 150px;
   height: 150px;
   background: url("./../../assets/backgrounds/crumpled-paper.png") no-repeat
     center/cover;

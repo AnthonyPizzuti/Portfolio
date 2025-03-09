@@ -1,0 +1,144 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #f8f9fa;
+  font-size: 14px;
+  position: relative;
+  background-image: url(./../../../assets/backgrounds/footer.png);
+  height: 10vh;
+  font-family: "Bricolage";
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  bottom: 50px;
+  position: relative;
+  size: 18px;
+  letter-spacing: 0%;
+  line-height: 120%;
+  font-weight: 500;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-links a {
+  position: relative;
+  text-decoration: none;
+  color: #f8f9fa;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Logo Hover (Farbe wechseln) */
+.footer-logo {
+  text-decoration: none;
+  width: 50px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  filter: invert(40%) sepia(91%) saturate(2000%) hue-rotate(220deg);
+  &:hover {
+    filter: invert(60%) sepia(25%) saturate(700%) hue-rotate(130deg);
+  }
+}
+
+/* Legal Notice Hover Effekt */
+.legal-notice {
+    position: relative;
+    text-decoration: none;
+    color: #f8f9fa;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  
+    &:hover {
+      color: #f8f9fa; // Text bleibt unverändert
+    }
+  
+    .underline {
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 90px;
+      height: 42px;
+      background: url("./../../../assets/animations/legal-notice-hover.png") 
+        no-repeat left center/contain;
+      opacity: 1; // Immer sichtbar, aber am Anfang ausgeblendet
+      clip-path: inset(0 100% 0 0); // Startposition: Komplett ausgeblendet
+      transition: clip-path 0.1s ease-in-out;
+    }
+  
+    &:hover .underline {
+        animation: arrowAppear 1s ease-in-out forwards;
+      }
+    
+      &:not(:hover) .underline {
+        animation: arrowDisappear 1s ease-in-out forwards;
+      }
+    }
+    
+    /* Keyframes für das Einblenden */
+    @keyframes arrowAppear {
+      0% {
+        clip-path: inset(0 100% 0 0); // Komplett ausgeblendet (zieht sich von rechts ein)
+      }
+      100% {
+        clip-path: inset(0 0 0 0); // Vollständig sichtbar
+      }
+    }
+    
+    /* Keyframes für das Rückwärts-Ausblenden */
+    @keyframes arrowDisappear {
+      0% {
+        clip-path: inset(0 0 0 0); // Vollständig sichtbar
+      }
+      100% {
+        clip-path: inset(0 100% 0 0); // Wieder von links nach rechts ausblenden
+      }
+    }
+  
+
+/* Social Icons Hover Animation */
+.social-link {
+  position: relative;
+  text-decoration: none;
+  color: #f8f9fa;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 25px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: visible;
+  font-size: 14px;
+
+  &:hover {
+    background: #3355ff; // Hintergrund wird blau
+    color: #f8f9fa;
+  }
+
+  /* Icon-Animation */
+  .icon {
+    position: absolute;
+    left: 50%;
+    top: -30px; // Startposition über dem Button
+    transform: translateX(-50%) scale(0); // Anfangszustand (verkleinert & unsichtbar)
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  &:hover .icon {
+    transform: translateX(-50%) scale(1); // Erscheint mit Skalierung
+    opacity: 1;
+  }
+}

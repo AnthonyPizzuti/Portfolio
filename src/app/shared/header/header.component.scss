@@ -1,0 +1,123 @@
+.header {
+  padding: 20px 40px;
+  background-image: url(./../../../assets/backgrounds/header.png);
+  color: #f8f9fa;
+  font-family: "Bricolage";
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Logo mit Farbwechsel */
+.header-logo img {
+  width: 38.54px;
+  height: 40px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  filter: invert(40%) sepia(91%) saturate(2000%) hue-rotate(220deg);
+
+  &:hover {
+    filter: invert(60%) sepia(25%) saturate(700%) hue-rotate(130deg);
+  }
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  gap: 200px;
+  list-style: none;
+  font-weight: bold;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+/* Standard-Link-Styling */
+.nav-links a {
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Zuordnung der einzelnen Hover-Styles */
+.nav-links li:nth-child(1) a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 35px;
+  opacity: 0;
+  background-image: url("./../../../assets/animations/about_me_hover.png");
+  height: 35px;
+  transition: opacity 0.3s ease-in-out, width 0.5s ease-in-out;
+}
+
+.nav-links li:nth-child(1) a:hover::after {
+  opacity: 1;
+  width: 100%;
+  left: 0;
+  animation: drawCircle 0.5s ease-in-out forwards;
+}
+
+/* Animations-Keyframes für About Me */
+@keyframes drawCircle {
+  0% {
+    clip-path: inset(0 50% 0 50%); /* Start von oben in der Mitte */
+  }
+  50% {
+    clip-path: inset(0 0 0 0); /* Kreis füllt sich */
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.nav-links li:nth-child(2) a::after {
+  background-image: url("./../../../assets/animations/skills_hover.png");
+  height: 10px;
+}
+
+.nav-links li:nth-child(3) a::after {
+  background-image: url("./../../../assets/animations/projects_hover.png");
+  height: 20px;
+}
+
+.nav-links li:nth-child(4) a::after {
+  background-image: url("./../../../assets/animations/contact_hover.png");
+  height: 10px;
+}
+
+/* Hover-Effekt für jedes Element */
+.nav-links a:hover::after {
+  opacity: 1;
+  width: 100%;
+  left: 0;
+}
+
+/* Sprachumschaltung */
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-switch button {
+  background: transparent;
+  border: none;
+  color: #f8f9fa;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: color 0.3s ease-in-out;
+}
+
+.language-switch button.active {
+  //   background: url("./../../assets/animations/lang-toggle.png") no-repeat
+  //     center/contain;
+  color: #ff5500;
+}

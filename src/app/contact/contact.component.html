@@ -10,21 +10,29 @@
     </p>
     <p>Melde dich und lass uns gemeinsam Großes erschaffen!</p>
     <div class="arrow-container">
-        <img src="./../../assets/animations/arrow_black.png" alt="Black Arrow" class="arrow-black" />
-        <img src="./../../assets/animations/arrow_hover.png" alt="Yellow Arrow" class="arrow-yellow" />
-      </div>
+      <img
+        src="./../../assets/animations/arrow_hover.png"
+        alt="Yellow Arrow"
+        class="arrow-yellow"
+      />
+    </div>
   </div>
 
   <div class="sticker">
     <img src="./../../assets/logo/ap-logo.png" alt="AP Logo" class="logo" />
     <svg viewBox="0 0 200 200" class="circle-text">
-      <path id="textPath" fill="transparent" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+      <path
+        id="textPath"
+        fill="transparent"
+        d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+      />
       <text>
-        <textPath href="#textPath"> Anthony Pizzuti -- Frontend Developer -- </textPath>
-    </text>
+        <textPath href="#textPath">
+          Anthony Pizzuti -- Frontend Developer --
+        </textPath>
+      </text>
     </svg>
   </div>
-  
 
   <div class="contact-form">
     <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
