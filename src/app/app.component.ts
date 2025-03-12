@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -23,5 +23,9 @@ import { FooterComponent } from './shared/footer/footer.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'portfolio';
+  @ViewChild('contactSection') contactSection!: ElementRef;
+
+  scrollToContact() {
+    this.contactSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
 }

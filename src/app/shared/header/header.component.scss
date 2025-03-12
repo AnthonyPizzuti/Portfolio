@@ -1,14 +1,19 @@
-.header {
+header {
   padding: 20px 40px;
   background-image: url(./../../../assets/backgrounds/header.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   color: #f8f9fa;
   font-family: "Bricolage";
-  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* Logo mit Farbwechsel */
@@ -27,76 +32,226 @@
 /* Navigation */
 .nav-links {
   display: flex;
-  gap: 200px;
-  list-style: none;
-  font-weight: bold;
-}
+  gap: 150px;
 
-.nav-links li {
-  position: relative;
-}
+  a {
+    position: relative;
+    text-decoration: none;
+    color: #f8f9fa;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
 
-/* Standard-Link-Styling */
-.nav-links a {
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-  position: relative;
-}
-
-/* Zuordnung der einzelnen Hover-Styles */
-.nav-links li:nth-child(1) a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  width: 0;
-  height: 35px;
-  opacity: 0;
-  background-image: url("./../../../assets/animations/about_me_hover.png");
-  height: 35px;
-  transition: opacity 0.3s ease-in-out, width 0.5s ease-in-out;
-}
-
-.nav-links li:nth-child(1) a:hover::after {
-  opacity: 1;
-  width: 100%;
-  left: 0;
-  animation: drawCircle 0.5s ease-in-out forwards;
-}
-
-/* Animations-Keyframes für About Me */
-@keyframes drawCircle {
-  0% {
-    clip-path: inset(0 50% 0 50%); /* Start von oben in der Mitte */
+    &:hover {
+      color: #f8f9fa;
+    }
   }
-  50% {
-    clip-path: inset(0 0 0 0); /* Kreis füllt sich */
+
+  /* Spezifischer Effekt nur für About-Me */
+  .about-link {
+    position: relative;
+
+    .underline_about {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 50px;
+      background: url("./../../../assets/animations/about_me_hover.png")
+        no-repeat center/contain;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    &:hover .underline_about {
+      opacity: 1;
+      animation: drawCircle 180ms ease-in-out forwards;
+    }
+
+    &:not(:hover) .underline_about {
+      animation: eraseCircle 180ms ease-in-out forwards;
+    }
+  }
+
+  /* Keyframes für das flüssige Zeichnen des Kreises */
+  @keyframes drawCircle {
+    0% {
+      clip-path: circle(0% at 50% 0%);
+      opacity: 1;
+    }
+    30% {
+      clip-path: circle(40% at 50% 20%);
+    }
+    60% {
+      clip-path: circle(80% at 50% 50%);
+    }
+    100% {
+      clip-path: circle(100% at 50% 50%);
+    }
+  }
+
+  /* Keyframes für das Zurückziehen */
+  @keyframes eraseCircle {
+    0% {
+      clip-path: circle(100% at 50% 50%);
+      opacity: 1;
+    }
+    30% {
+      clip-path: circle(80% at 50% 50%);
+    }
+    60% {
+      clip-path: circle(40% at 50% 20%);
+    }
+    100% {
+      clip-path: circle(0% at 50% 0%);
+      opacity: 0;
+    }
+  }
+
+  /* Spezifischer Effekt nur für Skills */
+  .skills-link {
+    position: relative;
+
+    .underline_skills {
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 80px;
+      height: 42px;
+      background: url("./../../../assets/animations/skills_hover.png") no-repeat
+        left center/contain;
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.1s ease-in-out;
+    }
+
+    &:hover .underline_skills {
+      left: -19px;
+      animation: arrowAppear 180ms ease-in-out forwards;
+    }
+
+    &:not(:hover) .underline_skiils {
+      left: -19px;
+      animation: arrowDisappear 180ms ease-in-out forwards;
+    }
+  }
+
+  /* Keyframes für das Einblenden */
+  @keyframes arrowAppear {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Keyframes für das Rückwärts-Ausblenden */
+  @keyframes arrowDisappear {
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+    100% {
+      clip-path: inset(0 100% 0 0);
+    }
+  }
+
+  /* Spezifischer Effekt nur für Projects */
+  .projects-link {
+    position: relative;
+
+    .underline_projects {
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 105px;
+      height: 42px;
+      background: url("./../../../assets/animations/projects_hover.png")
+        no-repeat left center/contain;
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.1s ease-in-out;
+    }
+
+    &:hover .underline_projects {
+      bottom: -13px;
+      left: -15px;
+      animation: arrowAppear 180ms ease-in-out forwards;
+    }
+
+    &:not(:hover) .underline_projects {
+      bottom: -13px;
+      left: -15px;
+      animation: arrowDisappear 180ms ease-in-out forwards;
+    }
+  }
+
+  /* Keyframes für das Einblenden */
+  @keyframes arrowAppear {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Keyframes für das Rückwärts-Ausblenden */
+  @keyframes arrowDisappear {
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+    100% {
+      clip-path: inset(0 100% 0 0);
+    }
+  }
+
+  /* Spezifischer Effekt nur für Contact */
+  .contact-link {
+    position: relative;
+
+    .underline_contact {
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 90px;
+      height: 42px;
+      background: url("./../../../assets/animations/contact_hover.png")
+        no-repeat left center/contain;
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.1s ease-in-out;
+    }
+
+    &:hover .underline_contact {
+      left: -10px;
+      animation: arrowAppear 180ms ease-in-out forwards;
+    }
+
+    &:not(:hover) .underline_contact {
+      left: -10px;
+      animation: arrowDisappear 180ms ease-in-out forwards;
+    }
+  }
+}
+
+/* Keyframes für das Einblenden */
+@keyframes arrowAppear {
+  0% {
+    clip-path: inset(0 100% 0 0);
   }
   100% {
     clip-path: inset(0 0 0 0);
   }
 }
 
-.nav-links li:nth-child(2) a::after {
-  background-image: url("./../../../assets/animations/skills_hover.png");
-  height: 10px;
-}
-
-.nav-links li:nth-child(3) a::after {
-  background-image: url("./../../../assets/animations/projects_hover.png");
-  height: 20px;
-}
-
-.nav-links li:nth-child(4) a::after {
-  background-image: url("./../../../assets/animations/contact_hover.png");
-  height: 10px;
-}
-
-/* Hover-Effekt für jedes Element */
-.nav-links a:hover::after {
-  opacity: 1;
-  width: 100%;
-  left: 0;
+/* Keyframes für das Rückwärts-Ausblenden */
+@keyframes arrowDisappear {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
 }
 
 /* Sprachumschaltung */
@@ -104,20 +259,336 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
+/* EN & DE Buttons */
 .language-switch button {
   background: transparent;
   border: none;
   color: #f8f9fa;
-  font-weight: bold;
   cursor: pointer;
-  padding: 8px 12px;
+  font-size: 18px;
+  position: relative;
   transition: color 0.3s ease-in-out;
+
+  &.active {
+    cursor: default;
+    color: #24dd80;
+  }
+
+  &:not(.active):hover {
+    color: #f8f9fa;
+  }
 }
 
-.language-switch button.active {
-  //   background: url("./../../assets/animations/lang-toggle.png") no-repeat
-  //     center/contain;
-  color: #ff5500;
+/* Aktive Sprache mit Hover-Effekt */
+.language-switch .lang-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-switch .lang-btn:not(.active):hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%) scale(0);
+  animation: drawLangHover 0.3s ease-in-out forwards;
+}
+
+.language-switch .lang-btn.en:not(.active):hover::after {
+  background-image: url("./../../../assets/animations/english_Hover.png");
+}
+
+.language-switch .lang-btn.de:not(.active):hover::after {
+  background-image: url("./../../../assets/animations/deutsch_Hover.png");
+}
+
+/* Keyframe für das Zeichnen des Hover-Kreises */
+@keyframes drawLangHover {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Toggle Switch Animation */
+.toggle-container {
+  position: relative;
+  width: 45px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-switch {
+  width: 45px;
+  height: 20px;
+  background: transparent;
+  position: relative;
+}
+
+.toggle-switch img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-switch.en img {
+  content: url("./../../../assets/animations/switch_left.png");
+}
+
+.toggle-switch.de img {
+  content: url("./../../../assets/animations/switch_right.png");
+}
+
+/* ---------- Greeting-Bereich ---------- */
+.greeting {
+  position: absolute;
+  top: 270px;
+  left: 415px;
+  display: inline-flex;
+  width: 145px;
+  border-radius: 9999px;
+  border: 1px solid #f8f9fa;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 12px 24px;
+  transition: width 0.3s ease;
+
+  &:hover {
+    width: 218px;
+  }
+
+  .bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    z-index: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #3355ff;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      transition: transform 180ms ease;
+      z-index: 0;
+    }
+  }
+
+  &:hover .bg-wrapper::before {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .normal-text {
+    transition: opacity 0.3s ease;
+  }
+
+  .hover-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hand-icon {
+    position: absolute;
+    left: 78%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hand-icon {
+    top: -40px;
+    width: 40px;
+    transform: translateX(-50%) rotate(-180deg);
+    transition: transform 0.6s ease, opacity 0.3s ease;
+  }
+
+  &:hover {
+    .normal-text {
+      opacity: 0;
+    }
+    .hover-text,
+    .hand-icon {
+      opacity: 1;
+      color: #f8f9fa;
+    }
+    .hand-icon {
+      transform: translateX(50%) rotate(0deg);
+    }
+  }
+}
+
+/* ---------- Titel (Frontend DEVELOPER) ---------- */
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 100%;
+  text-align: center;
+
+  .frontend {
+    position: relative;
+    left: -20%;
+  }
+
+  .developer {
+    position: relative;
+    left: 10%;
+  }
+
+  .letter-small {
+    display: inline-block;
+    position: relative;
+    margin: 0 2px;
+    transition: margin 0.2s ease-in, transform 0.2s ease-in, color 0.2s ease-in,
+      opacity 0.2s ease-in;
+
+    &::after {
+      content: attr(data-alt);
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+    }
+
+    &:hover {
+      color: transparent;
+      transform: scale(1.1);
+      margin: 0 20px 0 0;
+      &::after {
+        opacity: 1;
+        color: #f7c518;
+        gap: 10px;
+        transform: scale(1);
+      }
+    }
+  }
+
+  .letter-big {
+    display: inline-block;
+    position: relative;
+    margin: 0 2px;
+    transition: margin 0.2s ease-in, transform 0.2s ease-in, color 0.2s ease-in,
+      opacity 0.2s ease-in;
+
+    &::after {
+      content: attr(data-alt);
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+    }
+
+    &:hover {
+      color: transparent;
+      transform: scale(1.1);
+      margin: 0 -2px 0 0px;
+      gap: 10px;
+      &::after {
+        opacity: 1;
+        color: #f7c518;
+        transform: scale(1);
+      }
+    }
+  }
+  .letter-big.letter-L:hover {
+    margin-right: -20px;
+  }
+}
+
+/* ---------- Profilbild ---------- */
+.profile {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+
+  .profile-frame {
+    display: inline-block;
+    transform: rotate(10deg);
+    position: relative;
+    right: 390px;
+    top: 150px;
+
+    .profile-photo {
+      display: block;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+      width: 203.57px;
+      height: 244px;
+    }
+
+    &:hover {
+      .profile-photo {
+        filter: none;
+      }
+    }
+  }
+}
+
+/* ---------- Button (Get in Touch) ---------- */
+.get-In-Touch {
+  display: inline-block;
+  width: 156px;
+  height: 44px;
+  background: url("./../../../assets/buttons/get-In-Touch-Default.png")
+    no-repeat center/cover;
+  transition: background 0.3s ease;
+  position: relative;
+  left: 1055px;
+  top: 540px;
+}
+
+.get-In-Touch:hover {
+  background: url("./../../../assets/buttons/get-In-Touch-Hover.png") no-repeat
+    center/cover;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 550px;
+  gap: 10px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #f8f9fa;
+  border-radius: 50%;
 }

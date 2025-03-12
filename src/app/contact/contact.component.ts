@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({

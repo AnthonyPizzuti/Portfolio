@@ -75,11 +75,11 @@
     }
   
     &:hover .underline {
-        animation: arrowAppear 1s ease-in-out forwards;
+        animation: arrowAppear 540ms ease-in-out forwards;
       }
     
       &:not(:hover) .underline {
-        animation: arrowDisappear 1s ease-in-out forwards;
+        animation: arrowDisappear 540ms ease-in-out forwards;
       }
     }
     
