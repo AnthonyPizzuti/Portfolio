@@ -6,7 +6,7 @@
   background-image: url(./../../assets/backgrounds/contact.png);
   background-size: cover;
   height: 80vh;
-  font-family: 'Bricolage';
+  font-family: "Bricolage";
 }
 
 /* Linke Textseite */
@@ -266,16 +266,16 @@
   0% {
     clip-path: inset(
       0 100% 0 0
-    ); // Komplett ausgeblendet (zieht sich von rechts ein)
+    ); 
   }
   40% {
-    clip-path: inset(0 0 0 0); // Vollständig sichtbar
+    clip-path: inset(0 0 0 0); 
   }
   70% {
-    clip-path: inset(0 0 0); // 3 Sek. sichtbar bleiben
+    clip-path: inset(0 0 0);
   }
   100% {
-    clip-path: inset(0 100% 0 0); // Wieder einziehen
+    clip-path: inset(0 100% 0 0);
   }
 }
 
@@ -294,13 +294,13 @@
   background: url("./../../assets/backgrounds/crumpled-paper.png") no-repeat
     center/cover;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  left: 850px;
-  bottom: 220px;
+  left: 1550px;
+  top: 2370px;
 }
 
 /* Logo mittig platzieren */

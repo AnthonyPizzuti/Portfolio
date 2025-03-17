@@ -1,13 +1,13 @@
 header {
-  padding: 20px 40px;
+  padding: 20px 50px 50px;
   background-image: url(./../../../assets/backgrounds/header.png);
   background-size: cover;
   background-position: center;
-  height: 100vh;
   color: #f8f9fa;
   font-family: "Bricolage";
   position: relative;
   overflow: hidden;
+  height: 100vh;
 }
 
 .navbar {
@@ -49,60 +49,63 @@ header {
   /* Spezifischer Effekt nur für About-Me */
   .about-link {
     position: relative;
-
-    .underline_about {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100px;
-      height: 50px;
-      background: url("./../../../assets/animations/about_me_hover.png")
-        no-repeat center/contain;
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0);
-    }
-
-    &:hover .underline_about {
-      opacity: 1;
-      animation: drawCircle 180ms ease-in-out forwards;
-    }
-
-    &:not(:hover) .underline_about {
-      animation: eraseCircle 180ms ease-in-out forwards;
-    }
   }
 
-  /* Keyframes für das flüssige Zeichnen des Kreises */
+  .underline_about {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    background: url("./../../../assets/animations/about_me_hover.png") no-repeat
+      center/contain;
+    opacity: 0;
+    z-index: -1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .about-link:hover .underline_about {
+    opacity: 1;
+    animation: drawCircle 180ms ease-in-out forwards;
+    z-index: 1;
+  }
+
+  .about-link:not(:hover) .underline_about {
+    animation: eraseCircle 180ms ease-in-out forwards;
+    z-index: 1;
+  }
+
+  /* Animation: Kreis entsteht von oben in der Mitte und erweitert sich */
   @keyframes drawCircle {
     0% {
       clip-path: circle(0% at 50% 0%);
+      transform: translate(-50%, -50%) scale(0);
       opacity: 1;
     }
-    30% {
-      clip-path: circle(40% at 50% 20%);
-    }
-    60% {
-      clip-path: circle(80% at 50% 50%);
+    50% {
+      clip-path: circle(50% at 50% 25%);
+      transform: translate(-50%, -50%) scale(0.5);
     }
     100% {
       clip-path: circle(100% at 50% 50%);
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 
-  /* Keyframes für das Zurückziehen */
+  /* Umkehrung der Animation */
   @keyframes eraseCircle {
     0% {
       clip-path: circle(100% at 50% 50%);
+      transform: translate(-50%, -50%) scale(1);
       opacity: 1;
     }
-    30% {
-      clip-path: circle(80% at 50% 50%);
-    }
-    60% {
-      clip-path: circle(40% at 50% 20%);
+    50% {
+      clip-path: circle(50% at 50% 25%);
+      transform: translate(-50%, -50%) scale(0.5);
     }
     100% {
       clip-path: circle(0% at 50% 0%);
+      transform: translate(-50%, -50%) scale(0);
       opacity: 0;
     }
   }
@@ -359,7 +362,7 @@ header {
 .greeting {
   position: absolute;
   top: 270px;
-  left: 415px;
+  left: 400px;
   display: inline-flex;
   width: 145px;
   border-radius: 9999px;
@@ -536,28 +539,61 @@ header {
   position: absolute;
   top: 40px;
   right: 40px;
+}
+.profile-frame {
+  display: inline-block;
+  transform: rotate(10deg);
+  position: relative;
+  right: 360px;
+  top: 180px;
+  width: 203.57px;
+  height: 244px;
+}
 
-  .profile-frame {
-    display: inline-block;
-    transform: rotate(10deg);
-    position: relative;
-    right: 390px;
-    top: 150px;
+.profile-photo {
+  position: absolute;
+  width: 203.57px;
+  height: 244px;
+  display: block;
+  transition: opacity 0.3s ease;
+}
 
-    .profile-photo {
-      display: block;
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
-      width: 203.57px;
-      height: 244px;
-    }
+.hover-img {
+  opacity: 0;
+}
 
-    &:hover {
-      .profile-photo {
-        filter: none;
-      }
-    }
-  }
+.profile-name {
+  position: absolute;
+  bottom: 16px;
+  font-family: "Kalam";
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Hover-Text standardmäßig ausblenden */
+.hover-text-frame {
+  display: none;
+}
+
+/* Beim Hover: Schwarzweiß-Bild ausblenden, Farb-Bild einblenden */
+.profile-frame:hover .default-img {
+  opacity: 0;
+}
+
+.profile-frame:hover .hover-img {
+  opacity: 1;
+}
+
+/* Text wechseln */
+.profile-frame:hover .default-text-frame {
+  display: none;
+}
+
+.profile-frame:hover .hover-text-frame {
+  display: inline;
 }
 
 /* ---------- Button (Get in Touch) ---------- */
@@ -569,8 +605,8 @@ header {
     no-repeat center/cover;
   transition: background 0.3s ease;
   position: relative;
-  left: 1055px;
-  top: 540px;
+  left: 1010px;
+  top: 570px;
 }
 
 .get-In-Touch:hover {
@@ -584,11 +620,58 @@ header {
   position: relative;
   top: 550px;
   gap: 10px;
+
+  a {
+    color: #fff;
+    font-size: 30px;
+    width: 35px;
+    height: 35px;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: -11%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, #6bf5ee, #47ad83);
+      z-index: -1;
+      border-radius: 50%;
+      transform: translate(150%, 150%);
+      transition: all 0.4s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 0px 0px 30px #ffffff;
+
+      &:before {
+        transform: scaleX(1.9);
+        animation: animate 0.4s ease-in-out linear;
+      }
+    }
+  }
+}
+
+// Keyframes außerhalb der .social-links, damit sie global verfügbar sind
+@keyframes animate {
+  0%,
+  100% {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
+  display: flex;
   border: 1px solid #f8f9fa;
-  border-radius: 50%;
+  border-radius: 100px;
+  padding: 3px;
 }

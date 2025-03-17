@@ -1,0 +1,152 @@
+/* Grund-Layout der Section */
+.projects-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 100px 50px;
+  background-color: #ffffff;
+  font-family: "Bricolage";
+}
+
+/* Text-Bereich */
+.projects-content {
+  max-width: 100%;
+}
+
+.projects-content h2 {
+  font-size: 56px;
+  margin-bottom: 1rem;
+}
+
+.projects-content span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.projects-content p {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Visueller Bereich (Scribble, Ring, Laptop) */
+.projects-visual {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.project-animation {
+  width: 265px;
+  height: 20px;
+  overflow: hidden;
+}
+
+/* Scribble (Wellen-Linie) */
+.projects-scribble {
+  position: absolute;
+  width: 220px;
+  height: 20px;
+  top: 2520px;
+  animation: scribble 2s ease-in-out infinite;
+}
+
+@keyframes scribble {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  40% {
+    clip-path: inset(0 0 0 0);
+  }
+  70% {
+    clip-path: inset(0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+/* Ring im Hintergrund */
+.projects-ring {
+  position: absolute;
+  top: 105px;
+  left: 105px;
+  width: 150px;
+  height: auto;
+  z-index: 1;
+}
+
+/* Laptop-Container */
+.laptop-container {
+  position: relative;
+  width: 560px;
+  height: auto;
+  bottom: 90px;
+}
+
+/* Gemeinsame Styles für alle Laptop-Varianten */
+.laptop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.laptop.movement {
+  opacity: 1;
+}
+
+/* Das Final-Hover-Bild ist standardmäßig unsichtbar */
+.laptop.final-hover {
+  opacity: 0;
+}
+
+/* Beim Hover den Wechsel per Opacity durchführen */
+.laptop-container:hover .laptop.movement {
+  opacity: 0;
+}
+
+.laptop-container:hover .laptop.final-hover {
+  opacity: 1;
+}
+
+.join-Text span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 3) Button ebenfalls standardmäßig verstecken */
+.project-details {
+  position: absolute;
+  top: 315px;
+  left: 433px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.laptop-container:hover .project-details {
+  opacity: 1;
+}
+
+.laptop-container:hover .laptop.final-hover {
+  display: block;
+}
+
+/* Keyframes für das Schweben des Movement-Laptops */
+@keyframes floatLaptop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

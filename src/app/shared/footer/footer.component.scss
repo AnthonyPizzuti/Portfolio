@@ -58,7 +58,7 @@
     transition: color 0.3s ease-in-out;
   
     &:hover {
-      color: #f8f9fa; // Text bleibt unverändert
+      color: #f8f9fa;
     }
   
     .underline {
@@ -69,8 +69,8 @@
       height: 42px;
       background: url("./../../../assets/animations/legal-notice-hover.png") 
         no-repeat left center/contain;
-      opacity: 1; // Immer sichtbar, aber am Anfang ausgeblendet
-      clip-path: inset(0 100% 0 0); // Startposition: Komplett ausgeblendet
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
       transition: clip-path 0.1s ease-in-out;
     }
   
@@ -86,20 +86,20 @@
     /* Keyframes für das Einblenden */
     @keyframes arrowAppear {
       0% {
-        clip-path: inset(0 100% 0 0); // Komplett ausgeblendet (zieht sich von rechts ein)
+        clip-path: inset(0 100% 0 0);
       }
       100% {
-        clip-path: inset(0 0 0 0); // Vollständig sichtbar
+        clip-path: inset(0 0 0 0);
       }
     }
     
     /* Keyframes für das Rückwärts-Ausblenden */
     @keyframes arrowDisappear {
       0% {
-        clip-path: inset(0 0 0 0); // Vollständig sichtbar
+        clip-path: inset(0 0 0 0);
       }
       100% {
-        clip-path: inset(0 100% 0 0); // Wieder von links nach rechts ausblenden
+        clip-path: inset(0 100% 0 0);
       }
     }
   
@@ -121,7 +121,7 @@
   font-size: 14px;
 
   &:hover {
-    background: #3355ff; // Hintergrund wird blau
+    background: #3355ff;
     color: #f8f9fa;
   }
 
@@ -129,8 +129,8 @@
   .icon {
     position: absolute;
     left: 50%;
-    top: -30px; // Startposition über dem Button
-    transform: translateX(-50%) scale(0); // Anfangszustand (verkleinert & unsichtbar)
+    top: -30px;
+    transform: translateX(-50%) scale(0);
     width: 32px;
     height: 32px;
     opacity: 0;
@@ -138,7 +138,7 @@
   }
 
   &:hover .icon {
-    transform: translateX(-50%) scale(1); // Erscheint mit Skalierung
+    transform: translateX(-50%) scale(1);
     opacity: 1;
   }
 }

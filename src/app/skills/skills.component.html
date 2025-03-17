@@ -1,1 +1,72 @@
-<p>skills works!</p>
+<section class="skills-section">
+  <div class="skills-content">
+    <h3 class="stack-title">MY STACK</h3>
+    <h1 class="skill-title">Skill set</h1>
+  </div>
+
+  <div class="skills-container">
+    <div class="skill">
+      <img src="./../../assets/icons/html.png" alt="HTML" />
+      <span>HTML</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/css.png" alt="CSS" />
+      <span>CSS</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/js.png" alt="JavaScript" />
+      <span>JavaScript</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/ts.png" alt="TypeScript" />
+      <span>TypeScript</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/angular.png" alt="Angular" />
+      <span>Angular</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/firebase.png" alt="Firebase" />
+      <span>Firebase</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/git.png" alt="Git" />
+      <span>Git</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/rest-Api.png" alt="Rest API" />
+      <span>Rest API</span>
+    </div>
+    <div class="skill">
+      <img src="./../../assets/icons/scrum.png" alt="Scrum" />
+      <span>Scrum</span>
+    </div>
+    <div class="skill">
+      <img
+        src="./../../assets/icons/material_Design.png"
+        alt="Material Design"
+      />
+      <span>Material Design</span>
+    </div>
+  </div>
+
+  <div
+    class="peel-sticker"
+    [class.opening]="animationState === 'opening'"
+    [class.closing]="animationState === 'closing'"
+    [class.open]="animationState === 'open'"
+    (click)="toggleSticker()"
+  >
+    <div class="sticker-content default-content">
+      <img src="assets/animations/arrow.png" class="arrow" alt="Arrow" />
+      <p class="pull-text">Pull to peel</p>
+    </div>
+
+    <div class="sticker-content final-content">
+      <p class="headline">Also, I'm interested in diving into:</p>
+      <div class="icons">
+        <img src="assets/icons/react_vuse.png" alt="React/Vuse" />
+      </div>
+    </div>
+  </div>
+</section>

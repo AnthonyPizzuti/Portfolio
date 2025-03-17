@@ -1,0 +1,144 @@
+.about-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 50px;
+  font-family: "Bricolage";
+  background: #ffffff;
+}
+
+.about-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 100px;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  position: relative;
+}
+
+.about-item {
+  position: relative;
+
+  &:nth-child(1) {
+    z-index: 3;
+    transform: rotate(-3deg);
+    margin-bottom: -45px;
+  }
+
+  &:nth-child(2) {
+    z-index: 2;
+    transform: rotate(1deg);
+    margin-bottom: -50px;
+  }
+
+  &:nth-child(3) {
+    z-index: 1;
+    transform: rotate(7deg);
+  }
+}
+
+.about-bg {
+  width: 500px;
+  position: relative;
+}
+
+.about-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #e5c771;
+  font-size: 19px;
+  width: max-content;
+}
+
+.about-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.about-right {
+  flex: 1;
+}
+
+.about-right h3 {
+  text-transform: uppercase;
+  font-family: "Bricolage";
+}
+
+.about-right h1 {
+  font-size: 65px;
+  margin: 5px 0 0 0;
+}
+
+.underline-wrapper {
+  position: relative;
+  width: 303px;
+  overflow: hidden;
+}
+
+.about-underline {
+  width: 100%;
+  height: auto;
+  animation: handwriting 3s ease-in-out infinite;
+  margin-bottom: 50px;
+}
+
+@keyframes handwriting {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  40% {
+    clip-path: inset(0 0 0 0);
+  }
+  70% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.about-right p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-family: "Bricolage";
+  font-weight: 600;
+}
+
+.about-btn {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #000000;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+  width: 130px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 5px 0px #000000;
+  font-family: "Bricolage";
+  position: absolute;
+  left: 1550px;
+  color: black;
+}
+
+.about-btn:hover {
+  background: #f87a55;
+  color: white;
+  transform: translateY(2px);
+  box-shadow: 1px 2px 0px #f8f9fa;
+}
