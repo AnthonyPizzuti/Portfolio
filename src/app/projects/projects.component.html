@@ -2,55 +2,129 @@
   <div class="projects-content">
     <span>MY CRAFT</span>
     <h2>Projects</h2>
-    <div class="project-animation">
-      <img
-        class="projects-scribble"
-        src="./../../assets/animations/projects.png"
-        alt="Projects Scribble"
-      />
-    </div>
+  </div>
+  <div class="project-animation">
+    <img
+      class="projects-scribble"
+      src="./../../assets/animations/projects.png"
+      alt="Projects Scribble"
+    />
     <p>
       Encourage people to take a look and interact with your projects.
       <br />Highlight your approach to creating responsive, user-friendly<br />
       projects with efficient code.
     </p>
   </div>
-
-  <div class="projects-visual">
-    <!-- Ring im Hintergrund -->
+  <div class="laptop-container">
     <img
-      class="projects-ring"
-      src="./../../assets/backgrounds/projects_ring.png"
-      alt="Projects Ring"
+      src="./../../assets/animations/laptop_Default.png"
+      alt="Laptop Default"
+      class="laptop laptop-default"
     />
-
-    <!-- Laptop-Container -->
-    <div class="laptop-container">
+    <img
+      src="./../../assets/animations/laptop_Final_Hover.png"
+      alt="Laptop Hover"
+      class="laptop laptop-final-hover"
+    />
+    <img
+      class="project-details-btn"
+      src="./../../assets/buttons/project_Details.png"
+      alt=""
+    />
+    <div class="project-ring-container">
+      <!-- Hintergrund-Ring -->
       <img
-        class="laptop movement"
-        src="./../../assets/animations/laptop_Movement.png"
-        alt="Laptop Movement"
+        class="project-ring"
+        src="./../../assets/backgrounds/projects_ring.png"
+        alt="Project Ring"
       />
 
-      <!-- Laptop: Final-Hover (erscheint beim Hover) -->
+      <!-- Oberer Text: Featured Project -->
+      <svg viewBox="0 0 150 150" class="text-top">
+        <path
+          id="textPathTop"
+          fill="transparent"
+          d="M 75,75 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+        />
+        <text font-size="16" font-weight="600" fill="#f8f9fa">
+          <textPath href="#textPathTop" startOffset="8%">
+            Featured Project
+          </textPath>
+        </text>
+      </svg>
+
+      <!-- Pfeil -->
       <img
-        class="laptop final-hover"
-        src="./../../assets/animations/laptop_Final_Hover.png"
-        alt="Laptop Final Hover"
+        class="ring-icon"
+        src="./../../assets/animations/arrow_Right.png"
+        alt="Icon"
       />
 
-      <!-- Button: Project Details (erscheint ebenfalls beim Hover) -->
-      <img
-        class="project-details"
-        src="./../../assets/buttons/project_Details.png"
-        alt="Project Details Button"
-      />
+      <!-- Unterer Text: Check all details -->
+      <svg viewBox="0 0 150 150" class="text-bottom">
+        <path
+          id="textPathBottom"
+          d="M 5,46 A 30,30 0 0,0 145,100"
+          fill="transparent"
+        />
+        <text font-size="16" fill="#f8f9fa">
+          <textPath href="#textPathBottom" startOffset="35%">
+            Check all details
+          </textPath>
+        </text>
+      </svg>
     </div>
+
     <div class="join-Text">
       <span> Join<br /> </span>
       <p>
         Task manager inspired by the Kanban System. Create and organize tasks
         using drag and drop functions, assign users and categories.
+      </p>
+    </div>
+  </div>
+
+  <div class="projects-container">
+    <!-- Projekt 1: El Pollo Loco -->
+    <div class="project">
+      <div class="project-image">
+        <img
+          src="./../../assets/animations/el_Pollo_Loco.png"
+          alt="El Pollo Loco"
+          class="default-image"
+        />
+        <img
+          src="./../../assets/animations/el_Pollo_Loco_Hover.png"
+          alt="El Pollo Loco Hover"
+          class="hover-image"
+        />
+      </div>
+      <h3 class="project-title">El Pollo Loco</h3>
+      <p class="project-description">
+        Jump, run and throw game based on object-oriented approach. Help Pepe to
+        find coins and tabasco salsa to fight against the crazy hen.
+      </p>
+    </div>
+
+    <!-- Projekt 2: DABubble -->
+    <div class="project">
+      <div class="project-image">
+        <img
+          src="./../../assets/animations/dABubble.png"
+          alt="DABubble"
+          class="default-image"
+        />
+        <img
+          src="./../../assets/animations/dABubble_hover.png"
+          alt="DABubble Hover"
+          class="hover-image"
+        />
+      </div>
+      <h3 class="project-title">DABubble</h3>
+      <p class="project-description">
+        This App is a Slack Clone App. It revolutionizes team communication and
+        collaboration with its intuitive interface, real-time messaging, and
+        robust channel organization.
       </p>
     </div>
   </div>

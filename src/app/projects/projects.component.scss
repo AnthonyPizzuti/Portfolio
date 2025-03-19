@@ -49,7 +49,7 @@
   position: absolute;
   width: 220px;
   height: 20px;
-  top: 2520px;
+  top: 2470px;
   animation: scribble 2s ease-in-out infinite;
 }
 
@@ -68,85 +68,178 @@
   }
 }
 
-/* Ring im Hintergrund */
-.projects-ring {
-  position: absolute;
-  top: 105px;
-  left: 105px;
-  width: 150px;
-  height: auto;
-  z-index: 1;
-}
-
-/* Laptop-Container */
 .laptop-container {
   position: relative;
   width: 560px;
-  height: auto;
-  bottom: 90px;
-}
+  height: 399px;
+  bottom: 50px;
 
-/* Gemeinsame Styles für alle Laptop-Varianten */
-.laptop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  transition: opacity 0.3s ease-in-out;
-}
+  .laptop {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
+  }
 
-.laptop.movement {
-  opacity: 1;
-}
+  .laptop-default {
+    animation: floatingAnimation 1.5s infinite ease-in-out alternate;
+  }
 
-/* Das Final-Hover-Bild ist standardmäßig unsichtbar */
-.laptop.final-hover {
-  opacity: 0;
-}
+  // Laptop Final Hover ist unsichtbar
+  .laptop-final-hover {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: auto;
+  }
 
-/* Beim Hover den Wechsel per Opacity durchführen */
-.laptop-container:hover .laptop.movement {
-  opacity: 0;
-}
+  .project-details-btn {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 180ms ease-in-out, transform 180ms ease-in-out;
+    width: 174px;
+    height: 44px;
+    border-radius: 100px;
+    top: 313.78px;
+    left: 346px;
+    cursor: pointer;
+  }
 
-.laptop-container:hover .laptop.final-hover {
-  opacity: 1;
+  // Keyframes für flüssige Bewegung
+  @keyframes floatingAnimation {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+  // Hover: Stoppt Bewegung & zeigt den Final Hover Laptop
+  &:hover {
+    .laptop-default {
+      animation: none;
+      opacity: 0;
+    }
+    .laptop-final-hover {
+      opacity: 1;
+    }
+    .project-details-btn {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .project-details-btn:hover {
+    background-color: #f87a55;
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px #f8f9fa;
+  }
 }
 
 .join-Text span {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-}
-
-/* 3) Button ebenfalls standardmäßig verstecken */
-.project-details {
+  top: 415px;
   position: absolute;
-  top: 315px;
-  left: 433px;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  cursor: pointer;
 }
 
-.laptop-container:hover .project-details {
-  opacity: 1;
+.join-Text p {
+  font-size: 18px;
+  top: 445px;
+  position: absolute;
 }
 
-.laptop-container:hover .laptop.final-hover {
-  display: block;
-}
+.project-ring-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
 
-/* Keyframes für das Schweben des Movement-Laptops */
-@keyframes floatLaptop {
-  0% {
-    transform: translateY(0);
+  .project-ring {
+    position: absolute;
+    top: 195px;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
-  50% {
-    transform: translateY(-10px);
+
+  .text-top {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 182%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  100% {
-    transform: translateY(0);
+
+  .text-bottom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 125%;
+    left: 0%;
+  }
+
+  .ring-icon {
+    position: absolute;
+    height: auto;
+    top: 180%;
+    left: 45%;
+    transform: translate(-50%, -50%) scaleX(-1) rotate(40deg);
+  }
+}
+
+.projects-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+
+  .project {
+    width: 48%;
+    text-align: center;
+
+    .project-image {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      border-radius: 8px;
+
+      img {
+        width: 100%;
+        height: auto;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .hover-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+
+      &:hover {
+        .default-image {
+          opacity: 0;
+        }
+
+        .hover-image {
+          opacity: 1;
+        }
+      }
+    }
+
+    .project-title {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .project-description {
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
   }
 }

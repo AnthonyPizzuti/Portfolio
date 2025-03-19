@@ -264,12 +264,10 @@
 /* Animation für das Erscheinen */
 @keyframes arrowAppear {
   0% {
-    clip-path: inset(
-      0 100% 0 0
-    ); 
+    clip-path: inset(0 100% 0 0);
   }
   40% {
-    clip-path: inset(0 0 0 0); 
+    clip-path: inset(0 0 0 0);
   }
   70% {
     clip-path: inset(0 0 0);
@@ -299,8 +297,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  left: 1550px;
-  top: 2370px;
+  left: 1340px;
+  top: 3000px;
 }
 
 /* Logo mittig platzieren */
