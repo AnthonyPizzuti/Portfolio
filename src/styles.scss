@@ -1,5 +1,16 @@
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #222 inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -8,10 +19,19 @@ html {
 
 body{
     padding: 0 150px;
-    background: rgb(255, 255, 255);
+    background: black;
     height: 100vh;
     max-width: 1920px;
 }
+
+body.no-body-padding {
+    background: black;
+    padding: 0 150px;
+  }
+
+  .white-section {
+    background-color: #fff;
+  }
 
 @font-face {
   font-family: Kalam;
@@ -26,4 +46,110 @@ body{
 a {
   text-decoration: none;
   color: #f8f9fa;
+}
+
+// ================================
+// Global Breakpoints (Fein & Klar)
+// ================================
+$breakpoint-xs: 375px;
+$breakpoint-sm: 480px;
+$breakpoint-xs-custom: 566px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl-custom: 1260px;
+$breakpoint-xl: 1440px;
+$breakpoint-xxl: 1660px;
+
+// ================================
+// Desktop-First: Min-Width Media Queries
+// ================================
+@mixin respond-from($breakpoint) {
+    @if $breakpoint == xs {
+      @media (min-width: $breakpoint-xs) { @content; }
+    } @else if $breakpoint == sm {
+      @media (min-width: $breakpoint-sm) { @content; }
+    } @else if $breakpoint == xs-custom {
+      @media (min-width: $breakpoint-xs-custom) { @content; }
+    } @else if $breakpoint == md {
+      @media (min-width: $breakpoint-md) { @content; }
+    } @else if $breakpoint == lg {
+      @media (min-width: $breakpoint-lg) { @content; }
+    } @else if $breakpoint == xl-custom {
+      @media (min-width: $breakpoint-xl-custom) { @content; }
+    } @else if $breakpoint == xl {
+      @media (min-width: $breakpoint-xl) { @content; }
+    } @else if $breakpoint == xxl {
+      @media (min-width: $breakpoint-xxl) { @content; }
+    }
+  }
+  
+  
+// ================================
+// Mobile-First: Max-Width Media Queries
+// ================================
+@mixin respond-until($breakpoint) {
+    @if $breakpoint == xs {
+      @media (max-width: ($breakpoint-xs - 1px)) { @content; }
+    } @else if $breakpoint == sm {
+      @media (max-width: ($breakpoint-sm - 1px)) { @content; }
+    } @else if $breakpoint == xs-custom {
+      @media (max-width: ($breakpoint-xs-custom - 1px)) { @content; }
+    } @else if $breakpoint == md {
+      @media (max-width: ($breakpoint-md - 1px)) { @content; }
+    } @else if $breakpoint == lg {
+      @media (max-width: ($breakpoint-lg - 1px)) { @content; }
+    } @else if $breakpoint == xl-custom {
+      @media (max-width: ($breakpoint-xl-custom - 1px)) { @content; }
+    } @else if $breakpoint == xl {
+      @media (max-width: ($breakpoint-xl - 1px)) { @content; }
+    } @else if $breakpoint == xxl {
+      @media (max-width: ($breakpoint-xxl - 1px)) { @content; }
+    }
+  }
+  
+// ================================
+// Bereich: Min + Max kombiniert
+// ================================
+@mixin respond-between($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@media (max-width: 1660px) {
+    body {
+      padding: 0 !important;
+    }
+  }
+
+  /* ===== disable mobile landscape ===== */
+@media only screen
+  and (max-width: 768px)   /* oder dein Mobil-Break-Point */
+  and (orientation: landscape) {
+  html, body {
+    height: 100%;
+    overflow: hidden;      /* kein scrollen im Landscape */
+  }
+
+  /* Haupt-Content ausblenden */
+  app-root, 
+  .project-details-container,
+  .details-content-wrapper {
+    display: none !important;
+  }
+
+  /* stattdessen ein Layer mit Rotation-Hinweis */
+  body::before {
+    content: "Bitte drehen Sie Ihr Gerät ins Hochformat 📱";
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem 1.5rem;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    z-index: 9999;
+  }
 }

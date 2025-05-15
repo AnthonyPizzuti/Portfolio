@@ -1,3 +1,5 @@
+@import "./../../styles.scss";
+
 .about-me {
   display: flex;
   justify-content: center;
@@ -5,6 +7,7 @@
   padding: 100px 50px;
   font-family: "Bricolage";
   background: #ffffff;
+  height: 80vh;
 }
 
 .about-container {
@@ -67,6 +70,12 @@
 
 .about-right {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
 }
 
 .about-right h3 {
@@ -81,7 +90,7 @@
 
 .underline-wrapper {
   position: relative;
-  width: 303px;
+  width: 180px;
   overflow: hidden;
 }
 
@@ -124,21 +133,130 @@
   cursor: pointer;
   border-radius: 100px;
   transition: all 0.3s ease-in-out;
-  width: 130px;
+  width: 150px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 3px 5px 0px #000000;
   font-family: "Bricolage";
-  position: absolute;
-  left: 1550px;
+  position: relative;
   color: black;
+  align-self: flex-end;
+  margin-top: auto;
+  margin-bottom: 0;
+  margin-left: 0;
 }
 
 .about-btn:hover {
   background: #f87a55;
-  color: white;
+  color: #f8f9fa;
   transform: translateY(2px);
   box-shadow: 1px 2px 0px #f8f9fa;
+}
+
+@include respond-from(lg) {
+  .about-me {
+    padding: 100px 80px;
+    height: auto;
+  }
+
+  .about-container {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .about-left {
+    max-width: 40%;
+    top: 100px;
+  }
+
+  .about-bg {
+    width: 100%;
+  }
+
+  .about-content {
+    font-size: 19px;
+    gap: 15px;
+  }
+
+  .about-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-right h1 {
+    font-size: 65px;
+  }
+
+  .underline-wrapper {
+    width: 100%;
+    max-width: 303px;
+  }
+
+  .about-btn {
+    left: auto;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+}
+
+@include respond-until(lg) {
+  .about-me {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 50px 20px;
+  }
+
+  .about-container {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+
+  .about-left {
+    align-items: center;
+    gap: 20px;
+  }
+
+  .about-bg {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .about-content {
+    font-size: 16px;
+    gap: 10px;
+  }
+
+  .about-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .about-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .about-right h1 {
+    font-size: 38px;
+  }
+
+  .about-right p {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .about-btn {
+    position: static;
+    margin: 30px 0 30px auto;
+  }
 }

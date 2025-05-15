@@ -1,0 +1,175 @@
+{
+  "HEADER": {
+    "NAV": {
+      "ABOUT": "Über mich",
+      "SKILLS": "Fähigkeiten",
+      "PROJECTS": "Projekte",
+      "CONTACT": "Kontakt"
+    },
+    "GREETING": {
+      "NORMAL": "Hallo Welt",
+      "HOVER": "ICH BIN ANTHONY PIZZUTI"
+    }
+  },
+  "ABOUT": {
+    "LEFT": {
+      "LOCATION": "Ansässig in Frankfurt am Main",
+      "RELOCATION": "Umzugsbereit",
+      "REMOTE": "Bereit, remote zu arbeiten"
+    },
+    "RIGHT": {
+      "SUBTITLE": "WER IST ANTHONY?",
+      "TITLE": "Über mich",
+      "PARAGRAPH_1": "Hallo, ich bin Anthony! Technologie und Innovation waren schon immer meine Leidenschaft. Mein Weg in der IT wird von einer tiefen Neugier angetrieben, komplexe Probleme durch Code zu lösen. Ich liebe die Herausforderung, effiziente und elegante Lösungen zu finden und meine Fähigkeiten kontinuierlich zu verfeinern, um in der sich ständig weiterentwickelnden Technologiewelt vorne zu bleiben. Was mich am meisten inspiriert, ist die Fähigkeit, Ideen in die Realität umzusetzen – Anwendungen zu bauen, die einen Unterschied machen. Jedes Projekt ist eine Chance zu lernen, zu wachsen und Grenzen zu verschieben.",
+      "PARAGRAPH_2": "Lass uns zusammenarbeiten und etwas Außergewöhnliches erschaffen!",
+      "BUTTON": "Lass uns reden"
+    }
+  },
+  "SKILLS": {
+    "HEADLINE": {
+      "STACK_TITLE": "MEIN TECH-STACK",
+      "SKILL_TITLE": "Fähigkeiten"
+    },
+    "DESCRIPTION": "Ich bin versiert in Frontend-Technologien wie HTML, CSS, JavaScript, TypeScript und Angular. Gleichzeitig bin ich stets daran interessiert, neue Tools und Frameworks zu erkunden – flexibel im Erlernen zusätzlicher Programmiersprachen oder Methoden. Mein Ziel ist es, mein Fähigkeitenspektrum kontinuierlich zu verfeinern und mich schnell an aufkommende Branchentrends anzupassen.",
+    "STICKER": {
+      "DEFAULT": "Zum Aufdecken ziehen",
+      "FINAL": "Außerdem interessiert mich..."
+    }
+  },
+  "PROJECTS": {
+    "HEADER": {
+      "CRAFT": "MEIN HANDWERK",
+      "TITLE": "Projekte",
+      "ANIMATION_TEXT": "Entdecke meine innovativen Projekte und sieh, wie ich responsives Design mit effizientem Code verbinde, um benutzerfreundliche Erlebnisse zu schaffen. Jedes Projekt spiegelt mein Engagement wider, Grenzen zu überschreiten und herausragende digitale Lösungen zu liefern. Tauche ein, erkunde die kreativen Arbeiten, die ich entwickelt habe, und lass deine Neugier dich zu etwas Außergewöhnlichem führen!"
+    },
+    "JOIN": {
+      "DESCRIPTION": "Task-Manager, inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben per Drag & Drop, weise Nutzer und Kategorien zu.",
+      "DETAILS_BTN": "Projektdetails"
+    },
+    "EL_POLLO_LOCO": {
+      "DESCRIPTION": "Jump-, Run- und Wurfspiel, basierend auf einem objektorientierten Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.",
+      "DETAILS_BTN": "Projektdetails"
+    },
+    "DABUBBLE": {
+      "DESCRIPTION": "Diese App ist ein Slack-Klon, der die Teamkommunikation und Zusammenarbeit revolutioniert – mit einer intuitiven Benutzeroberfläche, Echtzeitnachrichten und einer robusten Kanalorganisation.",
+      "DETAILS_BTN": "Projektdetails"
+    },
+    "COLLEAGUES": {
+      "HEADER": "IN IHREN WORTEN:",
+      "TITLE": "Gedanken von Kollegen"
+    },
+    "COMMENTS": {
+      "COMMENT_1": {
+        "TEXT": "Anthony war ein hervorragender Teamkollege bei DA. Sein positives Engagement und seine Bereitschaft, Verantwortung zu übernehmen, haben maßgeblich dazu beigetragen, dass wir unsere Ziele erreicht haben."
+      },
+      "COMMENT_2": {
+        "TEXT": "Es war eine große Freude, mit Karl zusammenzuarbeiten. Er weiß, wie man Teammitglieder dazu anspornt, ihre beste Arbeit zu leisten, und bringt immer etwas Neues in die Ideenfindung ein."
+      },
+      "COMMENT_3": {
+        "TEXT": "Bezüglich des Wohlbefindens der Gruppenmitglieder war er stets präsent und immer bereit zuzuhören und zu helfen – und das mit großem Humor."
+      }
+    }
+  },
+  "CONTACT": {
+    "TITLE": "KONTAKTIERE MICH",
+    "SUBTITLE": "Bereit, zusammenzuarbeiten?",
+    "PARAGRAPH_1": "Lass uns gemeinsam deine Vision zum Leben erwecken. Mit meiner fundierten Erfahrung in der Front-End-Entwicklung und einer unermüdlichen Innovationsfreude bin ich überzeugt, einen echten Mehrwert für dein Team zu schaffen. Meine Leidenschaft für stetiges Lernen und mein Anspruch an höchste Qualität garantieren, dass ich jederzeit bereit bin, neue Herausforderungen anzupacken.",
+    "PARAGRAPH_2": "Suchst du eine kreative, engagierte Zusammenarbeit, die dein nächstes Projekt voranbringt? Dann lass uns vernetzen – ich freue mich darauf, großartige Ideen in herausragende Ergebnisse zu verwandeln!",
+    "FORM": {
+      "NAME_LABEL": "Wie heißt du?",
+      "NAME_PLACEHOLDER": "Dein Name",
+      "EMAIL_LABEL": "Wie lautet deine E-Mail?",
+      "EMAIL_PLACEHOLDER": "deineemail@beispiel.de",
+      "MESSAGE_LABEL": "Wie kann ich dir helfen?",
+      "MESSAGE_PLACEHOLDER": "Schreibe etwas...",
+      "NAME_ERROR": "Hoppla! Es scheint, dein Name fehlt",
+      "EMAIL_ERROR": "Hoppla! Deine E-Mail ist erforderlich",
+      "MESSAGE_ERROR": "Was benötigst du zur Entwicklung?",
+      "CHECKBOX_PART1": "Ich habe die",
+      "PRIVACY_LINK": "Datenschutzerklärung",
+      "CHECKBOX_PART2": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+      "ERROR": "Bitte akzeptiere die Datenschutzerklärung.",
+      "SUCCESS_MESSAGE": "Vielen Dank! Deine Nachricht wurde erfolgreich versendet."
+    }
+  },
+  "PROJECT_DETAILS": {
+    "GO_BACK": "Zurück",
+    "DESCRIPTION_HEADLINE": "Beschreibung",
+    "IMPLEMENTATION_HEADLINE": "Umsetzungsdetails",
+    "DURATION_LABEL": "Dauer:",
+    "NEXT_PROJECT": "Nächstes Projekt"
+  },
+  "JOIN": {
+    "DESCRIPTION": "Task-Manager, inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben per Drag & Drop, weise Nutzer und Kategorien zu.",
+    "IMPLEMENTATION_DETAILS": "Für das Projekt Join habe ich einen strukturierten Arbeitsablauf entwickelt, indem ich ein Kanban-Board entworfen und optimiert habe, um das Aufgabenmanagement zu vereinfachen und die Teamproduktivität zu steigern. Ich habe klare Prioritäten gesetzt, den Fortschritt transparent überwacht und den Prozess kontinuierlich verbessert – ein Beweis für meine Fähigkeit, selbstständig zu arbeiten und mich an sich verändernde Projektanforderungen anzupassen.",
+    "DURATION": "5 Wochen"
+  },
+  "EL_POLLO_LOCO": {
+    "DESCRIPTION": "Jump-, Run- und Wurfspiel, basierend auf einem objektorientierten Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu sammeln, um gegen die verrückte Henne zu kämpfen.",
+    "IMPLEMENTATION_DETAILS": "Im Projekt El Pollo Loco leitete ich den Entwicklungsprozess von der Konzeptphase bis zur finalen Umsetzung. Unter Anwendung agiler Methoden habe ich die Spielmechanik und das Nutzererlebnis iterativ verfeinert, während ich strenge Qualitätsstandards einhielt. Dieses Projekt unterstreicht meinen eigenverantwortlichen, strukturierten Ansatz bei kreativen und technischen Herausforderungen.",
+    "DURATION": "3 Wochen"
+  },
+  "DABUBBLE": {
+    "DESCRIPTION": "Diese App ist ein Slack-Klon, der die Teamkommunikation und -zusammenarbeit revolutioniert – mit einer intuitiven Benutzeroberfläche, Echtzeitnachrichten und einer robusten Kanalorganisation.",
+    "IMPLEMENTATION_DETAILS": "Für das Projekt DaBubble habe ich einen systematischen Entwicklungsprozess für eine Chat-Anwendung implementiert, einen klaren Fahrplan und ein Kommunikationsprotokoll etabliert. Durch die Koordination von Aufgaben und die effiziente Integration von Feedback habe ich ein robustes und benutzerfreundliches Produkt sichergestellt, das sowohl meine selbstständige Arbeitsweise als auch meinen strukturierten Planungsansatz unter Beweis stellt.",
+    "DURATION": "4 Wochen"
+  },
+  "LEGAL_NOTICE": {
+    "GO_BACK": "Zurück",
+    "TITLE": "Impressum",
+    "SERVICE_PROVIDER": {
+      "TITLE": "Dienstanbieter",
+      "NAME": "Anthony Pizzuti",
+      "ADDRESS": "Neue Heimat 15",
+      "CITY": "65795 Hattersheim am Main"
+    },
+    "CONTACT_INFORMATION": {
+      "TITLE": "Kontaktmöglichkeiten",
+      "EMAIL_LABEL": "E-Mail-Adresse:",
+      "EMAIL": "anthony.pizzuti@gmx.de",
+      "TELEPHONE_LABEL": "Telefon:",
+      "TELEPHONE": "01779330190"
+    },
+    "SOCIAL_MEDIA": {
+      "TITLE": "Social Media und andere Onlinepräsenzen",
+      "INFO": "Dieses Impressum gilt auch für die folgenden Social-Media-Präsenzen und Onlineprofile:",
+      "GITHUB": "https://github.com/AnthonyPizzuti",
+      "LINKEDIN": "https://www.linkedin.com/in/anthony-pizzuti-6937b9355/"
+    }
+  },
+  "PRIVACY": {
+    "TITLE": "Datenschutzerklärung",
+    "INTRO": {
+      "TITLE": "1. Einführung",
+      "TEXT": "Diese Datenschutzerklärung erklärt, wie Anthony Pizzuti Ihre personenbezogenen Daten sammelt, verwendet und schützt, wenn Sie meine Portfolio-Website https://anthony-pizzuti.eu/ besuchen. Ich verpflichte mich, Ihre Privatsphäre zu schützen und Ihre Daten sicher und verantwortungsvoll zu behandeln."
+    },
+    "INFO_COLLECTION": {
+      "TITLE": "2. Informationssammlung",
+      "TEXT": "Ich kann personenbezogene Daten erheben, die Sie freiwillig angeben, wenn Sie: <ul><li>Kontaktformulare ausfüllen</li><li>Anfragen oder Kommentare senden</li></ul> Die gesammelten Daten können Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer und weitere von Ihnen bereitgestellte Informationen umfassen."
+    },
+    "USAGE": {
+      "TITLE": "3. Wie Ihre Informationen verwendet werden",
+      "TEXT": "Ich verwende Ihre personenbezogenen Daten, um: <ul><li>Ihre Anfragen oder Nachrichten zu beantworten</li><li>Die von Ihnen angeforderten Informationen oder Dienstleistungen bereitzustellen</li><li>Den Inhalt und die Funktionalität meiner Website zu verbessern</li><li>Aktualisierungen oder relevante Informationen zu meinem Portfolio und meinen Dienstleistungen zu kommunizieren</li></ul> Ich teile Ihre personenbezogenen Daten nicht zu Marketingzwecken mit Dritten."
+    },
+    "COOKIES": {
+      "TITLE": "4. Cookies und Tracking-Technologien",
+      "TEXT": "Meine Website verwendet Cookies und ähnliche Technologien, um Ihr Nutzererlebnis zu verbessern. Cookies helfen, den Website-Verkehr zu analysieren und Inhalte zu personalisieren. Sie können die Cookie-Einstellungen in Ihrem Browser steuern, beachten Sie jedoch, dass das Deaktivieren von Cookies die Funktionalität der Website beeinträchtigen kann."
+    },
+    "DATA_SECURITY": {
+      "TITLE": "5. Datensicherheit",
+      "TEXT": "Ich treffe angemessene technische und organisatorische Maßnahmen, um Ihre personenbezogenen Daten vor unbefugtem Zugriff, Veränderung, Offenlegung oder Zerstörung zu schützen. Bitte beachten Sie jedoch, dass kein Sicherheitssystem unüberwindbar ist."
+    },
+    "RIGHTS": {
+      "TITLE": "6. Ihre Rechte",
+      "TEXT": "Sie haben das Recht: <ul><li>Zugriff auf die von mir über Sie gespeicherten personenbezogenen Daten zu erhalten</li><li>Die Korrektur oder Löschung Ihrer personenbezogenen Daten zu verlangen</li><li>Der Verarbeitung Ihrer Daten zu widersprechen oder diese einzuschränken</li></ul> Wenn Sie eines dieser Rechte ausüben möchten, kontaktieren Sie mich bitte unter <a href=\"mailto:anthony.pizzuti@gmx.de\">anthony.pizzuti@gmx.de</a>"
+    },
+    "CHANGES": {
+      "TITLE": "7. Änderungen dieser Datenschutzerklärung",
+      "TEXT": "Ich kann diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Wirksamkeitsdatum veröffentlicht. Ich empfehle Ihnen, die Datenschutzerklärung regelmäßig zu überprüfen."
+    },
+    "CONTACT": {
+      "TITLE": "8. Kontakt",
+      "TEXT": "Wenn Sie Fragen oder Bedenken zu dieser Datenschutzerklärung haben, kontaktieren Sie mich bitte per E-Mail unter <a href=\"mailto:anthony.pizzuti@gmx.de\">anthony.pizzuti@gmx.de</a>"
+    }
+  }
+}

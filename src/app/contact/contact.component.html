@@ -1,5 +1,9 @@
-<section id="contact" class="contact-section">
+<section id="contact" class="contact-section white-section">
   <div class="contact-text">
+    <h3>{{ "CONTACT.TITLE" | translate }}</h3>
+    <h1>{{ "CONTACT.SUBTITLE" | translate }}</h1>
+    <p>{{ "CONTACT.PARAGRAPH_1" | translate }}</p>
+    <p>{{ "CONTACT.PARAGRAPH_2" | translate }}</p>
     <div class="arrow-container">
       <img
         src="./../../assets/animations/arrow_hover.png"
@@ -28,7 +32,7 @@
   <div class="contact-form">
     <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
       <div class="input-container" [class.error]="isError">
-        <label for="name">What's your name?</label>
+        <label for="name">{{ "CONTACT.FORM.NAME_LABEL" | translate }}</label>
         <input
           #name="ngModel"
           [(ngModel)]="contactData.name"
@@ -38,13 +42,16 @@
           placeholder="Your name goes here"
           required
         />
-        @if (!name.valid && name.touched && !name.disabled) {
-        <span class="error-message">Oops! It seems your name is missing</span>
-        }
+        <span
+          *ngIf="!name.valid && name.touched && !name.disabled"
+          class="error-message"
+        >
+          {{ "CONTACT.FORM.NAME_ERROR" | translate }}
+        </span>
       </div>
 
       <div class="input-container">
-        <label for="email">What's your email?</label>
+        <label for="email">{{ "CONTACT.FORM.EMAIL_LABEL" | translate }}</label>
         <input
           #email="ngModel"
           [(ngModel)]="contactData.email"
@@ -56,57 +63,67 @@
           pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
         />
 
-        @if (!email.valid && email.touched && !email.disabled) {
-        <span class="error-message">Hoppla! your email is required</span>
-        }
+        <span
+          *ngIf="!email.valid && email.touched && !email.disabled"
+          class="error-message"
+        >
+          {{ "CONTACT.FORM.EMAIL_ERROR" | translate }}
+        </span>
       </div>
       <div class="input-container">
-        <label for="message">How can i help you?</label>
+        <label for="message">{{
+          "CONTACT.FORM.MESSAGE_LABEL" | translate
+        }}</label>
         <textarea
           #message="ngModel"
           minlength="4"
           [(ngModel)]="contactData.message"
           id="message"
-          name="messasge"
+          name="message"
           placeholder="Write something.."
           style="height: 40px"
           required
         ></textarea>
 
-        @if (!message.valid && message.touched && !message.disabled) {
-        <span class="error-message">What do you need to develop?</span>
-        }
+        <span
+          *ngIf="!message.valid && message.touched && !message.disabled"
+          class="error-message"
+        >
+          {{ "CONTACT.FORM.MESSAGE_ERROR" | translate }}
+        </span>
+      </div>
+      <div class="checkbox-button-container">
+        <!-- Checkbox -->
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            id="privacy"
+            name="privacy"
+            [(ngModel)]="isChecked"
+            (change)="validateCheckbox()"
+          />
+          <span class="custom-checkbox">
+            <img [src]="getCheckboxImage()" alt="Checkbox state" />
+          </span>
+          <span>
+            {{ "CONTACT.FORM.CHECKBOX_PART1" | translate }}
+            <a routerLink="/privacy-policy">{{
+              "CONTACT.FORM.PRIVACY_LINK" | translate
+            }}</a>
+            {{ "CONTACT.FORM.CHECKBOX_PART2" | translate }}
+          </span>
+          <p class="error-message" *ngIf="showError">
+            {{ "CONTACT.FORM.ERROR" | translate }}
+          </p>
+        </label>
+
+        <button type="submit" class="send-btn" [disabled]="!isChecked">
+          Send
+        </button>
       </div>
     </form>
-
-    <div class="checkbox-button-container">
-      <!-- Checkbox -->
-      <label class="checkbox-label">
-        <input
-          type="checkbox"
-          id="privacy"
-          name="privacy"
-          [(ngModel)]="isChecked"
-          (change)="validateCheckbox()"
-        />
-        <span class="custom-checkbox">
-          <img [src]="getCheckboxImage()" alt="Checkbox state" />
-        </span>
-        I've read the <a href="#">privacy policy</a> and agree to the
-        processingof my data as outlined.
-        <!-- Fehlermeldung, falls Checkbox nicht angehakt wurde -->
-        <p class="error-message" *ngIf="showError">
-          Please accept the privacy policy.
-        </p>
-      </label>
-
-      <!-- Button mit Bildwechsel -->
-      <button type="submit" class="send-button" [disabled]="!isChecked">
-        <img
-          [src]="isChecked ? sendButtonEnabled : sendButtonDisabled"
-          alt="Send Button"
-        />
-      </button>
+    <div *ngIf="showSuccess" class="success-message">
+      {{ "CONTACT.FORM.SUCCESS_MESSAGE" | translate }}
     </div>
   </div>
 </section>

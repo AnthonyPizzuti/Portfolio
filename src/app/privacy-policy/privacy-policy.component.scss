@@ -1,0 +1,462 @@
+:host ::ng-deep .privacy-policy-content a {
+  color: #f8f9fa !important;
+}
+
+.privacy-policy-container {
+  padding: 20px 0 0 0;
+  font-family: "Bricolage";
+  background-image: url(./../../assets/backgrounds/header.png);
+  height: 200vh;
+}
+
+.privacy-policy-page {
+  display: flex;
+  padding: 50px 50px 80px;
+}
+
+.policyBack {
+  padding: 65px 0 0 20px;
+  gap: 10px;
+  align-items: center;
+  display: flex;
+  font-family: "Bricolage";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 120%;
+  cursor: pointer;
+  width: 106px;
+
+  a {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    flex: none;
+
+    &:hover {
+      color: #1b78ea;
+    }
+  }
+
+  img {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.privacyPolicyIn {
+  display: flex;
+  justify-content: center;
+  font-family: "Bricolage";
+  flex-direction: column;
+  gap: 20px;
+  color: #f8f9fa;
+
+  p {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Logo mit Farbwechsel */
+.logo {
+  width: 38.54px;
+  height: 40px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  filter: invert(40%) sepia(91%) saturate(2000%) hue-rotate(220deg);
+
+  &:hover {
+    filter: invert(60%) sepia(25%) saturate(700%) hue-rotate(130deg);
+  }
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  gap: 150px;
+
+  a {
+    position: relative;
+    text-decoration: none;
+    color: #f8f9fa;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+
+  /* Spezifischer Effekt nur für About-Me */
+  .about-link {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .underline_about {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    background: url("./../../assets/animations/about_me_hover.png") no-repeat
+      center/contain;
+    opacity: 0;
+    z-index: -1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .about-link:hover .underline_about {
+    opacity: 1;
+    animation: drawCircle 180ms ease-in-out forwards;
+    z-index: 1;
+  }
+
+  .about-link:not(:hover) .underline_about {
+    animation: eraseCircle 180ms ease-in-out forwards;
+    z-index: 1;
+  }
+
+  /* Animation: Kreis entsteht von oben in der Mitte und erweitert sich */
+  @keyframes drawCircle {
+    0% {
+      clip-path: circle(0% at 50% 0%);
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    50% {
+      clip-path: circle(50% at 50% 25%);
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+      clip-path: circle(100% at 50% 50%);
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /* Umkehrung der Animation */
+  @keyframes eraseCircle {
+    0% {
+      clip-path: circle(100% at 50% 50%);
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      clip-path: circle(50% at 50% 25%);
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+      clip-path: circle(0% at 50% 0%);
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+
+  /* Spezifischer Effekt nur für Skills */
+  .skills-link {
+    position: relative;
+    cursor: pointer;
+
+    .underline_skills {
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 80px;
+      height: 42px;
+      background: url("./../../assets/animations/skills_hover.png") no-repeat
+        left center/contain;
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.1s ease-in-out;
+    }
+
+    &:hover .underline_skills {
+      left: -19px;
+      animation: arrowAppear 180ms ease-in-out forwards;
+    }
+
+    &:not(:hover) .underline_skiils {
+      left: -19px;
+      animation: arrowDisappear 180ms ease-in-out forwards;
+    }
+  }
+
+  /* Keyframes für das Einblenden */
+  @keyframes arrowAppear {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Keyframes für das Rückwärts-Ausblenden */
+  @keyframes arrowDisappear {
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+    100% {
+      clip-path: inset(0 100% 0 0);
+    }
+  }
+
+  /* Spezifischer Effekt nur für Projects */
+  .projects-link {
+    position: relative;
+    cursor: pointer;
+
+    .underline_projects {
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 105px;
+      height: 42px;
+      background: url("./../../assets/animations/projects_hover.png") no-repeat
+        left center/contain;
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.1s ease-in-out;
+    }
+
+    &:hover .underline_projects {
+      bottom: -13px;
+      left: -15px;
+      animation: arrowAppear 180ms ease-in-out forwards;
+    }
+
+    &:not(:hover) .underline_projects {
+      bottom: -13px;
+      left: -15px;
+      animation: arrowDisappear 180ms ease-in-out forwards;
+    }
+  }
+
+  /* Keyframes für das Einblenden */
+  @keyframes arrowAppear {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Keyframes für das Rückwärts-Ausblenden */
+  @keyframes arrowDisappear {
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+    100% {
+      clip-path: inset(0 100% 0 0);
+    }
+  }
+
+  /* Spezifischer Effekt nur für Contact */
+  .contact-link {
+    position: relative;
+    cursor: pointer;
+
+    .underline_contact {
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      width: 90px;
+      height: 42px;
+      background: url("./../../assets/animations/contact_hover.png") no-repeat
+        left center/contain;
+      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.1s ease-in-out;
+    }
+
+    &:hover .underline_contact {
+      left: -10px;
+      animation: arrowAppear 180ms ease-in-out forwards;
+    }
+
+    &:not(:hover) .underline_contact {
+      left: -10px;
+      animation: arrowDisappear 180ms ease-in-out forwards;
+    }
+  }
+}
+
+/* Keyframes für das Einblenden */
+@keyframes arrowAppear {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Keyframes für das Rückwärts-Ausblenden */
+@keyframes arrowDisappear {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+/* Sprachumschaltung */
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* EN & DE Buttons */
+.language-switch button {
+  background: transparent;
+  border: none;
+  color: #f8f9fa;
+  cursor: pointer;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+
+  &.active {
+    cursor: default;
+    color: #24dd80;
+  }
+
+  &:not(.active):hover {
+    color: #f8f9fa;
+  }
+}
+
+/* Aktive Sprache mit Hover-Effekt */
+.language-switch .lang-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-switch .lang-btn:not(.active):hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%) scale(0);
+  animation: drawLangHover 0.3s ease-in-out forwards;
+}
+
+.language-switch .lang-btn.en:not(.active):hover::after {
+  background-image: url("./../../assets/animations/english_Hover.png");
+}
+
+.language-switch .lang-btn.de:not(.active):hover::after {
+  background-image: url("./../../assets/animations/deutsch_Hover.png");
+}
+
+/* Keyframe für das Zeichnen des Hover-Kreises */
+@keyframes drawLangHover {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Toggle Switch Animation */
+.toggle-container {
+  position: relative;
+  width: 45px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-switch {
+  width: 45px;
+  height: 20px;
+  background: transparent;
+  position: relative;
+}
+
+.toggle-switch img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-switch.en img {
+  content: url("./../../assets/animations/switch_left.png");
+}
+
+.toggle-switch.de img {
+  content: url("./../../assets/animations/switch_right.png");
+}
+
+.mobile-header {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  right: 50px;
+  z-index: 1001;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo img {
+    width: 38.54px;
+    height: 40px;
+  }
+
+  .close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .privacy-policy-container {
+    overflow: hidden;
+  }
+  
+  .navbar,
+  .language-switch {
+    display: none !important;
+  }
+  .mobile-header {
+    display: flex;
+    .close-btn {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .mobile-header {
+    left: 0 !important;
+    right: 0 !important;
+    padding: 0 20px !important;
+    justify-content: space-between !important;
+  }
+}

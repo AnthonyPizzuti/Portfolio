@@ -1,38 +1,54 @@
+@import "./../../styles.scss";
+
 .contact-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
+  padding: 60px 50px 0;
   background-image: url(./../../assets/backgrounds/contact.png);
   background-size: cover;
   height: 80vh;
   font-family: "Bricolage";
+  position: relative;
+}
+
+.success-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #24dd80;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* Linke Textseite */
 .contact-text {
-  max-width: 30%;
+  max-width: 40%;
   color: #f8f9fa;
+  position: relative;
+  bottom: 35px;
 }
 
 .contact-text h3 {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1px;
   color: #f8f9fa;
+  font-weight: 400;
 }
 
 .contact-text h1 {
-  font-size: 36px;
+  font-size: 56px;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 10px 0 20px;
   color: #f8f9fa;
 }
 
 .contact-text p {
   font-size: 16px;
   line-height: 1.6;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
   color: #f8f9fa;
 }
 
@@ -47,6 +63,8 @@
 .contact-form {
   width: 50%;
   font-family: Bricolage;
+  position: relative;
+  top: 40px;
 }
 
 .input-container {
@@ -73,7 +91,7 @@
   label {
     left: 24px;
     top: 10px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     color: #f8f9fa;
   }
@@ -173,11 +191,11 @@
 
   .checkbox-label {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     font-size: 14px;
     gap: 8px;
     color: #f8f9fa;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     line-height: 1.4;
     width: 100%;
   }
@@ -210,7 +228,7 @@
     font-size: 14px;
     line-height: 16.8px;
     font-weight: 400;
-    width: 215px;
+    width: 280px;
     height: 17px;
     position: absolute;
     top: 100%;
@@ -219,28 +237,39 @@
 }
 
 /* Button */
-.send-button {
-  background: none;
-  border: none;
+.send-btn {
+  margin-top: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #f8f9fa;
   cursor: pointer;
-  width: 154px;
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+  width: 150px;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 5px 0px #f8f9fa;
+  font-family: "Bricolage";
   position: absolute;
+  color: #f8f9fa;
+  background: transparent;
   right: 0;
-  bottom: -50px;
+}
 
-  img {
-    width: 154px;
-    height: auto;
-    a:hover {
-      background-color: transparent !important;
-    }
-  }
+/* Hover-Effekt nur wenn nicht disabled */
+.send-btn:not(:disabled):hover {
+  background: #f87a55;
+  color: #f8f9fa;
+  transform: translateY(2px);
+  box-shadow: 0px 0px 0px #f8f9fa;
+}
 
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
+/* Disabled-Styling */
+.send-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .arrow-container {
@@ -259,6 +288,8 @@
   width: 100%;
   height: auto;
   animation: arrowAppear 2s ease-in-out infinite;
+  width: 280px;
+  height: 45px;
 }
 
 /* Animation für das Erscheinen */
@@ -287,18 +318,19 @@
 }
 
 .sticker {
+  position: absolute;
   width: 150px;
   height: 150px;
+  left: 90%;
+  transform: translateX(-50%);
+  bottom: 450px;
   background: url("./../../assets/backgrounds/crumpled-paper.png") no-repeat
     center/cover;
   border-radius: 50%;
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  left: 1340px;
-  top: 3000px;
 }
 
 /* Logo mittig platzieren */
@@ -335,4 +367,207 @@
   text-align: center;
   white-space: nowrap;
   transform: rotate(0deg);
+}
+
+// RESPONSIVE ANPASSUNGEN
+@include respond-until(lg) {
+  .contact-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 250px 20px 0;
+    height: auto;
+  }
+
+  .contact-text {
+    max-width: 100%;
+    text-align: left;
+
+    h1 {
+      font-size: 24px;
+      max-width: 300px;
+      word-break: break-word;
+      white-space: normal;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .contact-form {
+    width: 100%;
+    top: -90px !important;
+    bottom: 125px !important;
+  }
+
+  .input-container {
+    padding: 12px 16px;
+
+    label {
+      font-size: 16px;
+    }
+
+    input,
+    textarea {
+      font-size: 14px;
+    }
+
+    .error-message {
+      font-size: 12px;
+      left: 0;
+    }
+  }
+
+  .checkbox-button-container {
+    width: 100%;
+
+    .checkbox-container {
+      width: 100%;
+    }
+
+    .checkbox-label {
+      font-size: 13px;
+      flex-wrap: nowrap;
+    }
+
+    .error-message {
+      font-size: 12px;
+      left: 30px;
+      top: 50px;
+    }
+  }
+
+  .send-btn {
+    width: 120px;
+    height: 36px;
+    font-size: 14px;
+    margin-top: 40px;
+    position: static;
+    align-self: flex-end;
+  }
+
+  .sticker {
+    width: 100px;
+    height: 100px;
+    transform: translateX(-50%);
+    bottom: 850px;
+    position: absolute;
+    left: 80%;
+
+    .logo {
+      width: 40px;
+    }
+  }
+}
+
+@include respond-from(sm) {
+  .contact-text h1 {
+    max-width: 300px;
+    font-size: 38px;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .sticker {
+    bottom: 850px;
+    left: 80%;
+  }
+}
+
+@include respond-until(sm) {
+  .arrow-yellow {
+    width: 170px;
+  }
+}
+
+@include respond-from(xs-custom) {
+  .contact-text h1 {
+    max-width: 450px;
+    font-size: 42px;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .contact-form {
+    top: -90px !important;
+  }
+
+  .sticker {
+    bottom: 730px;
+  }
+}
+
+@include respond-from(md) {
+  .contact-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 50px 0;
+    height: 80vh;
+  }
+
+  .contact-text {
+    max-width: 40%;
+    text-align: left;
+  }
+
+  .contact-form {
+    width: 50%;
+    top: 40px !important;
+    bottom: auto !important;
+  }
+
+  .send-btn {
+    position: absolute;
+    right: 0;
+    margin-top: 60px;
+  }
+
+  .sticker {
+    width: 150px;
+    height: 150px;
+    left: 90%;
+    transform: translateX(-50%);
+    bottom: 450px;
+    position: absolute;
+
+    .logo {
+      width: 65px;
+    }
+  }
+}
+
+@include respond-until(md) {
+  .arrow-container {
+    top: 340px !important;
+  }
+}
+
+@include respond-until(xl-custom) {
+  .arrow-container {
+    left: 0;
+    margin-left: 0;
+  }
+
+  .checkbox-label {
+    flex-wrap: nowrap !important;
+  }
+}
+
+@include respond-until(xs) {
+  .sticker {
+    bottom: 950px;
+  }
+
+  .arrow-container {
+    top: 340px !important;
+  }
+
+  .arrow-yellow {
+    width: 140px;
+  }
 }

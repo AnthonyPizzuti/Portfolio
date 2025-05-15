@@ -1,7 +1,13 @@
-<section class="skills-section">
-  <div class="skills-content">
-    <h3 class="stack-title">MY STACK</h3>
-    <h1 class="skill-title">Skill set</h1>
+<section id="skills" class="skills-section white-section">
+  <div class="skill-headline">
+    <div class="skills-content">
+        <h3 class="stack-title">{{ 'SKILLS.HEADLINE.STACK_TITLE' | translate }}</h3>
+        <h1 class="skill-title">{{ 'SKILLS.HEADLINE.SKILL_TITLE' | translate }}</h1>
+    </div>
+
+    <div class="skills-description">
+        <p>{{ 'SKILLS.DESCRIPTION' | translate }}</p>
+    </div>
   </div>
 
   <div class="skills-container">
@@ -14,11 +20,11 @@
       <span>CSS</span>
     </div>
     <div class="skill">
-      <img src="./../../assets/icons/js.png" alt="JavaScript" />
+      <img src="./../../assets/icons/javascript.png" alt="JavaScript" />
       <span>JavaScript</span>
     </div>
     <div class="skill">
-      <img src="./../../assets/icons/ts.png" alt="TypeScript" />
+      <img src="./../../assets/icons/typescript.png" alt="TypeScript" />
       <span>TypeScript</span>
     </div>
     <div class="skill">
@@ -59,11 +65,11 @@
   >
     <div class="sticker-content default-content">
       <img src="assets/animations/arrow.png" class="arrow" alt="Arrow" />
-      <p class="pull-text">Pull to peel</p>
+      <p class="pull-text">{{ 'SKILLS.STICKER.DEFAULT' | translate }}</p>
     </div>
 
     <div class="sticker-content final-content">
-      <p class="headline">Also, I'm interested in diving into:</p>
+        <p class="headline">{{ 'SKILLS.STICKER.FINAL' | translate }}</p>
       <div class="icons">
         <img src="assets/icons/react_vuse.png" alt="React/Vuse" />
       </div>

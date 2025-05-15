@@ -1,131 +1,263 @@
-<section class="projects-section">
+<section id="projects" class="projects-section white-section">
   <div class="projects-content">
-    <span>MY CRAFT</span>
-    <h2>Projects</h2>
-  </div>
-  <div class="project-animation">
-    <img
-      class="projects-scribble"
-      src="./../../assets/animations/projects.png"
-      alt="Projects Scribble"
-    />
-    <p>
-      Encourage people to take a look and interact with your projects.
-      <br />Highlight your approach to creating responsive, user-friendly<br />
-      projects with efficient code.
-    </p>
-  </div>
-  <div class="laptop-container">
-    <img
-      src="./../../assets/animations/laptop_Default.png"
-      alt="Laptop Default"
-      class="laptop laptop-default"
-    />
-    <img
-      src="./../../assets/animations/laptop_Final_Hover.png"
-      alt="Laptop Hover"
-      class="laptop laptop-final-hover"
-    />
-    <img
-      class="project-details-btn"
-      src="./../../assets/buttons/project_Details.png"
-      alt=""
-    />
-    <div class="project-ring-container">
-      <!-- Hintergrund-Ring -->
+    <span>{{ "PROJECTS.HEADER.CRAFT" | translate }}</span>
+    <h2>{{ "PROJECTS.HEADER.TITLE" | translate }}</h2>
+    <div class="project-animation">
       <img
-        class="project-ring"
-        src="./../../assets/backgrounds/projects_ring.png"
-        alt="Project Ring"
+        class="projects-scribble"
+        src="./../../assets/animations/projects.png"
+        alt="Projects Scribble"
       />
-
-      <!-- Oberer Text: Featured Project -->
-      <svg viewBox="0 0 150 150" class="text-top">
-        <path
-          id="textPathTop"
-          fill="transparent"
-          d="M 75,75 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
-        />
-        <text font-size="16" font-weight="600" fill="#f8f9fa">
-          <textPath href="#textPathTop" startOffset="8%">
-            Featured Project
-          </textPath>
-        </text>
-      </svg>
-
-      <!-- Pfeil -->
-      <img
-        class="ring-icon"
-        src="./../../assets/animations/arrow_Right.png"
-        alt="Icon"
-      />
-
-      <!-- Unterer Text: Check all details -->
-      <svg viewBox="0 0 150 150" class="text-bottom">
-        <path
-          id="textPathBottom"
-          d="M 5,46 A 30,30 0 0,0 145,100"
-          fill="transparent"
-        />
-        <text font-size="16" fill="#f8f9fa">
-          <textPath href="#textPathBottom" startOffset="35%">
-            Check all details
-          </textPath>
-        </text>
-      </svg>
-    </div>
-
-    <div class="join-Text">
-      <span> Join<br /> </span>
-      <p>
-        Task manager inspired by the Kanban System. Create and organize tasks
-        using drag and drop functions, assign users and categories.
-      </p>
+      <p>{{ "PROJECTS.HEADER.ANIMATION_TEXT" | translate }}</p>
     </div>
   </div>
 
-  <div class="projects-container">
-    <!-- Projekt 1: El Pollo Loco -->
-    <div class="project">
-      <div class="project-image">
+  <div class="mobile-projects-wrapper">
+    <div class="laptop-container">
+      <div class="project-wrapper">
         <img
-          src="./../../assets/animations/el_Pollo_Loco.png"
-          alt="El Pollo Loco"
-          class="default-image"
+          src="./../../assets/animations/laptop_Default.png"
+          alt="Laptop Default"
+          class="laptop"
         />
-        <img
-          src="./../../assets/animations/el_Pollo_Loco_Hover.png"
-          alt="El Pollo Loco Hover"
-          class="hover-image"
-        />
+        <div class="laptop-overlay"></div>
+        <a
+          [routerLink]="['/projects', 'join']"
+          class="project-join-btn desktop-only"
+        >
+          {{ "PROJECTS.JOIN.DETAILS_BTN" | translate }}
+        </a>
+
+        <div class="project-ring-container">
+          <!-- Hintergrund-Ring -->
+          <img
+            class="project-ring"
+            src="./../../assets/backgrounds/projects_ring.png"
+            alt="Project Ring"
+          />
+          <!-- Oberer Text: Featured Project -->
+          <svg viewBox="0 0 150 150" class="text-top">
+            <path
+              id="textPathTop"
+              fill="transparent"
+              d="M 75,75 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+            />
+            <text font-size="16" font-weight="600" fill="#f8f9fa">
+              <textPath href="#textPathTop" startOffset="8%">
+                Featured Project
+              </textPath>
+            </text>
+          </svg>
+          <!-- Pfeil -->
+          <img
+            class="ring-icon"
+            src="./../../assets/animations/arrow_Right.png"
+            alt="Icon"
+          />
+          <!-- Unterer Text: Check all details -->
+          <svg viewBox="0 0 150 150" class="text-bottom">
+            <path
+              id="textPathBottom"
+              d="M 5,46 A 30,30 0 0,0 145,100"
+              fill="transparent"
+            />
+            <text font-size="16" fill="#f8f9fa">
+              <textPath href="#textPathBottom" startOffset="35%">
+                Check all details
+              </textPath>
+            </text>
+          </svg>
+        </div>
       </div>
-      <h3 class="project-title">El Pollo Loco</h3>
+      <h3 class="project-titleJoin">Join</h3>
       <p class="project-description">
-        Jump, run and throw game based on object-oriented approach. Help Pepe to
-        find coins and tabasco salsa to fight against the crazy hen.
+        {{ "PROJECTS.JOIN.DESCRIPTION" | translate }}
       </p>
+      <a
+        [routerLink]="['/projects', 'join']"
+        class="project-join-btn mobile-only"
+      >
+        {{ "PROJECTS.JOIN.DETAILS_BTN" | translate }}
+      </a>
     </div>
 
-    <!-- Projekt 2: DABubble -->
-    <div class="project">
-      <div class="project-image">
-        <img
-          src="./../../assets/animations/dABubble.png"
-          alt="DABubble"
-          class="default-image"
-        />
-        <img
-          src="./../../assets/animations/dABubble_hover.png"
-          alt="DABubble Hover"
-          class="hover-image"
-        />
+    <div class="projects-row">
+      <!-- Projekt 2: El Pollo Loco -->
+      <div class="project-card">
+        <div class="project-wrapper">
+          <img
+            src="./../../assets/animations/el_Pollo_Loco.png"
+            alt="elpolloloco_default"
+            class="project-image"
+          />
+          <div class="project-overlay"></div>
+          <a
+            [routerLink]="['/projects', 'elpolloloco']"
+            class="project-elpolloloco-btn desktop-only"
+          >
+            {{ "PROJECTS.EL_POLLO_LOCO.DETAILS_BTN" | translate }}
+          </a>
+        </div>
+        <h3 class="project-title">El Pollo Loco</h3>
+        <p class="project-description">
+          {{ "PROJECTS.EL_POLLO_LOCO.DESCRIPTION" | translate }}
+        </p>
+        <a
+          [routerLink]="['/projects', 'elpolloloco']"
+          class="project-elpolloloco-btn mobile-only"
+        >
+          {{ "PROJECTS.EL_POLLO_LOCO.DETAILS_BTN" | translate }}
+        </a>
       </div>
-      <h3 class="project-title">DABubble</h3>
-      <p class="project-description">
-        This App is a Slack Clone App. It revolutionizes team communication and
-        collaboration with its intuitive interface, real-time messaging, and
-        robust channel organization.
-      </p>
+
+      <!-- Projekt 3: DABubble -->
+      <div class="project-card">
+        <div class="project-wrapper">
+          <img
+            src="./../../assets/animations/dABubble.png"
+            alt="dabubble_default"
+            class="project-image"
+          />
+          <div class="project-overlay"></div>
+          <a
+            [routerLink]="['/projects', 'dabubble']"
+            class="project-dabubble-btn desktop-only"
+          >
+            {{ "PROJECTS.DABUBBLE.DETAILS_BTN" | translate }}
+          </a>
+        </div>
+        <h3 class="project-title">DABubble</h3>
+        <p class="project-description">
+          {{ "PROJECTS.DABUBBLE.DESCRIPTION" | translate }}
+        </p>
+        <a
+          [routerLink]="['/projects', 'dabubble']"
+          class="project-dabubble-btn mobile-only"
+        >
+          {{ "PROJECTS.DABUBBLE.DETAILS_BTN" | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="colleagues">
+    <h3>
+      <img
+        class="arrow"
+        src="./../../assets/animations/pfeil_links.png"
+        alt=""
+      />
+      {{ "PROJECTS.COLLEAGUES.HEADER" | translate }}
+    </h3>
+    <h1>{{ "PROJECTS.COLLEAGUES.TITLE" | translate }}</h1>
+  </div>
+
+  <div class="three-cards-wrapper">
+    <!-- Karte 1 -->
+    <div class="card-wrapper card-1-wrapper">
+      <div class="card card-1">
+        <img src="./../../assets/backgrounds/a.png" alt="Card A" />
+        <p class="testimonial-text">
+          {{ "PROJECTS.COMMENTS.COMMENT_1.TEXT" | translate }}
+        </p>
+        <div class="card-footer">
+          <div class="name-role">
+            <strong>Stephan Schaz</strong>
+            <span>Frontend Developer</span>
+          </div>
+          <div class="linkedin-icon">
+            <a
+              href="https://www.linkedin.com/in/stephanschaz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="in-default"
+                src="./../../assets/icons/in_default.png"
+                alt="LinkedIn Default"
+              />
+              <img
+                class="in-hover"
+                src="./../../assets/icons/in_hover.png"
+                alt="LinkedIn Hover"
+              />
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karte 2 (b.png, nicht rotiert) -->
+    <div class="card-wrapper card-2-wrapper">
+      <div class="card card-2">
+        <img src="./../../assets/backgrounds/b.png" alt="Card B" />
+        <p class="testimonial-text">
+          {{ "PROJECTS.COMMENTS.COMMENT_2.TEXT" | translate }}
+        </p>
+
+        <div class="card-footer">
+          <div class="name-role">
+            <strong>Andino Eichberger</strong>
+            <span>Frontend Developer</span>
+          </div>
+          <div class="linkedin-icon">
+            <a
+              href="https://www.linkedin.com/in/andino-marco-eichberger-54107b32a/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="in-default"
+                src="./../../assets/icons/in_default.png"
+                alt="LinkedIn Default"
+              />
+              <img
+                class="in-hover"
+                src="./../../assets/icons/in_hover.png"
+                alt="LinkedIn Hover"
+              />
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karte 3 -->
+    <div class="card-wrapper card-3-wrapper">
+      <div class="card card-3">
+        <img src="./../../assets/backgrounds/a.png" alt="Card A" />
+        <p class="testimonial-text">
+          {{ "PROJECTS.COMMENTS.COMMENT_3.TEXT" | translate }}
+        </p>
+
+        <div class="card-footer">
+          <div class="name-role">
+            <strong>Nasser Ghaibeh</strong>
+            <span>Frontend Developer</span>
+          </div>
+          <div class="linkedin-icon">
+            <a
+              href="https://www.linkedin.com/in/stephanschaz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="in-default"
+                src="./../../assets/icons/in_default.png"
+                alt="LinkedIn Default"
+              />
+              <img
+                class="in-hover"
+                src="./../../assets/icons/in_hover.png"
+                alt="LinkedIn Hover"
+              />
+              <span>Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

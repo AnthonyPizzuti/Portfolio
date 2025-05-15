@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no" class="notranslate">
   <head>
     <meta charset="utf-8" />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-Language" content="en" />
     <title>Portfolio</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="./assets/logo/ap-logo.png" />
+
+    <!-- 1) Fallback für ältere Browser: schwarzes AP-Icon -->
+    <link rel="icon" type="image/png" href="/assets/logo/ap-logo.png" />
+
+    <!-- 2) Light-Mode (heller Hintergrund): schwarzes AP-Icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/logo/ap-logo.png"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <!-- 3) Dark-Mode (dunkler Hintergrund): weißes AP-Icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/logo/apLogoHell.png"
+      media="(prefers-color-scheme: dark)"
+    />
   </head>
   <body>
     <app-root></app-root>

@@ -1,5 +1,7 @@
+@import "./../../../styles.scss";
+
 header {
-  padding: 20px 50px 50px;
+  padding: 20px 5vw 50px;
   background-image: url(./../../../assets/backgrounds/header.png);
   background-size: cover;
   background-position: center;
@@ -7,7 +9,7 @@ header {
   font-family: "Bricolage";
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: 110svh;
 }
 
 .navbar {
@@ -21,12 +23,38 @@ header {
   width: 38.54px;
   height: 40px;
   cursor: pointer;
-  transition: filter 0.3s ease;
+  transition: filter 125ms ease;
   filter: invert(40%) sepia(91%) saturate(2000%) hue-rotate(220deg);
 
   &:hover {
     filter: invert(60%) sepia(25%) saturate(700%) hue-rotate(130deg);
   }
+}
+
+.hamburger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+
+  img {
+    width: 38.54px;
+    height: 40px;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hamburger,
+.mobile-menu {
+  display: none;
 }
 
 /* Navigation */
@@ -113,13 +141,14 @@ header {
   /* Spezifischer Effekt nur für Skills */
   .skills-link {
     position: relative;
+    display: inline-block;
 
     .underline_skills {
       position: absolute;
-      left: 0;
-      bottom: -12px;
-      width: 80px;
-      height: 42px;
+      left: -20px;
+      bottom: -15px;
+      width: 190%;
+      height: 45px;
       background: url("./../../../assets/animations/skills_hover.png") no-repeat
         left center/contain;
       opacity: 1;
@@ -128,7 +157,6 @@ header {
     }
 
     &:hover .underline_skills {
-      left: -19px;
       animation: arrowAppear 180ms ease-in-out forwards;
     }
 
@@ -273,7 +301,7 @@ header {
   cursor: pointer;
   font-size: 18px;
   position: relative;
-  transition: color 0.3s ease-in-out;
+  transition: color 75ms ease-in-out;
 
   &.active {
     cursor: default;
@@ -303,7 +331,7 @@ header {
   background-size: contain;
   background-repeat: no-repeat;
   transform: translate(-50%, -50%) scale(0);
-  animation: drawLangHover 0.3s ease-in-out forwards;
+  animation: drawLangHover 125ms ease-in-out forwards;
 }
 
 .language-switch .lang-btn.en:not(.active):hover::after {
@@ -361,18 +389,20 @@ header {
 /* ---------- Greeting-Bereich ---------- */
 .greeting {
   position: absolute;
-  top: 270px;
-  left: 400px;
+  top: 30vh;
+  left: 21vw;
   display: inline-flex;
-  width: 145px;
+  width: auto;
+  max-width: 100%;
   border-radius: 9999px;
   border: 1px solid #f8f9fa;
   text-align: center;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   transition: width 0.3s ease;
+  font-size: 1rem;
 
   &:hover {
     width: 218px;
@@ -537,63 +567,81 @@ header {
 /* ---------- Profilbild ---------- */
 .profile {
   position: absolute;
-  top: 40px;
-  right: 40px;
-}
-.profile-frame {
-  display: inline-block;
-  transform: rotate(10deg);
-  position: relative;
-  right: 360px;
-  top: 180px;
+  bottom: auto;
+  left: 67%;
+  transform: translateX(-50%) rotate(10deg);
   width: 203.57px;
   height: 244px;
-}
+  top: 22vh;
 
-.profile-photo {
-  position: absolute;
-  width: 203.57px;
-  height: 244px;
-  display: block;
-  transition: opacity 0.3s ease;
-}
+  .profile-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-.hover-img {
-  opacity: 0;
-}
+    .photo-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
 
-.profile-name {
-  position: absolute;
-  bottom: 16px;
-  font-family: "Kalam";
-  font-size: 18px;
-  text-align: center;
-  width: 100%;
-  color: #000;
-  font-weight: bold;
-}
+  .profile-photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+    transition: filter 75ms ease-in-out;
+  }
 
-/* Hover-Text standardmäßig ausblenden */
-.hover-text-frame {
-  display: none;
-}
+  .frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
 
-/* Beim Hover: Schwarzweiß-Bild ausblenden, Farb-Bild einblenden */
-.profile-frame:hover .default-img {
-  opacity: 0;
-}
+  /* Beim Hover den Graustufen-Filter entfernen */
+  .profile-frame:hover .profile-photo {
+    filter: grayscale(0%);
+  }
 
-.profile-frame:hover .hover-img {
-  opacity: 1;
-}
+  .profile-name {
+    position: absolute;
+    bottom: 16px;
+    font-family: "Kalam";
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    color: #000;
+    font-weight: bold;
+  }
 
-/* Text wechseln */
-.profile-frame:hover .default-text-frame {
-  display: none;
-}
+  /* Hover-Text standardmäßig ausblenden */
+  .hover-text-frame {
+    display: none;
+  }
 
-.profile-frame:hover .hover-text-frame {
-  display: inline;
+  /* Beim Hover: Schwarzweiß-Bild ausblenden, Farb-Bild einblenden */
+  .profile-frame:hover .default-img {
+    opacity: 0;
+  }
+
+  .profile-frame:hover .hover-img {
+    opacity: 1;
+  }
+
+  /* Text wechseln */
+  .profile-frame:hover .default-text-frame {
+    display: none;
+  }
+
+  .profile-frame:hover .hover-text-frame {
+    display: inline;
+  }
 }
 
 /* ---------- Button (Get in Touch) ---------- */
@@ -603,10 +651,11 @@ header {
   height: 44px;
   background: url("./../../../assets/buttons/get-In-Touch-Default.png")
     no-repeat center/cover;
-  transition: background 0.3s ease;
+  transition: background 75ms ease;
   position: relative;
-  left: 1010px;
-  top: 570px;
+  left: 60vw;
+  right: auto;
+  top: clamp(40vh, 60vh, 60vh);
 }
 
 .get-In-Touch:hover {
@@ -645,7 +694,7 @@ header {
       z-index: -1;
       border-radius: 50%;
       transform: translate(150%, 150%);
-      transition: all 0.4s ease-in-out;
+      transition: all 125ms ease-in-out;
     }
 
     &:hover {
@@ -674,4 +723,356 @@ header {
   border: 1px solid #f8f9fa;
   border-radius: 100px;
   padding: 3px;
+}
+
+// Mobile Menu Overlay
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: url("./../../../assets/backgrounds/header.png") no-repeat center
+    center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px 20px;
+  z-index: 999;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out,
+    visibility 0.4s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.mobile-menu.closing {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px 0 0;
+  margin-bottom: 40px;
+
+  .mobile-logo img {
+    width: 38.54px;
+    height: 40px;
+    cursor: pointer;
+    transition: filter 125ms ease;
+    filter: invert(40%) sepia(91%) saturate(2000%) hue-rotate(220deg);
+
+    &:hover {
+      filter: invert(60%) sepia(25%) saturate(700%) hue-rotate(130deg);
+    }
+  }
+
+  .close-btn {
+    background: transparent;
+    border: none;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 55px;
+  margin: 50px 0;
+
+  a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+.mobile-nav-links a.longpress-hover {
+  color: #24dd80;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.mobile-language-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+
+  button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    &.active {
+      color: #24dd80;
+    }
+  }
+
+  .toggle-container {
+    width: 45px;
+    height: 20px;
+
+    .toggle-switch img {
+      width: 100%;
+    }
+  }
+}
+
+.mobile-social-links {
+  display: flex;
+  gap: 20px;
+
+  .icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/*---------------------------------
+              TABLET 768PX
+  -----------------------------------*/
+
+@include respond-until(lg) {
+  .nav-links,
+  .language-switch,
+  .social-links {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
+  header {
+    padding: 10px 10px 10px;
+    background-size: cover;
+    background-position: center;
+    color: #f8f9fa;
+    font-family: "Bricolage";
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+  }
+
+  .greeting {
+    margin: 100px 0 0 20px;
+    width: fit-content;
+    font-size: 14px;
+    top: 0;
+  }
+
+  .title {
+    line-height: 136%;
+    margin: 100px 0;
+    font-size: 85px;
+    top: 20%;
+
+    .letter-big.letter-L:hover {
+      margin-right: -14px;
+    }
+
+    .letter-small:hover {
+      margin: 0 10px 0 0;
+    }
+
+    .letter-big {
+      margin: 0;
+    }
+
+    .letter-small {
+      margin: 0;
+    }
+
+    .frontend {
+      left: 0;
+    }
+
+    .developer {
+      left: 0;
+    }
+  }
+
+  .profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    left: 50%;
+    top: 50%;
+  }
+
+  .profile-frame {
+    position: static;
+  }
+
+  .get-In-Touch {
+    position: relative;
+    left: 57%;
+    top: -3%;
+  }
+}
+
+/*---------------------------------
+            MOBILE 320PX
+-----------------------------------*/
+
+@include respond-until(tablet) {
+  header {
+    padding: 10px 10px 10px;
+    background-size: cover;
+    background-position: center;
+    color: #f8f9fa;
+    font-family: "Bricolage";
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+  }
+
+  .greeting {
+    margin: 100px 0 0 0px;
+    width: fit-content;
+    font-size: 14px;
+    top: 5%;
+    left: 0;
+  }
+
+  .title {
+    line-height: 136%;
+    margin: 100px 0;
+    font-size: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .letter-big.letter-L:hover {
+      margin-right: -14px;
+    }
+
+    .letter-small:hover {
+      margin: 0 10px 0 0;
+    }
+
+    .letter-big {
+      margin: 0;
+    }
+
+    .letter-small {
+      margin: 0;
+    }
+
+    .frontend {
+      left: 0;
+    }
+
+    .developer {
+      left: 0;
+    }
+  }
+
+  .profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    left: 50%;
+    top: 50%;
+  }
+
+  .profile-frame {
+    position: static;
+  }
+
+  .get-In-Touch {
+    position: relative;
+    left: 48%;
+    top: 0%;
+  }
+}
+
+@include respond-until(md) {
+  // bis max 767px → mobile
+  .title {
+    font-size: 50px;
+  }
+
+  navbar {
+    padding: 0 30px;
+  }
+}
+
+@include respond-between($breakpoint-md, $breakpoint-lg - 1) {
+  // Tabletbereich exakt
+  .title {
+    font-size: 70px;
+  }
+}
+
+@include respond-between(1024px, 1440px) {
+  .title {
+    font-size: 80px;
+  }
+
+  .profile {
+    left: 71%;
+  }
+}
+
+@include respond-between(320px, 566px) {
+  .title {
+    left: 0;
+    transform: none;
+    text-align: left;
+    top: 10%;
+  }
+
+  .get-In-Touch {
+    left: 40%;
+    top: -70px;
+  }
+
+  .greeting {
+    left: 0;
+  }
+}
+
+@include respond-from(xxl) {
+  .title {
+    font-size: 124px;
+  }
+
+  .profile {
+    left: 72%;
+    top: 23%;
+  }
+
+  .greeting {
+    left: 20%;
+  }
+
+  .get-In-Touch {
+    left: 72%;
+    top: 62%;
+  }
 }

@@ -1,0 +1,102 @@
+<div class="mobile-header">
+  <!-- Logo links -->
+  <a (click)="goHome()" class="logo">
+    <img src="./../../assets/logo/ap-logo.png" alt="Logo" />
+  </a>
+  <!-- Close-X rechts -->
+  <button class="close-btn" (click)="goBack()" aria-label="Schließen">
+    <img src="./../../assets/icons/closeProject.png" alt="Close" />
+  </button>
+</div>
+
+<div class="privacy-policy-container">
+  <div class="navbar">
+    <a (click)="goHome()">
+      <img class="logo" src="./../../assets/logo/ap-logo.png" alt="Logo" />
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a class="about-link" (click)="scrollToSection('about-me')">
+        {{ "HEADER.NAV.ABOUT" | translate }}
+        <span class="underline_about"></span>
+      </a>
+      <a class="skills-link" (click)="scrollToSection('skills')">
+        {{ "HEADER.NAV.SKILLS" | translate }}
+        <span class="underline_skills"></span>
+      </a>
+      <a class="projects-link" (click)="scrollToSection('projects')">
+        {{ "HEADER.NAV.PROJECTS" | translate }}
+        <span class="underline_projects"></span>
+      </a>
+      <a class="contact-link" (click)="scrollToSection('contact')">
+        {{ "HEADER.NAV.CONTACT" | translate }}
+        <span class="underline_contact"></span>
+      </a>
+    </nav>
+
+    <!-- Sprachumschalter bleibt unverändert -->
+    <div class="language-switch">
+      <button
+        class="lang-btn en"
+        [class.active]="currentLanguage === 'en'"
+        (click)="switchLanguage('en')"
+      >
+        EN
+      </button>
+
+      <div class="toggle-container">
+        <div class="toggle-switch">
+          <img [src]="currentSwitchImage" alt="Toggle Switch" />
+        </div>
+      </div>
+
+      <button
+        class="lang-btn de"
+        [class.active]="currentLanguage === 'de'"
+        (click)="switchLanguage('de')"
+      >
+        DE
+      </button>
+    </div>
+  </div>
+
+  <div class="policyBack">
+    <a [routerLink]="['/']" class="go-back">
+      <img src="./../../assets/animations/breadcrumb_Arrow.png" alt="Go Back" />
+      <span>{{ 'LEGAL_NOTICE.GO_BACK' | translate }}</span>
+    </a>
+  </div>
+
+  <div class="privacy-policy-page">
+    <div class="privacy-policy-content">
+      <div class="privacyPolicyIn">
+        <h1>{{ "PRIVACY.TITLE" | translate }}</h1>
+
+        <h2>{{ "PRIVACY.INTRO.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.INTRO.TEXT' | translate"></p>
+
+        <h2>{{ "PRIVACY.INFO_COLLECTION.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.INFO_COLLECTION.TEXT' | translate"></p>
+
+        <h2>{{ "PRIVACY.USAGE.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.USAGE.TEXT' | translate"></p>
+
+        <h2>{{ "PRIVACY.COOKIES.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.COOKIES.TEXT' | translate"></p>
+
+        <h2>{{ "PRIVACY.DATA_SECURITY.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.DATA_SECURITY.TEXT' | translate"></p>
+
+        <h2>{{ "PRIVACY.RIGHTS.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.RIGHTS.TEXT' | translate"></p>
+
+        <h2>{{ "PRIVACY.CHANGES.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.CHANGES.TEXT' | translate"></p>
+
+        <h2>{{ "PRIVACY.CONTACT.TITLE" | translate }}</h2>
+        <p [innerHTML]="'PRIVACY.CONTACT.TEXT' | translate"></p>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

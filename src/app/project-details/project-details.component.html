@@ -1,0 +1,243 @@
+<div class="mobile-header">
+  <!-- Logo links -->
+  <a (click)="goHome()" class="logo">
+    <img src="./../../assets/logo/ap-logo.png" alt="Logo" />
+  </a>
+  <!-- Close-X rechts -->
+  <button class="close-btn" (click)="goBack()" aria-label="Schließen">
+    <img src="./../../assets/icons/closeProject.png" alt="Close" />
+  </button>
+</div>
+
+<div class="project-details-container">
+  <img
+    class="bg-rotated"
+    src="./../../assets/backgrounds/note_Book_Paper.png"
+    alt=""
+  />
+  <!-- Logo: Statt (click)="scrollToTop()" jetzt (click)="goHome()" -->
+  <div class="navbar">
+    <a (click)="goHome()">
+      <img class="logo" src="./../../assets/logo/ap-logo.png" alt="Logo" />
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a class="about-link" (click)="scrollToSection('about-me')">
+        {{ "HEADER.NAV.ABOUT" | translate }}
+        <span class="underline_about"></span>
+      </a>
+      <a class="skills-link" (click)="scrollToSection('skills')">
+        {{ "HEADER.NAV.SKILLS" | translate }}
+        <span class="underline_skills"></span>
+      </a>
+      <a class="projects-link" (click)="scrollToSection('projects')">
+        {{ "HEADER.NAV.PROJECTS" | translate }}
+        <span class="underline_projects"></span>
+      </a>
+      <a class="contact-link" (click)="scrollToSection('contact')">
+        {{ "HEADER.NAV.CONTACT" | translate }}
+        <span class="underline_contact"></span>
+      </a>
+    </nav>
+
+    <!-- Sprachumschalter bleibt unverändert -->
+    <div class="language-switch">
+      <button
+        class="lang-btn en"
+        [class.active]="currentLanguage === 'en'"
+        (click)="switchLanguage('en')"
+      >
+        EN
+      </button>
+
+      <div class="toggle-container">
+        <div class="toggle-switch">
+          <img [src]="currentSwitchImage" alt="Toggle Switch" />
+        </div>
+      </div>
+
+      <button
+        class="lang-btn de"
+        [class.active]="currentLanguage === 'de'"
+        (click)="switchLanguage('de')"
+      >
+        DE
+      </button>
+    </div>
+  </div>
+
+  <div class="details-content-wrapper" *ngIf="project">
+    <!-- Go Back: zurück zur Übersicht -->
+    <a [routerLink]="['/projects']" class="go-back">
+      <img src="./../../assets/animations/breadcrumb_Arrow.png" alt="Go Back" />
+      <span>{{ "PROJECT_DETAILS.GO_BACK" | translate }}</span>
+    </a>
+
+    <h1 class="project-title">
+      {{ project.title }}
+      <div
+        *ngIf="project.underlineImage && project.underlineWidth"
+        class="underline"
+        [ngStyle]="{
+          width: project.underlineWidth,
+          height: project.underlineHeight ? project.underlineHeight : '15px',
+          'background-image': 'url(' + project.underlineImage + ')',
+          'background-size': 'contain',
+          'background-repeat': 'no-repeat'
+        }"
+      ></div>
+    </h1>
+
+    <div class="project-info">
+      <!-- Linker Bereich -->
+      <div class="left-content">
+        <div class="description">
+          <h2 class="description-headline">
+            {{ "PROJECT_DETAILS.DESCRIPTION_HEADLINE" | translate }}
+          </h2>
+          <p class="project-description">
+            {{
+              project.id === "join"
+                ? ("PROJECTS.JOIN.DESCRIPTION" | translate)
+                : project.id === "elpolloloco"
+                ? ("PROJECTS.EL_POLLO_LOCO.DESCRIPTION" | translate)
+                : ("PROJECTS.DABUBBLE.DESCRIPTION" | translate)
+            }}
+          </p>
+        </div>
+
+        <div class="details">
+          <h2 class="implementation-headline">
+            {{ "PROJECT_DETAILS.IMPLEMENTATION_HEADLINE" | translate }}
+          </h2>
+          <p class="implementation-details">
+            {{ project.implementationDetails | translate }}
+          </p>
+        </div>
+
+        <p class="duration">
+          <strong>{{ "PROJECT_DETAILS.DURATION_LABEL" | translate }}</strong>
+          {{ project.duration | translate }}
+        </p>
+
+        <!-- Technologien -->
+        <ul class="technologies">
+          <li *ngFor="let tech of project.technologies">
+            <img
+              [src]="'assets/icons/' + tech.toLowerCase() + '.png'"
+              [alt]="tech"
+            />
+            {{ tech }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Rechter Bereich -->
+      <div class="right-content">
+        <!-- Projekt-Vorschau-Bild -->
+        <div class="project-preview">
+          <img [src]="project.image" [alt]="project.title" />
+        </div>
+
+        <ng-container *ngIf="project.id === 'join'; else stickerTemplate">
+          <div class="project-ring-container">
+            <!-- Hintergrund-Ring -->
+            <img
+              class="project-ring"
+              src="./../../assets/backgrounds/projects_ring.png"
+              alt="Project Ring"
+            />
+            <!-- Oberer Text: Featured Project -->
+            <svg viewBox="0 0 150 150" class="text-top">
+              <path
+                id="textPathTop"
+                fill="transparent"
+                d="M 75,75 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+              />
+              <text font-size="16" font-weight="600" fill="#f8f9fa">
+                <textPath href="#textPathTop" startOffset="8%">
+                  Featured Project
+                </textPath>
+              </text>
+            </svg>
+            <!-- Pfeil -->
+            <img
+              class="ring-icon"
+              src="./../../assets/animations/arrow_Right.png"
+              alt="Icon"
+            />
+            <!-- Unterer Text: Check all details -->
+            <svg viewBox="0 0 150 150" class="text-bottom">
+              <path
+                id="textPathBottom"
+                d="M 5,46 A 30,30 0 0,0 145,100"
+                fill="transparent"
+              />
+              <text font-size="16" fill="#f8f9fa">
+                <textPath href="#textPathBottom" startOffset="35%">
+                  Check all details
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </ng-container>
+
+        <ng-template #stickerTemplate>
+          <div class="sticker">
+            <img
+              src="./../../assets/logo/ap-logo.png"
+              alt="AP Logo"
+              class="sticker_logo"
+            />
+            <svg viewBox="0 0 200 200" class="circle-text">
+              <path
+                id="textPath"
+                fill="transparent"
+                d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+              />
+              <text>
+                <textPath href="#textPath">
+                  Anthony Pizzuti -- Frontend Developer --
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </ng-template>
+
+        <!-- Links: GitHub & Live Test -->
+        <div class="project-links">
+          <a class="gitHub" [href]="project.githubLink" target="_blank"
+            >GitHub</a
+          >
+          <a class="liveTest" [href]="project.liveLink" target="_blank"
+            >Live Test</a
+          >
+        </div>
+
+        <!-- Next Project -->
+        <div (click)="goToNextProject()" class="next-project">
+          {{ "PROJECT_DETAILS.NEXT_PROJECT" | translate }}
+          <img
+            src="./../../assets/animations/next_Project_Arrow.png"
+            alt="Next Project"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-buttons">
+    <a [routerLink]="['/projects']" class="go-back">
+      <img src="./../../assets/animations/breadcrumb_Arrow.png" alt="Go Back" />
+      <span>{{ "PROJECT_DETAILS.GO_BACK" | translate }}</span>
+    </a>
+
+    <div (click)="goToNextProject()" class="next-project">
+      {{ "PROJECT_DETAILS.NEXT_PROJECT" | translate }}
+      <img
+        src="./../../assets/animations/next_Project_Arrow.png"
+        alt="Next Project"
+      />
+    </div>
+  </div>
+</div>

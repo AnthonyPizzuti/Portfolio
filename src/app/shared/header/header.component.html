@@ -1,24 +1,38 @@
-<header>
-  <!-- Logo -->
+<header class="white-section">
+  <!-- Navbar -->
   <div class="navbar">
-    <a href="#" class="header-logo" (click)="scrollToTop()">
+    <!-- Logo -->
+    <a href="#" class="header-logo" (click)="scrollToTop(); goHome()">
       <img src="./../../assets/logo/ap-logo.png" alt="Logo" />
     </a>
 
-    <!-- Navigation -->
-    <nav class="nav-links">
-      <a href="#about" class="about-link"
-        >About Me <span class="underline_about"></span
-      ></a>
-      <a href="#skills" class="skills-link"
-        >Skills <span class="underline_skills"></span
-      ></a>
-      <a href="#projects" class="projects-link"
-        >Projects <span class="underline_projects"></span
-      ></a>
-      <a href="#contact" class="contact-link"
-        >Contact <span class="underline_contact"></span
-      ></a>
+    <!-- Hamburger Menu (nur ab Tablet sichtbar) -->
+    <button class="hamburger" (click)="toggleNav()">
+      <img
+        *ngIf="!isNavOpen"
+        src="./../../../assets/icons/mobileNavBar.png"
+        alt="Open Menu"
+      />
+    </button>
+
+    <!-- Navigation (wird per CSS standardmäßig ausgeblendet ab Tablet, erscheint bei open) -->
+    <nav class="nav-links" [class.open]="isNavOpen">
+      <a href="#about-me" class="about-link">
+        {{ "HEADER.NAV.ABOUT" | translate }}
+        <span class="underline_about"></span>
+      </a>
+      <a href="#skills" class="skills-link">
+        {{ "HEADER.NAV.SKILLS" | translate }}
+        <span class="underline_skills"></span>
+      </a>
+      <a href="#projects" class="projects-link">
+        {{ "HEADER.NAV.PROJECTS" | translate }}
+        <span class="underline_projects"></span>
+      </a>
+      <a href="#contact" class="contact-link">
+        {{ "HEADER.NAV.CONTACT" | translate }}
+        <span class="underline_contact"></span>
+      </a>
     </nav>
 
     <!-- Sprachumschalter -->
@@ -30,13 +44,11 @@
       >
         EN
       </button>
-
       <div class="toggle-container">
         <div class="toggle-switch">
           <img [src]="currentSwitchImage" alt="Toggle Switch" />
         </div>
       </div>
-
       <button
         class="lang-btn de"
         [class.active]="currentLanguage === 'de'"
@@ -47,10 +59,11 @@
     </div>
   </div>
 
+  <!-- Restlicher Header-Inhalt (Greeting, Title, Profile, Social-Links, etc.) -->
   <div class="greeting">
     <div class="bg-wrapper"></div>
-    <span class="normal-text">Hello World</span>
-    <span class="hover-text">I'M ANTHONY PIZZUTI</span>
+    <span class="normal-text">{{ "HEADER.GREETING.NORMAL" | translate }}</span>
+    <span class="hover-text">{{ "HEADER.GREETING.HOVER" | translate }}</span>
     <img
       src="./../../../assets/icons/waving_hand.png"
       alt="Waving Hand"
@@ -84,17 +97,25 @@
 
   <div class="profile">
     <div class="profile-frame">
-      <img
-        src="./../../../assets/img/polaroid_Frame.png"
-        alt="Profile Photo"
-        class="profile-photo"
-      />
-      <p class="profile-name">
-        <span class="default-text-frame">Anthony =)</span>
-        <span class="hover-text-frame">Anthony =D</span>
-      </p>
+      <div class="photo-wrapper">
+        <img
+          src="./../../../assets/img/me.png"
+          alt="Mein Profilfoto"
+          class="profile-photo"
+        />
+        <img
+          src="./../../../assets/img/polaroid_Frame.png"
+          alt="Profile Photo"
+          class="profile-photo"
+        />
+        <p class="profile-name">
+          <span class="default-text-frame">Anthony =)</span>
+          <span class="hover-text-frame">Anthony =D</span>
+        </p>
+      </div>
     </div>
   </div>
+
   <a href="#contact" class="get-In-Touch"></a>
 
   <div class="social-links">
@@ -123,5 +144,77 @@
     <a href="mailto:anthony.pizzuti@gmx.de" class="social-link">
       <img src="./../../assets/icons/mail.png" alt="Mail Icon" class="icon" />
     </a>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" [class.open]="isNavOpen">
+    <div class="mobile-menu-header">
+      <!-- Logo links -->
+      <a href="#" class="mobile-logo" (click)="scrollToTop(); goHome()">
+        <img src="./../../../assets/logo/ap-logo.png" alt="Logo" />
+      </a>
+
+      <!-- Close Button rechts -->
+      <button class="hamburger" (click)="toggleNav()">
+        <img src="./../../../assets/icons/mobileClose.png" alt="Close Menu" />
+      </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="mobile-nav-links">
+      <a href="#about-me" (click)="toggleNav()" appLongpressHover>{{
+        "HEADER.NAV.ABOUT" | translate
+      }}</a>
+      <a href="#skills" (click)="toggleNav()" appLongpressHover>{{
+        "HEADER.NAV.SKILLS" | translate
+      }}</a>
+      <a href="#projects" (click)="toggleNav()" appLongpressHover>{{
+        "HEADER.NAV.PROJECTS" | translate
+      }}</a>
+      <a href="#contact" (click)="toggleNav()" appLongpressHover>{{
+        "HEADER.NAV.CONTACT" | translate
+      }}</a>
+    </nav>
+
+    <!-- Sprache -->
+    <div class="mobile-language-switch">
+      <button
+        class="lang-btn en"
+        [class.active]="currentLanguage === 'en'"
+        (click)="switchLanguage('en')"
+      >
+        EN
+      </button>
+      <div class="toggle-container">
+        <div class="toggle-switch">
+          <img [src]="currentSwitchImage" alt="Toggle Switch" />
+        </div>
+      </div>
+      <button
+        class="lang-btn de"
+        [class.active]="currentLanguage === 'de'"
+        (click)="switchLanguage('de')"
+      >
+        DE
+      </button>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="mobile-social-links">
+      <a href="https://github.com/AnthonyPizzuti" target="_blank"
+        ><img src="./../../assets/icons/github.png" alt="GitHub" class="icon"
+      /></a>
+      <a
+        href="https://www.linkedin.com/in/anthony-pizzuti-6937b9355/"
+        target="_blank"
+        ><img
+          src="./../../../assets/icons/linkedin.png"
+          alt="LinkedIn"
+          class="icon"
+      /></a>
+      <a href="mailto:anthony.pizzuti@gmx.de"
+        ><img src="./../../assets/icons/mail.png" alt="Mail" class="icon"
+      /></a>
+    </div>
   </div>
 </header>
