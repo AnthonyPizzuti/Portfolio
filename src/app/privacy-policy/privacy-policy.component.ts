@@ -19,7 +19,10 @@ import { isPlatformBrowser, DOCUMENT } from '@angular/common';
   standalone: true,
   imports: [RouterModule, CommonModule, FooterComponent, TranslateModule],
   templateUrl: './privacy-policy.component.html',
-  styleUrls: ['./privacy-policy.component.scss'],
+  styleUrls: [
+    './privacy-policy.component.scss',
+    './privacy-policy.component.responsive.scss',
+  ],
 })
 export class PrivacyPolicyComponent implements OnInit, OnDestroy {
   privacyPolicyText: string = '';

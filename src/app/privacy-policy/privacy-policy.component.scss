@@ -3,15 +3,17 @@
 }
 
 .privacy-policy-container {
+  min-height: 100vh;
   padding: 20px 0 0 0;
   font-family: "Bricolage";
   background-image: url(./../../assets/backgrounds/header.png);
-  height: 200vh;
 }
 
-.privacy-policy-page {
+.privacy-policy-page.scrollable {
   display: flex;
-  padding: 50px 50px 80px;
+  padding: 50px;
+  overflow-y: auto;
+  flex-direction: column;
 }
 
 .policyBack {
@@ -66,7 +68,6 @@
   padding: 0 20px;
 }
 
-/* Logo mit Farbwechsel */
 .logo {
   width: 38.54px;
   height: 40px;
@@ -79,7 +80,6 @@
   }
 }
 
-/* Navigation */
 .nav-links {
   display: flex;
   gap: 150px;
@@ -92,7 +92,6 @@
     transition: color 0.3s ease-in-out;
   }
 
-  /* Spezifischer Effekt nur für About-Me */
   .about-link {
     position: relative;
     cursor: pointer;
@@ -122,7 +121,6 @@
     z-index: 1;
   }
 
-  /* Animation: Kreis entsteht von oben in der Mitte und erweitert sich */
   @keyframes drawCircle {
     0% {
       clip-path: circle(0% at 50% 0%);
@@ -139,7 +137,6 @@
     }
   }
 
-  /* Umkehrung der Animation */
   @keyframes eraseCircle {
     0% {
       clip-path: circle(100% at 50% 50%);
@@ -157,7 +154,6 @@
     }
   }
 
-  /* Spezifischer Effekt nur für Skills */
   .skills-link {
     position: relative;
     cursor: pointer;
@@ -186,7 +182,6 @@
     }
   }
 
-  /* Keyframes für das Einblenden */
   @keyframes arrowAppear {
     0% {
       clip-path: inset(0 100% 0 0);
@@ -196,7 +191,6 @@
     }
   }
 
-  /* Keyframes für das Rückwärts-Ausblenden */
   @keyframes arrowDisappear {
     0% {
       clip-path: inset(0 0 0 0);
@@ -206,7 +200,6 @@
     }
   }
 
-  /* Spezifischer Effekt nur für Projects */
   .projects-link {
     position: relative;
     cursor: pointer;
@@ -237,7 +230,6 @@
     }
   }
 
-  /* Keyframes für das Einblenden */
   @keyframes arrowAppear {
     0% {
       clip-path: inset(0 100% 0 0);
@@ -247,7 +239,6 @@
     }
   }
 
-  /* Keyframes für das Rückwärts-Ausblenden */
   @keyframes arrowDisappear {
     0% {
       clip-path: inset(0 0 0 0);
@@ -257,7 +248,6 @@
     }
   }
 
-  /* Spezifischer Effekt nur für Contact */
   .contact-link {
     position: relative;
     cursor: pointer;
@@ -287,7 +277,6 @@
   }
 }
 
-/* Keyframes für das Einblenden */
 @keyframes arrowAppear {
   0% {
     clip-path: inset(0 100% 0 0);
@@ -297,7 +286,6 @@
   }
 }
 
-/* Keyframes für das Rückwärts-Ausblenden */
 @keyframes arrowDisappear {
   0% {
     clip-path: inset(0 0 0 0);
@@ -307,7 +295,6 @@
   }
 }
 
-/* Sprachumschaltung */
 .language-switch {
   display: flex;
   align-items: center;
@@ -315,7 +302,6 @@
   position: relative;
 }
 
-/* EN & DE Buttons */
 .language-switch button {
   background: transparent;
   border: none;
@@ -335,7 +321,6 @@
   }
 }
 
-/* Aktive Sprache mit Hover-Effekt */
 .language-switch .lang-btn {
   position: relative;
   display: flex;
@@ -364,7 +349,6 @@
   background-image: url("./../../assets/animations/deutsch_Hover.png");
 }
 
-/* Keyframe für das Zeichnen des Hover-Kreises */
 @keyframes drawLangHover {
   0% {
     transform: translate(-50%, -50%) scale(0);
@@ -376,7 +360,6 @@
   }
 }
 
-/* Toggle Switch Animation */
 .toggle-container {
   position: relative;
   width: 45px;
@@ -432,31 +415,5 @@
       width: 24px;
       height: 24px;
     }
-  }
-}
-
-@media (max-width: 1024px) {
-  .privacy-policy-container {
-    overflow: hidden;
-  }
-  
-  .navbar,
-  .language-switch {
-    display: none !important;
-  }
-  .mobile-header {
-    display: flex;
-    .close-btn {
-      display: block;
-    }
-  }
-}
-
-@media (max-width: 490px) {
-  .mobile-header {
-    left: 0 !important;
-    right: 0 !important;
-    padding: 0 20px !important;
-    justify-content: space-between !important;
   }
 }

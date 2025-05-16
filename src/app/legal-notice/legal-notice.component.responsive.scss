@@ -1,0 +1,25 @@
+@media (max-width: 1024px) {
+  .legal-notice-container {
+    overflow: hidden;
+  }
+
+  .navbar,
+  .language-switch {
+    display: none !important;
+  }
+  .mobile-header {
+    display: flex;
+    .close-btn {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .mobile-header {
+    left: 0 !important;
+    right: 0 !important;
+    padding: 0 20px !important;
+    justify-content: space-between !important;
+  }
+}

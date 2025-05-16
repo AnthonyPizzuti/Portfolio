@@ -17,7 +17,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     HttpClientModule,
   ],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+  styleUrls: [
+    './contact.component.scss',
+    './contact.component.responsive.scss',
+  ],
 })
 export class ContactComponent {
   showSuccess = false;

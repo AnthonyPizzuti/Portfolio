@@ -10,7 +10,12 @@ import { LanguageService } from '../../services/language.service';
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: [
+    './header.component.scss',
+    './header.component.nav-links.scss',
+    './header.component.mobile-menu.scss',
+    './header.component.responsive.scss',
+  ],
 })
 export class HeaderComponent {
   constructor(

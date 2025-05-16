@@ -13,7 +13,11 @@ import { PLATFORM_ID, Inject } from '@angular/core';
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './project-details.component.html',
-  styleUrls: ['./project-details.component.scss'],
+  styleUrls: [
+    './project-details.component.scss',
+    './project-details.component.responsive.scss',
+    './project-details.component.nav-links.scss',
+  ],
 })
 export class ProjectDetailsComponent implements OnInit, OnDestroy {
   projectId: string = '';

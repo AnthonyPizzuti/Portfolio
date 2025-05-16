@@ -30,8 +30,13 @@
   </div>
 
   <div class="contact-form">
-    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-      <div class="input-container" [class.error]="isError">
+    <form
+      (ngSubmit)="onSubmit(contactForm)"
+      #contactForm="ngForm"
+      [ngFormOptions]="{ updateOn: 'blur' }"
+      novalidate
+    >
+      <div class="input-container" [class.error]="name.invalid && name.touched">
         <label for="name">{{ "CONTACT.FORM.NAME_LABEL" | translate }}</label>
         <input
           #name="ngModel"
@@ -50,7 +55,10 @@
         </span>
       </div>
 
-      <div class="input-container">
+      <div
+        class="input-container"
+        [class.error]="email.invalid && email.touched"
+      >
         <label for="email">{{ "CONTACT.FORM.EMAIL_LABEL" | translate }}</label>
         <input
           #email="ngModel"
@@ -70,7 +78,10 @@
           {{ "CONTACT.FORM.EMAIL_ERROR" | translate }}
         </span>
       </div>
-      <div class="input-container">
+      <div
+        class="input-container"
+        [class.error]="message.invalid && message.touched"
+      >
         <label for="message">{{
           "CONTACT.FORM.MESSAGE_LABEL" | translate
         }}</label>
@@ -93,14 +104,13 @@
         </span>
       </div>
       <div class="checkbox-button-container">
-        <!-- Checkbox -->
         <label class="checkbox-label">
           <input
             type="checkbox"
             id="privacy"
             name="privacy"
             [(ngModel)]="isChecked"
-            (change)="validateCheckbox()"
+            (change)="toggleCheckbox()"
           />
           <span class="custom-checkbox">
             <img [src]="getCheckboxImage()" alt="Checkbox state" />
@@ -112,12 +122,16 @@
             }}</a>
             {{ "CONTACT.FORM.CHECKBOX_PART2" | translate }}
           </span>
-          <p class="error-message" *ngIf="showError">
+          <p class="error-message" *ngIf="showError && !isChecked">
             {{ "CONTACT.FORM.ERROR" | translate }}
           </p>
         </label>
 
-        <button type="submit" class="send-btn" [disabled]="!isChecked">
+        <button
+          type="submit"
+          class="send-btn"
+          [disabled]="!contactForm.form.valid || !isChecked"
+        >
           Send
         </button>
       </div>

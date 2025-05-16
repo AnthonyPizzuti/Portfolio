@@ -1,0 +1,222 @@
+@import "./../../../styles.scss";
+
+@include respond-until(lg) {
+  .nav-links,
+  .language-switch,
+  .social-links {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
+  header {
+    padding: 10px 10px 10px;
+    background-size: cover;
+    background-position: center;
+    color: #f8f9fa;
+    font-family: "Bricolage";
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+  }
+
+  .greeting {
+    margin: 100px 0 0 20px;
+    width: fit-content;
+    font-size: 14px;
+    top: 0;
+  }
+
+  .title {
+    line-height: 136%;
+    margin: 100px 0;
+    font-size: 85px;
+    top: 20%;
+
+    .letter-big.letter-L:hover {
+      margin-right: -14px;
+    }
+
+    .letter-small:hover {
+      margin: 0 10px 0 0;
+    }
+
+    .letter-big {
+      margin: 0;
+    }
+
+    .letter-small {
+      margin: 0;
+    }
+
+    .frontend {
+      left: 0;
+    }
+
+    .developer {
+      left: 0;
+    }
+  }
+
+  .profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    left: 50%;
+    top: 50%;
+  }
+
+  .profile-frame {
+    position: static;
+  }
+
+  .get-In-Touch {
+    position: relative;
+    left: 57%;
+    top: -3%;
+  }
+}
+
+@include respond-until(tablet) {
+  header {
+    padding: 10px 10px 10px;
+    background-size: cover;
+    background-position: center;
+    color: #f8f9fa;
+    font-family: "Bricolage";
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+  }
+
+  .greeting {
+    margin: 100px 0 0 0px;
+    width: fit-content;
+    font-size: 14px;
+    top: 5%;
+    left: 0;
+  }
+
+  .title {
+    line-height: 136%;
+    margin: 100px 0;
+    font-size: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .letter-big.letter-L:hover {
+      margin-right: -14px;
+    }
+
+    .letter-small:hover {
+      margin: 0 10px 0 0;
+    }
+
+    .letter-big {
+      margin: 0;
+    }
+
+    .letter-small {
+      margin: 0;
+    }
+
+    .frontend {
+      left: 0;
+    }
+
+    .developer {
+      left: 0;
+    }
+  }
+
+  .profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    left: 50%;
+    top: 50%;
+  }
+
+  .profile-frame {
+    position: static;
+  }
+
+  .get-In-Touch {
+    position: relative;
+    left: 48%;
+    top: 0%;
+  }
+}
+
+@include respond-until(md) {
+  .title {
+    font-size: 50px;
+  }
+
+  navbar {
+    padding: 0 30px;
+  }
+}
+
+@include respond-between($breakpoint-md, $breakpoint-lg - 1) {
+  .title {
+    font-size: 70px;
+  }
+}
+
+@include respond-between(1024px, 1440px) {
+  .title {
+    font-size: 80px;
+  }
+
+  .profile {
+    left: 71%;
+  }
+}
+
+@include respond-between(320px, 566px) {
+  .title {
+    left: 0;
+    transform: none;
+    text-align: left;
+    top: 10%;
+  }
+
+  .get-In-Touch {
+    left: 40%;
+    top: -60px;
+  }
+
+  .greeting {
+    left: 0;
+  }
+}
+
+@include respond-from(xxl) {
+  .title {
+    font-size: 124px;
+  }
+
+  .profile {
+    left: 72%;
+    top: 23%;
+  }
+
+  .greeting {
+    left: 20%;
+  }
+
+  .get-In-Touch {
+    left: 72%;
+    top: 62%;
+  }
+}

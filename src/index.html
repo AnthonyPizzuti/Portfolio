@@ -9,23 +9,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- 1) Fallback für ältere Browser: schwarzes AP-Icon -->
-    <link rel="icon" type="image/png" href="/assets/logo/ap-logo.png" />
-
-    <!-- 2) Light-Mode (heller Hintergrund): schwarzes AP-Icon -->
     <link
+      id="favicon"
       rel="icon"
       type="image/png"
       href="/assets/logo/ap-logo.png"
-      media="(prefers-color-scheme: light)"
     />
 
-    <!-- 3) Dark-Mode (dunkler Hintergrund): weißes AP-Icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/logo/apLogoHell.png"
-      media="(prefers-color-scheme: dark)"
-    />
+    <script defer>
+      const setFavicon = () => {
+        const lightHref = "/assets/logo/ap-logo.png";
+        const darkHref = "/assets/logo/apLogoHell.png";
+        const link = document.getElementById("favicon");
+        if (link) {
+          link.href = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? darkHref
+            : lightHref;
+        }
+      };
+      setFavicon();
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", setFavicon);
+    </script>
   </head>
   <body>
     <app-root></app-root>

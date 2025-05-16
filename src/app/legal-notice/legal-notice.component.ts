@@ -14,7 +14,10 @@ import { isPlatformBrowser, DOCUMENT } from '@angular/common';
   standalone: true,
   imports: [CommonModule, RouterModule, FooterComponent, TranslateModule],
   templateUrl: './legal-notice.component.html',
-  styleUrls: ['./legal-notice.component.scss'],
+  styleUrls: [
+    './legal-notice.component.scss',
+    './legal-notice.component.responsive.scss',
+  ],
 })
 export class LegalNoticeComponent implements OnInit, OnDestroy {
   legalNoticeText: SafeHtml = '';

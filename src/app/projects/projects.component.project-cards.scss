@@ -1,0 +1,185 @@
+@import "./../../styles.scss";
+@import "./projects.component.responsive.scss";
+
+.three-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.card-wrapper {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  overflow: visible;
+}
+
+.card-wrapper:not(:first-child) {
+  margin-left: -100px;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1;
+
+  &:hover {
+    z-index: 10;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("./../../assets/backgrounds/line.png") no-repeat
+      center/cover;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.testimonial-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #0e1013;
+  text-align: center;
+  width: 90%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.name-role {
+  color: #0e1013;
+  margin: 0 0 20px 20px;
+  z-index: 2;
+
+  strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  span {
+    font-size: 0.875rem;
+  }
+}
+
+.card:hover .name-role {
+  color: #fff;
+}
+
+.linkedin-icon {
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .in-default,
+  .in-hover {
+    width: 24px;
+    height: auto;
+  }
+
+  .in-default {
+    opacity: 1;
+    transition: opacity 125ms;
+  }
+
+  .in-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 125ms;
+  }
+
+  &:hover .in-default {
+    opacity: 0;
+  }
+  &:hover .in-hover {
+    opacity: 1;
+  }
+  &:hover span {
+    color: #fff;
+  }
+}
+
+.linkedin-icon span {
+  margin-left: 4px;
+  font-size: 0.875rem;
+  color: #0e1013;
+  transition: color 125ms;
+}
+
+.card-1 {
+  transform: translate(-30%, -55%) rotate(-10deg);
+  width: 512px;
+  height: 320px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card-2 {
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 512px;
+  height: 320px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card-3 {
+  transform: translate(-50%, -55%) rotate(10deg);
+  width: 512px;
+  height: 320px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
