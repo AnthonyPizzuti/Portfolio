@@ -1,18 +1,23 @@
 @import "./../../styles.scss";
 
 .about-me {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 50px;
-  font-family: "Bricolage";
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
   background: #ffffff;
-  height: 80vh;
+  padding: 100px 5vw;
+  font-family: "Bricolage";
+  overflow: hidden;
 }
 
-.about-container {
+.about-me .about-container {
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
-  width: 100%;
+  justify-content: center;
   align-items: center;
   gap: 100px;
 }

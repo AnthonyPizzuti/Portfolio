@@ -64,39 +64,42 @@
   <div class="policyBack">
     <a [routerLink]="['/']" class="go-back">
       <img src="./../../assets/animations/breadcrumb_Arrow.png" alt="Go Back" />
-      <span>{{ 'LEGAL_NOTICE.GO_BACK' | translate }}</span>
+      <span>{{ "LEGAL_NOTICE.GO_BACK" | translate }}</span>
     </a>
   </div>
 
-  <div class="privacy-policy-page scrollable">
-    <div class="privacy-policy-content">
-      <div class="privacyPolicyIn">
-        <h1>{{ "PRIVACY.TITLE" | translate }}</h1>
+  <div class="container">
+    <div class="privacy-policy-page scrollable">
+      <div class="privacy-policy-content">
+        <div class="privacyPolicyIn">
+          <h1>{{ "PRIVACY.TITLE" | translate }}</h1>
 
-        <h2>{{ "PRIVACY.INTRO.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.INTRO.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.INTRO.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.INTRO.TEXT' | translate"></p>
 
-        <h2>{{ "PRIVACY.INFO_COLLECTION.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.INFO_COLLECTION.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.INFO_COLLECTION.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.INFO_COLLECTION.TEXT' | translate"></p>
 
-        <h2>{{ "PRIVACY.USAGE.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.USAGE.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.USAGE.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.USAGE.TEXT' | translate"></p>
 
-        <h2>{{ "PRIVACY.COOKIES.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.COOKIES.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.COOKIES.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.COOKIES.TEXT' | translate"></p>
 
-        <h2>{{ "PRIVACY.DATA_SECURITY.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.DATA_SECURITY.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.DATA_SECURITY.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.DATA_SECURITY.TEXT' | translate"></p>
 
-        <h2>{{ "PRIVACY.RIGHTS.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.RIGHTS.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.RIGHTS.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.RIGHTS.TEXT' | translate"></p>
 
-        <h2>{{ "PRIVACY.CHANGES.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.CHANGES.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.CHANGES.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.CHANGES.TEXT' | translate"></p>
 
-        <h2>{{ "PRIVACY.CONTACT.TITLE" | translate }}</h2>
-        <p [innerHTML]="'PRIVACY.CONTACT.TEXT' | translate"></p>
+          <h2>{{ "PRIVACY.CONTACT.TITLE" | translate }}</h2>
+          <p [innerHTML]="'PRIVACY.CONTACT.TEXT' | translate"></p>
+        </div>
       </div>
     </div>
   </div>
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</div>

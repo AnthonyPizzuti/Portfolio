@@ -67,48 +67,52 @@
     </a>
   </div>
   <div class="legal-notice-page">
-    <div class="legal-notice-content">
-      <h1>{{ "LEGAL_NOTICE.TITLE" | translate }}</h1>
-      <h2 id="m46">{{ "LEGAL_NOTICE.SERVICE_PROVIDER.TITLE" | translate }}</h2>
-      <p>{{ "LEGAL_NOTICE.SERVICE_PROVIDER.NAME" | translate }}</p>
-      <p>{{ "LEGAL_NOTICE.SERVICE_PROVIDER.ADDRESS" | translate }}</p>
-      <p>{{ "LEGAL_NOTICE.SERVICE_PROVIDER.CITY" | translate }}</p>
-      <h2 id="m56">
-        {{ "LEGAL_NOTICE.CONTACT_INFORMATION.TITLE" | translate }}
-      </h2>
-      <p>
-        {{ "LEGAL_NOTICE.CONTACT_INFORMATION.EMAIL_LABEL" | translate }}
-        <a
-          href="mailto:{{
-            'LEGAL_NOTICE.CONTACT_INFORMATION.EMAIL' | translate
-          }}"
-        >
-          {{ "LEGAL_NOTICE.CONTACT_INFORMATION.EMAIL" | translate }}
-        </a>
-      </p>
-      <p>
-        {{ "LEGAL_NOTICE.CONTACT_INFORMATION.TELEPHONE_LABEL" | translate }}
-        {{ "LEGAL_NOTICE.CONTACT_INFORMATION.TELEPHONE" | translate }}
-      </p>
-      <h2 id="m172">{{ "LEGAL_NOTICE.SOCIAL_MEDIA.TITLE" | translate }}</h2>
-      <p>{{ "LEGAL_NOTICE.SOCIAL_MEDIA.INFO" | translate }}</p>
-      <p>
-        <a
-          href="{{ 'LEGAL_NOTICE.SOCIAL_MEDIA.GITHUB' | translate }}"
-          target="_blank"
-        >
-          {{ "LEGAL_NOTICE.SOCIAL_MEDIA.GITHUB" | translate }}
-        </a>
-      </p>
-      <p>
-        <a
-          href="{{ 'LEGAL_NOTICE.SOCIAL_MEDIA.LINKEDIN' | translate }}"
-          target="_blank"
-        >
-          {{ "LEGAL_NOTICE.SOCIAL_MEDIA.LINKEDIN" | translate }}
-        </a>
-      </p>
+    <div class="container">
+      <div class="legal-notice-content">
+        <h1>{{ "LEGAL_NOTICE.TITLE" | translate }}</h1>
+        <h2 id="m46">
+          {{ "LEGAL_NOTICE.SERVICE_PROVIDER.TITLE" | translate }}
+        </h2>
+        <p>{{ "LEGAL_NOTICE.SERVICE_PROVIDER.NAME" | translate }}</p>
+        <p>{{ "LEGAL_NOTICE.SERVICE_PROVIDER.ADDRESS" | translate }}</p>
+        <p>{{ "LEGAL_NOTICE.SERVICE_PROVIDER.CITY" | translate }}</p>
+        <h2 id="m56">
+          {{ "LEGAL_NOTICE.CONTACT_INFORMATION.TITLE" | translate }}
+        </h2>
+        <p>
+          {{ "LEGAL_NOTICE.CONTACT_INFORMATION.EMAIL_LABEL" | translate }}
+          <a
+            href="mailto:{{
+              'LEGAL_NOTICE.CONTACT_INFORMATION.EMAIL' | translate
+            }}"
+          >
+            {{ "LEGAL_NOTICE.CONTACT_INFORMATION.EMAIL" | translate }}
+          </a>
+        </p>
+        <p>
+          {{ "LEGAL_NOTICE.CONTACT_INFORMATION.TELEPHONE_LABEL" | translate }}
+          {{ "LEGAL_NOTICE.CONTACT_INFORMATION.TELEPHONE" | translate }}
+        </p>
+        <h2 id="m172">{{ "LEGAL_NOTICE.SOCIAL_MEDIA.TITLE" | translate }}</h2>
+        <p>{{ "LEGAL_NOTICE.SOCIAL_MEDIA.INFO" | translate }}</p>
+        <p>
+          <a
+            href="{{ 'LEGAL_NOTICE.SOCIAL_MEDIA.GITHUB' | translate }}"
+            target="_blank"
+          >
+            {{ "LEGAL_NOTICE.SOCIAL_MEDIA.GITHUB" | translate }}
+          </a>
+        </p>
+        <p>
+          <a
+            href="{{ 'LEGAL_NOTICE.SOCIAL_MEDIA.LINKEDIN' | translate }}"
+            target="_blank"
+          >
+            {{ "LEGAL_NOTICE.SOCIAL_MEDIA.LINKEDIN" | translate }}
+          </a>
+        </p>
+      </div>
     </div>
   </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

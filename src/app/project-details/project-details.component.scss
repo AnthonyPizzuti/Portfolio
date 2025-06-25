@@ -3,9 +3,14 @@
 
 .project-details-container {
   position: relative;
-  background-color: #1d1d1d;
-  padding: 20px 50px 0;
   font-family: "Bricolage";
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #1d1d1d;
+  padding: 20px 5vw 0;
+  overflow: hidden;
   height: 100vh;
 
   > * {
@@ -29,6 +34,14 @@
   .bg-rotated {
     display: none;
   }
+}
+
+.project-details-container .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .navbar,
@@ -106,10 +119,10 @@ h1 {
 }
 
 .project-info {
-  max-width: 1450px;
+  max-width: 1440px;
   padding: 65px 0 15px 45px;
   display: flex;
-  gap: 180px;
+  gap: 240px;
 
   .left-content {
     flex: 1;

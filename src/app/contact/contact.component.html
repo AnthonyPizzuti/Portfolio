@@ -1,143 +1,153 @@
 <section id="contact" class="contact-section white-section">
-  <div class="contact-text">
-    <h3>{{ "CONTACT.TITLE" | translate }}</h3>
-    <h1>{{ "CONTACT.SUBTITLE" | translate }}</h1>
-    <p>{{ "CONTACT.PARAGRAPH_1" | translate }}</p>
-    <p>{{ "CONTACT.PARAGRAPH_2" | translate }}</p>
-    <div class="arrow-container">
-      <img
-        src="./../../assets/animations/arrow_hover.png"
-        alt="Yellow Arrow"
-        class="arrow-yellow"
-      />
+  <div class="container">
+    <div class="contact-text">
+      <h3>{{ "CONTACT.TITLE" | translate }}</h3>
+      <h1>{{ "CONTACT.SUBTITLE" | translate }}</h1>
+      <p>{{ "CONTACT.PARAGRAPH_1" | translate }}</p>
+      <p>{{ "CONTACT.PARAGRAPH_2" | translate }}</p>
+      <div class="arrow-container">
+        <img
+          src="./../../assets/animations/arrow_hover.png"
+          alt="Yellow Arrow"
+          class="arrow-yellow"
+        />
+      </div>
     </div>
-  </div>
 
-  <div class="sticker">
-    <img src="./../../assets/logo/ap-logo.png" alt="AP Logo" class="logo" />
-    <svg viewBox="0 0 200 200" class="circle-text">
-      <path
-        id="textPath"
-        fill="transparent"
-        d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-      />
-      <text>
-        <textPath href="#textPath">
-          Anthony Pizzuti -- Frontend Developer --
-        </textPath>
-      </text>
-    </svg>
-  </div>
 
-  <div class="contact-form">
-    <form
-      (ngSubmit)="onSubmit(contactForm)"
-      #contactForm="ngForm"
-      [ngFormOptions]="{ updateOn: 'blur' }"
-      novalidate
-    >
-      <div class="input-container" [class.error]="name.invalid && name.touched">
-        <label for="name">{{ "CONTACT.FORM.NAME_LABEL" | translate }}</label>
-        <input
-          #name="ngModel"
-          [(ngModel)]="contactData.name"
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your name goes here"
-          required
-        />
-        <span
-          *ngIf="!name.valid && name.touched && !name.disabled"
-          class="error-message"
-        >
-          {{ "CONTACT.FORM.NAME_ERROR" | translate }}
-        </span>
-      </div>
-
-      <div
-        class="input-container"
-        [class.error]="email.invalid && email.touched"
-      >
-        <label for="email">{{ "CONTACT.FORM.EMAIL_LABEL" | translate }}</label>
-        <input
-          #email="ngModel"
-          [(ngModel)]="contactData.email"
-          type="email"
-          id="email"
-          name="email"
-          placeholder="youremail@email.com"
-          required
-          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-        />
-
-        <span
-          *ngIf="!email.valid && email.touched && !email.disabled"
-          class="error-message"
-        >
-          {{ "CONTACT.FORM.EMAIL_ERROR" | translate }}
-        </span>
-      </div>
-      <div
-        class="input-container"
-        [class.error]="message.invalid && message.touched"
-      >
-        <label for="message">{{
-          "CONTACT.FORM.MESSAGE_LABEL" | translate
-        }}</label>
-        <textarea
-          #message="ngModel"
-          minlength="4"
-          [(ngModel)]="contactData.message"
-          id="message"
-          name="message"
-          placeholder="Write something.."
-          style="height: 40px"
-          required
-        ></textarea>
-
-        <span
-          *ngIf="!message.valid && message.touched && !message.disabled"
-          class="error-message"
-        >
-          {{ "CONTACT.FORM.MESSAGE_ERROR" | translate }}
-        </span>
-      </div>
-      <div class="checkbox-button-container">
-        <label class="checkbox-label">
-          <input
-            type="checkbox"
-            id="privacy"
-            name="privacy"
-            [(ngModel)]="isChecked"
-            (change)="toggleCheckbox()"
+      <div class="sticker">
+        <img src="./../../assets/logo/ap-logo.png" alt="AP Logo" class="logo" />
+        <svg viewBox="0 0 200 200" class="circle-text">
+          <path
+            id="textPath"
+            fill="transparent"
+            d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
           />
-          <span class="custom-checkbox">
-            <img [src]="getCheckboxImage()" alt="Checkbox state" />
-          </span>
-          <span>
-            {{ "CONTACT.FORM.CHECKBOX_PART1" | translate }}
-            <a routerLink="/privacy-policy">{{
-              "CONTACT.FORM.PRIVACY_LINK" | translate
-            }}</a>
-            {{ "CONTACT.FORM.CHECKBOX_PART2" | translate }}
-          </span>
-          <p class="error-message" *ngIf="showError && !isChecked">
-            {{ "CONTACT.FORM.ERROR" | translate }}
-          </p>
-        </label>
-
-        <button
-          type="submit"
-          class="send-btn"
-          [disabled]="!contactForm.form.valid || !isChecked"
-        >
-          Send
-        </button>
+          <text>
+            <textPath href="#textPath">
+              Anthony Pizzuti -- Frontend Developer --
+            </textPath>
+          </text>
+        </svg>
       </div>
-    </form>
-    <div *ngIf="showSuccess" class="success-message">
-      {{ "CONTACT.FORM.SUCCESS_MESSAGE" | translate }}
+
+      <div class="contact-form">
+        <form
+          (ngSubmit)="onSubmit(contactForm)"
+          #contactForm="ngForm"
+          [ngFormOptions]="{ updateOn: 'blur' }"
+          novalidate
+        >
+          <div
+            class="input-container"
+            [class.error]="name.invalid && name.touched"
+          >
+            <label for="name">{{
+              "CONTACT.FORM.NAME_LABEL" | translate
+            }}</label>
+            <input
+              #name="ngModel"
+              [(ngModel)]="contactData.name"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name goes here"
+              required
+            />
+            <span
+              *ngIf="!name.valid && name.touched && !name.disabled"
+              class="error-message"
+            >
+              {{ "CONTACT.FORM.NAME_ERROR" | translate }}
+            </span>
+          </div>
+
+          <div
+            class="input-container"
+            [class.error]="email.invalid && email.touched"
+          >
+            <label for="email">{{
+              "CONTACT.FORM.EMAIL_LABEL" | translate
+            }}</label>
+            <input
+              #email="ngModel"
+              [(ngModel)]="contactData.email"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="youremail@email.com"
+              required
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+            />
+
+            <span
+              *ngIf="!email.valid && email.touched && !email.disabled"
+              class="error-message"
+            >
+              {{ "CONTACT.FORM.EMAIL_ERROR" | translate }}
+            </span>
+          </div>
+          <div
+            class="input-container"
+            [class.error]="message.invalid && message.touched"
+          >
+            <label for="message">{{
+              "CONTACT.FORM.MESSAGE_LABEL" | translate
+            }}</label>
+            <textarea
+              #message="ngModel"
+              minlength="4"
+              [(ngModel)]="contactData.message"
+              id="message"
+              name="message"
+              placeholder="Write something.."
+              style="height: 40px"
+              required
+            ></textarea>
+
+            <span
+              *ngIf="!message.valid && message.touched && !message.disabled"
+              class="error-message"
+            >
+              {{ "CONTACT.FORM.MESSAGE_ERROR" | translate }}
+            </span>
+          </div>
+          <div class="checkbox-button-container">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy"
+                [(ngModel)]="isChecked"
+                (change)="toggleCheckbox()"
+              />
+              <span class="custom-checkbox">
+                <img [src]="getCheckboxImage()" alt="Checkbox state" />
+              </span>
+              <span>
+                {{ "CONTACT.FORM.CHECKBOX_PART1" | translate }}
+                <a routerLink="/privacy-policy">{{
+                  "CONTACT.FORM.PRIVACY_LINK" | translate
+                }}</a>
+                {{ "CONTACT.FORM.CHECKBOX_PART2" | translate }}
+              </span>
+              <p class="error-message" *ngIf="showError && !isChecked">
+                {{ "CONTACT.FORM.ERROR" | translate }}
+              </p>
+            </label>
+
+            <button
+              type="submit"
+              class="send-btn"
+              [disabled]="!contactForm.form.valid || !isChecked"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+        <div *ngIf="showSuccess" class="success-message">
+          {{ "CONTACT.FORM.SUCCESS_MESSAGE" | translate }}
+        </div>
+      </div>
     </div>
-  </div>
 </section>

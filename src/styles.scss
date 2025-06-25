@@ -22,6 +22,7 @@ body{
     background: black;
     height: 100vh;
     max-width: 1920px;
+    overflow-x: hidden;
 }
 
 body.no-body-padding {
@@ -152,4 +153,18 @@ $breakpoint-xxl: 1660px;
     border-radius: 8px;
     z-index: 9999;
   }
+}
+
+@mixin section-bg($bg, $padding: 5vw) {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background: $bg;
+  background-size: cover;
+  background-position: center;
+
+  padding: $padding;
 }

@@ -1,16 +1,27 @@
 @import "./../../../styles.scss";
 
 .footer {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-image: url(./../../../assets/backgrounds/footer.png);
+  background-size: cover;
+  background-position: center;
+  padding: 20px 5vw;
+  font-family: "Bricolage";
+  color: #f8f9fa;
+  height: auto;
+}
+
+.footer .container {
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px 20px;
-  color: #f8f9fa;
-  font-size: 14px;
-  position: relative;
-  background-image: url(./../../../assets/backgrounds/footer.png);
-  height: 20vh;
-  font-family: "Bricolage";
+  gap: 40px;
 }
 
 .footer-left {

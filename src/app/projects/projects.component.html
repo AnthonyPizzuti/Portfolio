@@ -1,260 +1,262 @@
 <section id="projects" class="projects-section white-section">
-  <div class="projects-content">
-    <span>{{ "PROJECTS.HEADER.CRAFT" | translate }}</span>
-    <h2>{{ "PROJECTS.HEADER.TITLE" | translate }}</h2>
-    <div class="project-animation">
-      <img
-        class="projects-scribble"
-        src="./../../assets/animations/projects.png"
-        alt="Projects Scribble"
-      />
-      <p>{{ "PROJECTS.HEADER.ANIMATION_TEXT" | translate }}</p>
-    </div>
-  </div>
-
-  <div class="mobile-projects-wrapper">
-    <div class="laptop-container">
-      <div class="project-wrapper">
+  <div class="container">
+    <div class="projects-content">
+      <span>{{ "PROJECTS.HEADER.CRAFT" | translate }}</span>
+      <h2>{{ "PROJECTS.HEADER.TITLE" | translate }}</h2>
+      <div class="project-animation">
         <img
-          src="./../../assets/animations/laptop_Default.png"
-          alt="Laptop Default"
-          class="laptop"
+          class="projects-scribble"
+          src="./../../assets/animations/projects.png"
+          alt="Projects Scribble"
         />
-        <div class="laptop-overlay"></div>
+        <p>{{ "PROJECTS.HEADER.ANIMATION_TEXT" | translate }}</p>
+      </div>
+    </div>
+
+    <div class="mobile-projects-wrapper">
+      <div class="laptop-container">
+        <div class="project-wrapper">
+          <img
+            src="./../../assets/animations/laptop_Default.png"
+            alt="Laptop Default"
+            class="laptop"
+          />
+          <div class="laptop-overlay"></div>
+          <a
+            [routerLink]="['/projects', 'join']"
+            class="project-join-btn desktop-only"
+          >
+            {{ "PROJECTS.JOIN.DETAILS_BTN" | translate }}
+          </a>
+
+          <div class="project-ring-container">
+            <!-- Hintergrund-Ring -->
+            <img
+              class="project-ring"
+              src="./../../assets/backgrounds/projects_ring.png"
+              alt="Project Ring"
+            />
+            <!-- Oberer Text: Featured Project -->
+            <svg viewBox="0 0 150 150" class="text-top">
+              <path
+                id="textPathTop"
+                fill="transparent"
+                d="M 75,75 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+              />
+              <text font-size="16" font-weight="600" fill="#f8f9fa">
+                <textPath href="#textPathTop" startOffset="8%">
+                  Featured Project
+                </textPath>
+              </text>
+            </svg>
+            <!-- Pfeil -->
+            <img
+              class="ring-icon"
+              src="./../../assets/animations/arrow_Right.png"
+              alt="Icon"
+            />
+            <!-- Unterer Text: Check all details -->
+            <svg viewBox="0 0 150 150" class="text-bottom">
+              <path
+                id="textPathBottom"
+                d="M 5,46 A 30,30 0 0,0 145,100"
+                fill="transparent"
+              />
+              <text font-size="16" fill="#f8f9fa">
+                <textPath href="#textPathBottom" startOffset="35%">
+                  Check all details
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </div>
+        <h3 class="project-titleJoin">Join</h3>
+        <p class="project-description">
+          {{ "PROJECTS.JOIN.DESCRIPTION" | translate }}
+        </p>
         <a
           [routerLink]="['/projects', 'join']"
-          class="project-join-btn desktop-only"
+          class="project-join-btn mobile-only"
         >
           {{ "PROJECTS.JOIN.DETAILS_BTN" | translate }}
         </a>
-
-        <div class="project-ring-container">
-          <!-- Hintergrund-Ring -->
-          <img
-            class="project-ring"
-            src="./../../assets/backgrounds/projects_ring.png"
-            alt="Project Ring"
-          />
-          <!-- Oberer Text: Featured Project -->
-          <svg viewBox="0 0 150 150" class="text-top">
-            <path
-              id="textPathTop"
-              fill="transparent"
-              d="M 75,75 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
-            />
-            <text font-size="16" font-weight="600" fill="#f8f9fa">
-              <textPath href="#textPathTop" startOffset="8%">
-                Featured Project
-              </textPath>
-            </text>
-          </svg>
-          <!-- Pfeil -->
-          <img
-            class="ring-icon"
-            src="./../../assets/animations/arrow_Right.png"
-            alt="Icon"
-          />
-          <!-- Unterer Text: Check all details -->
-          <svg viewBox="0 0 150 150" class="text-bottom">
-            <path
-              id="textPathBottom"
-              d="M 5,46 A 30,30 0 0,0 145,100"
-              fill="transparent"
-            />
-            <text font-size="16" fill="#f8f9fa">
-              <textPath href="#textPathBottom" startOffset="35%">
-                Check all details
-              </textPath>
-            </text>
-          </svg>
-        </div>
       </div>
-      <h3 class="project-titleJoin">Join</h3>
-      <p class="project-description">
-        {{ "PROJECTS.JOIN.DESCRIPTION" | translate }}
-      </p>
-      <a
-        [routerLink]="['/projects', 'join']"
-        class="project-join-btn mobile-only"
-      >
-        {{ "PROJECTS.JOIN.DETAILS_BTN" | translate }}
-      </a>
-    </div>
 
-    <div class="projects-row">
-      <!-- Projekt 2: El Pollo Loco -->
-      <div class="project-card">
-        <div class="project-wrapper">
-          <img
-            src="./../../assets/animations/el_Pollo_Loco.png"
-            alt="elpolloloco_default"
-            class="project-image"
-          />
-          <div class="project-overlay"></div>
+      <div class="projects-row">
+        <!-- Projekt 2: El Pollo Loco -->
+        <div class="project-card">
+          <div class="project-wrapper">
+            <img
+              src="./../../assets/animations/el_Pollo_Loco.png"
+              alt="elpolloloco_default"
+              class="project-image"
+            />
+            <div class="project-overlay"></div>
+            <a
+              [routerLink]="['/projects', 'elpolloloco']"
+              class="project-elpolloloco-btn desktop-only"
+            >
+              {{ "PROJECTS.EL_POLLO_LOCO.DETAILS_BTN" | translate }}
+            </a>
+          </div>
+          <h3 class="project-title">El Pollo Loco</h3>
+          <p class="project-description">
+            {{ "PROJECTS.EL_POLLO_LOCO.DESCRIPTION" | translate }}
+          </p>
           <a
             [routerLink]="['/projects', 'elpolloloco']"
-            class="project-elpolloloco-btn desktop-only"
+            class="project-elpolloloco-btn mobile-only"
           >
             {{ "PROJECTS.EL_POLLO_LOCO.DETAILS_BTN" | translate }}
           </a>
         </div>
-        <h3 class="project-title">El Pollo Loco</h3>
-        <p class="project-description">
-          {{ "PROJECTS.EL_POLLO_LOCO.DESCRIPTION" | translate }}
-        </p>
-        <a
-          [routerLink]="['/projects', 'elpolloloco']"
-          class="project-elpolloloco-btn mobile-only"
-        >
-          {{ "PROJECTS.EL_POLLO_LOCO.DETAILS_BTN" | translate }}
-        </a>
-      </div>
 
-      <!-- Projekt 3: DABubble -->
-      <div class="project-card">
-        <div class="project-wrapper">
-          <img
-            src="./../../assets/animations/dABubble.png"
-            alt="dabubble_default"
-            class="project-image"
-          />
-          <div class="project-overlay"></div>
+        <!-- Projekt 3: DABubble -->
+        <div class="project-card">
+          <div class="project-wrapper">
+            <img
+              src="./../../assets/animations/dABubble.png"
+              alt="dabubble_default"
+              class="project-image"
+            />
+            <div class="project-overlay"></div>
+            <a
+              [routerLink]="['/projects', 'dabubble']"
+              class="project-dabubble-btn desktop-only"
+            >
+              {{ "PROJECTS.DABUBBLE.DETAILS_BTN" | translate }}
+            </a>
+          </div>
+          <h3 class="project-title">DABubble</h3>
+          <p class="project-description">
+            {{ "PROJECTS.DABUBBLE.DESCRIPTION" | translate }}
+          </p>
           <a
             [routerLink]="['/projects', 'dabubble']"
-            class="project-dabubble-btn desktop-only"
+            class="project-dabubble-btn mobile-only"
           >
             {{ "PROJECTS.DABUBBLE.DETAILS_BTN" | translate }}
           </a>
         </div>
-        <h3 class="project-title">DABubble</h3>
-        <p class="project-description">
-          {{ "PROJECTS.DABUBBLE.DESCRIPTION" | translate }}
-        </p>
-        <a
-          [routerLink]="['/projects', 'dabubble']"
-          class="project-dabubble-btn mobile-only"
-        >
-          {{ "PROJECTS.DABUBBLE.DETAILS_BTN" | translate }}
-        </a>
       </div>
     </div>
-  </div>
 
-  <div class="colleagues">
-    <h3>
-      <img
-        class="arrow"
-        src="./../../assets/animations/pfeil_links.png"
-        alt=""
-      />
-      {{ "PROJECTS.COLLEAGUES.HEADER" | translate }}
-    </h3>
-    <h1>{{ "PROJECTS.COLLEAGUES.TITLE" | translate }}</h1>
-  </div>
+    <div class="colleagues">
+      <h3>
+        <img
+          class="arrow"
+          src="./../../assets/animations/pfeil_links.png"
+          alt=""
+        />
+        {{ "PROJECTS.COLLEAGUES.HEADER" | translate }}
+      </h3>
+      <h1>{{ "PROJECTS.COLLEAGUES.TITLE" | translate }}</h1>
+    </div>
 
-  <div class="three-cards-wrapper">
-    <!-- Karte 1 -->
-    <div class="card-wrapper card-1-wrapper">
-      <div class="card card-1">
-        <img src="./../../assets/backgrounds/a.png" alt="Card A" />
-        <p class="testimonial-text">
-          {{ "PROJECTS.COMMENTS.COMMENT_1.TEXT" | translate }}
-        </p>
-        <div class="card-footer">
-          <div class="name-role">
-            <strong>Stephan Schaz</strong>
-            <span>Frontend Developer</span>
-          </div>
-          <div class="linkedin-icon">
-            <a
-              href="https://www.linkedin.com/in/stephanschaz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="in-default"
-                src="./../../assets/icons/in_default.png"
-                alt="LinkedIn Default"
-              />
-              <img
-                class="in-hover"
-                src="./../../assets/icons/in_hover.png"
-                alt="LinkedIn Hover"
-              />
-              <span>Profile</span>
-            </a>
+    <div class="three-cards-wrapper">
+      <!-- Karte 1 -->
+      <div class="card-wrapper card-1-wrapper">
+        <div class="card card-1">
+          <img src="./../../assets/backgrounds/a.png" alt="Card A" />
+          <p class="testimonial-text">
+            {{ "PROJECTS.COMMENTS.COMMENT_1.TEXT" | translate }}
+          </p>
+          <div class="card-footer">
+            <div class="name-role">
+              <strong>Stephan Schaz</strong>
+              <span>Frontend Developer</span>
+            </div>
+            <div class="linkedin-icon">
+              <a
+                href="https://www.linkedin.com/in/stephanschaz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="in-default"
+                  src="./../../assets/icons/in_default.png"
+                  alt="LinkedIn Default"
+                />
+                <img
+                  class="in-hover"
+                  src="./../../assets/icons/in_hover.png"
+                  alt="LinkedIn Hover"
+                />
+                <span>Profile</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Karte 2 (b.png, nicht rotiert) -->
-    <div class="card-wrapper card-2-wrapper">
-      <div class="card card-2">
-        <img src="./../../assets/backgrounds/b.png" alt="Card B" />
-        <p class="testimonial-text">
-          {{ "PROJECTS.COMMENTS.COMMENT_2.TEXT" | translate }}
-        </p>
+      <!-- Karte 2 (b.png, nicht rotiert) -->
+      <div class="card-wrapper card-2-wrapper">
+        <div class="card card-2">
+          <img src="./../../assets/backgrounds/b.png" alt="Card B" />
+          <p class="testimonial-text">
+            {{ "PROJECTS.COMMENTS.COMMENT_2.TEXT" | translate }}
+          </p>
 
-        <div class="card-footer">
-          <div class="name-role">
-            <strong>Andino Eichberger</strong>
-            <span>Frontend Developer</span>
-          </div>
-          <div class="linkedin-icon">
-            <a
-              href="https://www.linkedin.com/in/andino-marco-eichberger-54107b32a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="in-default"
-                src="./../../assets/icons/in_default.png"
-                alt="LinkedIn Default"
-              />
-              <img
-                class="in-hover"
-                src="./../../assets/icons/in_hover.png"
-                alt="LinkedIn Hover"
-              />
-              <span>Profile</span>
-            </a>
+          <div class="card-footer">
+            <div class="name-role">
+              <strong>Andino Eichberger</strong>
+              <span>Frontend Developer</span>
+            </div>
+            <div class="linkedin-icon">
+              <a
+                href="https://www.linkedin.com/in/andino-marco-eichberger-54107b32a/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="in-default"
+                  src="./../../assets/icons/in_default.png"
+                  alt="LinkedIn Default"
+                />
+                <img
+                  class="in-hover"
+                  src="./../../assets/icons/in_hover.png"
+                  alt="LinkedIn Hover"
+                />
+                <span>Profile</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Karte 3 -->
-    <div class="card-wrapper card-3-wrapper">
-      <div class="card card-3">
-        <img src="./../../assets/backgrounds/a.png" alt="Card A" />
-        <p class="testimonial-text">
-          {{ "PROJECTS.COMMENTS.COMMENT_3.TEXT" | translate }}
-        </p>
+      <!-- Karte 3 -->
+      <div class="card-wrapper card-3-wrapper">
+        <div class="card card-3">
+          <img src="./../../assets/backgrounds/a.png" alt="Card A" />
+          <p class="testimonial-text">
+            {{ "PROJECTS.COMMENTS.COMMENT_3.TEXT" | translate }}
+          </p>
 
-        <div class="card-footer">
-          <div class="name-role">
-            <strong>Nasser Ghaibeh</strong>
-            <span>Frontend Developer</span>
-          </div>
-          <div class="linkedin-icon">
-            <a
-              href="https://www.linkedin.com/in/stephanschaz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="in-default"
-                src="./../../assets/icons/in_default.png"
-                alt="LinkedIn Default"
-              />
-              <img
-                class="in-hover"
-                src="./../../assets/icons/in_hover.png"
-                alt="LinkedIn Hover"
-              />
-              <span>Profile</span>
-            </a>
+          <div class="card-footer">
+            <div class="name-role">
+              <strong>Nasser Ghaibeh</strong>
+              <span>Frontend Developer</span>
+            </div>
+            <div class="linkedin-icon">
+              <a
+                href="https://www.linkedin.com/in/stephanschaz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  class="in-default"
+                  src="./../../assets/icons/in_default.png"
+                  alt="LinkedIn Default"
+                />
+                <img
+                  class="in-hover"
+                  src="./../../assets/icons/in_hover.png"
+                  alt="LinkedIn Hover"
+                />
+                <span>Profile</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

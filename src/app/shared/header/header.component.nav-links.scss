@@ -231,7 +231,7 @@
 
   &.active {
     cursor: default;
-    color: #24dd80;
+    color: #009246;
   }
 
   &:not(.active):hover {
@@ -257,14 +257,24 @@
   background-repeat: no-repeat;
   transform: translate(-50%, -50%) scale(0);
   animation: drawLangHover 125ms ease-in-out forwards;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
 }
 
 .language-switch .lang-btn.en:not(.active):hover::after {
-  background-image: url("./../../../assets/animations/english_Hover.png");
+  mask-image: url("./../../../assets/animations/english_Hover.png");
+  -webkit-mask-image: url("./../../../assets/animations/english_Hover.png");
+  background-color: #009246;
 }
 
 .language-switch .lang-btn.de:not(.active):hover::after {
-  background-image: url("./../../../assets/animations/deutsch_Hover.png");
+  mask-image: url("./../../../assets/animations/deutsch_Hover.png");
+  -webkit-mask-image: url("./../../../assets/animations/deutsch_Hover.png");
+  background-color: #009246;
 }
 
 @keyframes drawLangHover {

@@ -1,77 +1,83 @@
 <section id="skills" class="skills-section white-section">
-  <div class="skill-headline">
-    <div class="skills-content">
-        <h3 class="stack-title">{{ 'SKILLS.HEADLINE.STACK_TITLE' | translate }}</h3>
-        <h1 class="skill-title">{{ 'SKILLS.HEADLINE.SKILL_TITLE' | translate }}</h1>
+  <div class="container">
+    <div class="skill-headline">
+      <div class="skills-content">
+        <h3 class="stack-title">
+          {{ "SKILLS.HEADLINE.STACK_TITLE" | translate }}
+        </h3>
+        <h1 class="skill-title">
+          {{ "SKILLS.HEADLINE.SKILL_TITLE" | translate }}
+        </h1>
+      </div>
+
+      <div class="skills-description">
+        <p>{{ "SKILLS.DESCRIPTION" | translate }}</p>
+      </div>
     </div>
 
-    <div class="skills-description">
-        <p>{{ 'SKILLS.DESCRIPTION' | translate }}</p>
-    </div>
-  </div>
-
-  <div class="skills-container">
-    <div class="skill">
-      <img src="./../../assets/icons/html.png" alt="HTML" />
-      <span>HTML</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/css.png" alt="CSS" />
-      <span>CSS</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/javascript.png" alt="JavaScript" />
-      <span>JavaScript</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/typescript.png" alt="TypeScript" />
-      <span>TypeScript</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/angular.png" alt="Angular" />
-      <span>Angular</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/firebase.png" alt="Firebase" />
-      <span>Firebase</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/git.png" alt="Git" />
-      <span>Git</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/rest-Api.png" alt="Rest API" />
-      <span>Rest API</span>
-    </div>
-    <div class="skill">
-      <img src="./../../assets/icons/scrum.png" alt="Scrum" />
-      <span>Scrum</span>
-    </div>
-    <div class="skill">
-      <img
-        src="./../../assets/icons/material_Design.png"
-        alt="Material Design"
-      />
-      <span>Material Design</span>
-    </div>
-  </div>
-
-  <div
-    class="peel-sticker"
-    [class.opening]="animationState === 'opening'"
-    [class.closing]="animationState === 'closing'"
-    [class.open]="animationState === 'open'"
-    (click)="toggleSticker()"
-  >
-    <div class="sticker-content default-content">
-      <img src="assets/animations/arrow.png" class="arrow" alt="Arrow" />
-      <p class="pull-text">{{ 'SKILLS.STICKER.DEFAULT' | translate }}</p>
+    <div class="skills-container">
+      <div class="skill">
+        <img src="./../../assets/icons/html.png" alt="HTML" />
+        <span>HTML</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/css.png" alt="CSS" />
+        <span>CSS</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/javascript.png" alt="JavaScript" />
+        <span>JavaScript</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/typescript.png" alt="TypeScript" />
+        <span>TypeScript</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/angular.png" alt="Angular" />
+        <span>Angular</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/firebase.png" alt="Firebase" />
+        <span>Firebase</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/git.png" alt="Git" />
+        <span>Git</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/rest-Api.png" alt="Rest API" />
+        <span>Rest API</span>
+      </div>
+      <div class="skill">
+        <img src="./../../assets/icons/scrum.png" alt="Scrum" />
+        <span>Scrum</span>
+      </div>
+      <div class="skill">
+        <img
+          src="./../../assets/icons/material_Design.png"
+          alt="Material Design"
+        />
+        <span>Material Design</span>
+      </div>
     </div>
 
-    <div class="sticker-content final-content">
-        <p class="headline">{{ 'SKILLS.STICKER.FINAL' | translate }}</p>
-      <div class="icons">
-        <img src="assets/icons/react_vuse.png" alt="React/Vuse" />
+    <div
+      class="peel-sticker"
+      [class.opening]="animationState === 'opening'"
+      [class.closing]="animationState === 'closing'"
+      [class.open]="animationState === 'open'"
+      (click)="toggleSticker()"
+    >
+      <div class="sticker-content default-content">
+        <img src="assets/animations/arrow.png" class="arrow" alt="Arrow" />
+        <p class="pull-text">{{ "SKILLS.STICKER.DEFAULT" | translate }}</p>
+      </div>
+
+      <div class="sticker-content final-content">
+        <p class="headline">{{ "SKILLS.STICKER.FINAL" | translate }}</p>
+        <div class="icons">
+          <img src="assets/icons/react_vuse.png" alt="React/Vuse" />
+        </div>
       </div>
     </div>
   </div>

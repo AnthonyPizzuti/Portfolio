@@ -3,10 +3,24 @@
 }
 
 .privacy-policy-container {
-  min-height: 100vh;
-  padding: 20px 0 0 0;
-  font-family: "Bricolage";
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 210vh;
   background-image: url(./../../assets/backgrounds/header.png);
+  background-size: cover;
+  background-position: center;
+  font-family: "Bricolage";
+  overflow: hidden;
+}
+
+.privacy-policy-container .container {
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .privacy-policy-page.scrollable {
@@ -17,7 +31,7 @@
 }
 
 .policyBack {
-  padding: 65px 0 0 20px;
+  padding: 65px 0 0 80px;
   gap: 10px;
   align-items: center;
   display: flex;
@@ -52,6 +66,7 @@
   flex-direction: column;
   gap: 20px;
   color: #f8f9fa;
+  padding-left: 80px;
 
   p {
     gap: 10px;
@@ -65,7 +80,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 20px 80px;
 }
 
 .logo {
