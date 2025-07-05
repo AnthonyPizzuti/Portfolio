@@ -1,9 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Input, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
+import {
+  trigger,
+  transition,
+  query,
+  style,
+  stagger,
+  animate,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +24,27 @@ import { LanguageService } from '../../services/language.service';
     './header.component.mobile-menu.scss',
     './header.component.responsive.scss',
   ],
+  animations: [
+    trigger('typeWrite', [
+      transition(':enter', [
+        query(
+          '.letter-big, .letter-small',
+          [
+            style({ opacity: 0, transform: 'translateY(5px)' }),
+            stagger('80ms', [
+              animate(
+                '200ms ease-out',
+                style({ opacity: 1, transform: 'none' })
+              ),
+            ]),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
   constructor(
     private router: Router,
     private languageService: LanguageService,
@@ -31,6 +58,11 @@ export class HeaderComponent {
   currentLanguage: 'en' | 'de' = 'en';
   currentSwitchImage = '/assets/animations/switch_left.png';
   isNavOpen: boolean = false;
+  showTitle = false;
+
+  ngAfterViewInit() {
+    setTimeout(() => (this.showTitle = true), 0);
+  }
 
   switchLanguage(lang: 'en' | 'de'): void {
     if (lang !== this.currentLanguage) {

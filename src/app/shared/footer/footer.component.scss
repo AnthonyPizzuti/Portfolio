@@ -156,7 +156,7 @@
   font-size: 16px;
 
   &:hover {
-    background: linear-gradient(to top, #6bf5ee, #47ad83);
+    background: linear-gradient(to top, #3355ff);
     color: black !important;
   }
 
@@ -178,170 +178,371 @@
   }
 }
 
-@include respond-until(sm) {
-  .footer {
-    flex-direction: column;
+@import "./../../../styles.scss";
+
+// ===== FOOTER RESPONSIVE BREAKPOINTS =====
+// Mobile First Approach
+
+// ===== DESKTOP LAYOUT (Standard) =====
+.footer {
+  .container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px 20px 40px;
-    height: auto;
-    gap: 16px;
-  }
+    gap: 40px;
 
-  .footer-left {
-    position: static;
-    align-items: center;
-  }
-
-  .footer-links {
-    gap: 12px;
-  }
-
-  .social-link {
-    padding: 6px 12px;
-    font-size: 13px;
-  }
-
-  .footer-logo {
-    margin-bottom: 12px;
-  }
-
-  .legal-notice {
-    font-size: 14px;
-    margin-bottom: 12px;
+    @include respond-until($bp-laptop) {
+      // <992px
+      gap: 30px;
+    }
   }
 }
 
-@include respond-between($breakpoint-sm, $breakpoint-lg) {
+// ===== TABLET LAYOUT =====
+@include respond-until($bp-laptop) {
+  // <992px
   .footer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
-    height: auto;
-    gap: 20px;
-    text-align: center;
-  }
+    padding: 30px 3vw;
 
-  .footer-left {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    bottom: 0;
-    gap: 20px;
-  }
-
-  .footer-links {
-    flex-direction: row;
-    gap: 90px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .social-link {
-    padding: 6px 16px;
-    font-size: 14px;
-  }
-
-  .footer-left-text-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 20px;
-
-    span {
-      font-size: 18px;
+    .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 25px;
     }
 
-    .legal-notice {
-      font-size: 16px;
+    .footer-left {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 600px;
+      bottom: 0;
+      gap: 20px;
+    }
 
-      a {
-        position: relative;
-        text-decoration: none;
-        font-weight: bold;
-        color: #f8f9fa;
+    .footer-left-text-group {
+      align-items: flex-end;
+
+      .legal-notice .underline {
+        width: 70px;
+        height: 28px;
+        bottom: -6px;
       }
+    }
 
-      .underline {
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 80px;
-        height: 32px;
+    .footer-links {
+      gap: 60px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      padding: 8px 20px;
+      font-size: 15px;
+
+      .icon {
+        top: -25px;
+        width: 28px;
+        height: 28px;
       }
     }
   }
 }
 
-@include respond-until(md) {
+// ===== MOBILE LAYOUT =====
+@include respond-until($bp-tablet) {
+  // <768px
   .footer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    height: auto;
-    gap: 20px;
-    text-align: center;
+    padding: 25px 20px 35px;
+
+    .container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+      max-width: 100%;
+    }
+
+    // Logo und Text Bereich - Mobile Layout wie im Bild
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 15px;
+      position: static;
+
+      // Logo zentriert oben
+      .footer-logo {
+        width: 45px;
+        height: auto;
+        margin-bottom: 5px;
+      }
+    }
+
+    // Text Gruppe unter Logo
+    .footer-left-text-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      span {
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .legal-notice {
+        font-size: 15px;
+        text-align: center;
+
+        .underline {
+          width: 60px;
+          height: 24px;
+          bottom: -4px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    // Social Links unten zentriert wie im Bild
+    .footer-links {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .social-link {
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 20px;
+
+      .icon {
+        top: -20px;
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
+}
 
-  .footer-left {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
+// ===== SMALL MOBILE LAYOUT =====
+@include respond-until($bp-phone) {
+  // <600px
+  .footer {
+    padding: 20px 15px 30px;
+
+    .container {
+      gap: 18px;
+    }
+
+    .footer-left {
+      gap: 12px;
+
+      .footer-logo {
+        width: 40px;
+      }
+    }
+
+    .footer-left-text-group {
+      gap: 10px;
+
+      span {
+        font-size: 15px;
+      }
+
+      .legal-notice {
+        font-size: 14px;
+
+        .underline {
+          width: 55px;
+          height: 22px;
+        }
+      }
+    }
+
+    .footer-links {
+      gap: 12px;
+    }
+
+    .social-link {
+      padding: 6px 14px;
+      font-size: 13px;
+
+      .icon {
+        top: -18px;
+        width: 22px;
+        height: 22px;
+      }
+    }
   }
+}
 
-  .footer-logo {
-    width: 40px;
-  }
+// ===== VERY SMALL SCREENS =====
+@media (max-width: 400px) {
+  .footer {
+    padding: 18px 12px 25px;
 
-  .footer-left-text-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 20px;
-
-    span {
-      font-size: 18px;
+    .footer-left-text-group span {
+      font-size: 14px;
     }
 
     .legal-notice {
-      font-size: 16px;
+      font-size: 13px;
+    }
 
-      a {
-        position: relative;
-        text-decoration: none;
-        font-weight: bold;
-        color: #f8f9fa;
+    .footer-links {
+      gap: 10px;
+    }
+
+    .social-link {
+      padding: 5px 12px;
+      font-size: 12px;
+    }
+  }
+}
+
+// ===== LANDSCAPE ORIENTATION FIX =====
+@media only screen and (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+  .footer {
+    padding: 15px 20px 20px;
+
+    .container {
+      gap: 15px;
+    }
+
+    .footer-left {
+      gap: 10px;
+
+      .footer-logo {
+        width: 35px;
+      }
+    }
+
+    .footer-left-text-group {
+      gap: 8px;
+
+      span {
+        font-size: 14px;
       }
 
-      .underline {
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 80px;
-        height: 32px;
+      .legal-notice {
+        font-size: 13px;
+      }
+    }
+
+    .footer-links {
+      gap: 10px;
+    }
+
+    .social-link {
+      padding: 4px 10px;
+      font-size: 12px;
+
+      .icon {
+        top: -15px;
+        width: 20px;
+        height: 20px;
       }
     }
   }
+}
 
-  .footer-links {
-    gap: 12px;
-  }
-
-  .social-link {
-    padding: 6px 18px;
-    font-size: 13px;
+// ===== HOVER EFFECTS DEAKTIVIERUNG AUF TOUCH DEVICES =====
+@media (hover: none) and (pointer: coarse) {
+  .social-link:hover {
+    background: transparent;
+    color: #f8f9fa;
 
     .icon {
-      top: -20px;
-      width: 24px;
-      height: 24px;
+      transform: translateX(-50%) scale(0);
+      opacity: 0;
     }
+  }
+
+  .legal-notice:hover .underline {
+    animation: none;
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .footer-logo:hover {
+    filter: invert(40%) sepia(91%) saturate(2000%) hue-rotate(220deg);
+  }
+}
+
+// ===== SPEZIELLE MOBILE ANPASSUNGEN =====
+@include respond-until($bp-tablet) {
+  // Sicherstellen, dass der Footer das Layout aus dem Bild hat
+  .footer {
+    // Flexbox Layout für Mobile
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      // Reihenfolge wie im Bild:
+      // 1. Logo (oben)
+      // 2. Copyright Text
+      // 3. Legal Notice
+      // 4. Social Links (unten)
+    }
+
+    // Logo Bereich
+    .footer-left {
+      order: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    // Social Links Bereich
+    .footer-links {
+      order: 2;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+// ===== BACKGROUND UND SPACING ANPASSUNGEN =====
+@include respond-until($bp-tablet) {
+  .footer {
+    // Hintergrund Anpassungen für Mobile
+    background-size: cover;
+    background-position: center center;
+    min-height: auto;
+
+    // Container Anpassungen
+    .container {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+// ===== ACCESSIBILITY IMPROVEMENTS =====
+@media (prefers-reduced-motion: reduce) {
+  .social-link .icon {
+    transition: none;
+  }
+
+  .legal-notice .underline {
+    animation: none !important;
+  }
+
+  .footer-logo {
+    transition: none;
   }
 }

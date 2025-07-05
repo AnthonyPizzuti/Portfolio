@@ -7,9 +7,11 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './about-me.component.html',
-  styleUrls: ['./about-me.component.scss'],
+  styleUrls: [
+    './about-me.component.scss',
+    './about-me.component.responsive.scss',
+  ],
 })
 export class AboutMeComponent {
-  constructor(private translate: TranslateService) {
-  }
+  constructor(private translate: TranslateService) {}
 }

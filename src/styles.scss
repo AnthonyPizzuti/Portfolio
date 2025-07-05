@@ -1,12 +1,20 @@
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #222 inset !important;
-  box-shadow: 0 0 0px 1000px transparent inset !important;
-  -webkit-text-fill-color: #fff;
-  transition: background-color 5000s ease-in-out 0s;
+$bp-phone: 319px;
+$bp-tablet: 768px;
+$bp-tablet2: 860px;
+$bp-laptop: 992px;
+$bp-desktop: 1200px;
+
+@mixin respond-from($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
 }
 
+@mixin respond-until($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
 
 * {
   margin: 0;
@@ -17,12 +25,12 @@ html {
   scroll-behavior: smooth;
 }
 
-body{
-    padding: 0 150px;
-    background: black;
-    height: 100vh;
-    max-width: 1920px;
-    overflow-x: hidden;
+body {
+  padding: 0 150px;
+  background: black;
+  min-height: 100vh;
+  max-width: 1920px;
+  overflow-x: hidden;
 }
 
 body.no-body-padding {
@@ -49,71 +57,60 @@ a {
   color: #f8f9fa;
 }
 
-// ================================
-// Global Breakpoints (Fein & Klar)
-// ================================
-$breakpoint-xs: 375px;
-$breakpoint-sm: 480px;
-$breakpoint-xs-custom: 566px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl-custom: 1260px;
-$breakpoint-xl: 1440px;
-$breakpoint-xxl: 1660px;
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #222 inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
-// ================================
-// Desktop-First: Min-Width Media Queries
-// ================================
-@mixin respond-from($breakpoint) {
-    @if $breakpoint == xs {
-      @media (min-width: $breakpoint-xs) { @content; }
-    } @else if $breakpoint == sm {
-      @media (min-width: $breakpoint-sm) { @content; }
-    } @else if $breakpoint == xs-custom {
-      @media (min-width: $breakpoint-xs-custom) { @content; }
-    } @else if $breakpoint == md {
-      @media (min-width: $breakpoint-md) { @content; }
-    } @else if $breakpoint == lg {
-      @media (min-width: $breakpoint-lg) { @content; }
-    } @else if $breakpoint == xl-custom {
-      @media (min-width: $breakpoint-xl-custom) { @content; }
-    } @else if $breakpoint == xl {
-      @media (min-width: $breakpoint-xl) { @content; }
-    } @else if $breakpoint == xxl {
-      @media (min-width: $breakpoint-xxl) { @content; }
-    }
+
+@include respond-until($bp-desktop) {  // <1200px
+  body {
+    padding: 0 100px;
   }
-  
-  
-// ================================
-// Mobile-First: Max-Width Media Queries
-// ================================
-@mixin respond-until($breakpoint) {
-    @if $breakpoint == xs {
-      @media (max-width: ($breakpoint-xs - 1px)) { @content; }
-    } @else if $breakpoint == sm {
-      @media (max-width: ($breakpoint-sm - 1px)) { @content; }
-    } @else if $breakpoint == xs-custom {
-      @media (max-width: ($breakpoint-xs-custom - 1px)) { @content; }
-    } @else if $breakpoint == md {
-      @media (max-width: ($breakpoint-md - 1px)) { @content; }
-    } @else if $breakpoint == lg {
-      @media (max-width: ($breakpoint-lg - 1px)) { @content; }
-    } @else if $breakpoint == xl-custom {
-      @media (max-width: ($breakpoint-xl-custom - 1px)) { @content; }
-    } @else if $breakpoint == xl {
-      @media (max-width: ($breakpoint-xl - 1px)) { @content; }
-    } @else if $breakpoint == xxl {
-      @media (max-width: ($breakpoint-xxl - 1px)) { @content; }
-    }
+}
+
+@include respond-until($bp-laptop) {   // <992px
+  body {
+    padding: 0 50px;
   }
-  
-// ================================
-// Bereich: Min + Max kombiniert
-// ================================
-@mixin respond-between($min, $max) {
-  @media (min-width: $min) and (max-width: $max) {
-    @content;
+}
+
+@include respond-until($bp-tablet) {   // <768px
+  body {
+    padding: 0 20px;
+  }
+}
+
+@include respond-until($bp-phone) {    // <600px
+  body {
+    padding: 0 10px;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@include respond-until($bp-desktop) {
+  .container {
+    max-width: $bp-desktop;
+  }
+}
+
+@include respond-until($bp-laptop) {
+  .container {
+    max-width: $bp-laptop;
+  }
+}
+
+@include respond-until($bp-tablet) {
+  .container {
+    max-width: 100%;
   }
 }
 
@@ -161,10 +158,8 @@ $breakpoint-xxl: 1660px;
   left: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-
   background: $bg;
   background-size: cover;
   background-position: center;
-
   padding: $padding;
 }

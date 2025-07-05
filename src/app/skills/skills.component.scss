@@ -73,15 +73,11 @@
     left: -10px;
     width: calc(100% + 20px);
     height: calc(100% + 20px);
-    mask-image: url("./../../assets/animations/skill_circle.png");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    -webkit-mask-image: url("./../../assets/animations/skill_circle.png");
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
-    background-color: #009246;
+    background-image: url("./../../assets/animations/skill_circle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
     pointer-events: none;
     opacity: 0;
     z-index: -1;
@@ -89,7 +85,6 @@
   }
 }
 
-/* Keyframe-Animation, die den Kreis einblendet (20%-80%) und wieder ausblendet */
 @keyframes toggleCircle {
   0% {
     opacity: 0;
@@ -141,7 +136,6 @@
   }
 }
 
-/* Peel Animation */
 .peel-sticker {
   position: absolute;
   width: 200px;
@@ -240,7 +234,7 @@
 
   .pull-text {
     font-size: 35px;
-    color: #e5c769;
+    color: #f8f9fa;
     font-family: "Kalam";
   }
 
@@ -258,106 +252,6 @@
 
     img {
       height: auto;
-    }
-  }
-}
-
-@include respond-until(xl-custom) {
-  .skills-section {
-    height: auto;
-  }
-
-  .skills-top {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .skills-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .peel-sticker {
-    bottom: 75px;
-    left: 75px;
-  }
-
-  .skills-content {
-    flex-direction: column;
-    position: static;
-    left: auto;
-  }
-
-  .skill-headline {
-    margin-bottom: 20px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .skills-description {
-    right: 0;
-  }
-}
-
-@include respond-between($breakpoint-xs, $breakpoint-xs-custom - 1) {
-  .skills-content {
-    align-items: flex-end;
-    position: relative;
-    left: auto;
-    right: 0;
-    margin-left: auto;
-    margin-right: 0;
-  }
-
-  .skills-description {
-    padding: 35px 0;
-  }
-}
-
-@include respond-until(sm) {
-  .skills-description {
-    padding: 58px 0;
-  }
-
-  .skills-content {
-    font-size: 13px;
-    margin-bottom: 0;
-    margin-left: auto;
-
-    .stack-title {
-      font-size: 13px;
-    }
-
-    .skill-title {
-      font-size: 38px;
-
-      &::after {
-        top: -4px;
-        left: -4px;
-        width: calc(100% + 8px);
-        height: calc(100% + 8px);
-      }
-    }
-  }
-
-  .skill img {
-    width: 55px;
-  }
-
-  .peel-sticker {
-    width: 140px;
-    height: 140px;
-    left: 46px;
-    bottom: 93px;
-
-    .pull-text {
-      font-size: 26px;
-    }
-
-    .arrow {
-      width: 28px;
     }
   }
 }

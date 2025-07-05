@@ -9,6 +9,7 @@ import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { LongpressHoverDirective } from './services/longpress-hover.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -23,6 +24,7 @@ export const routes: Routes = [
   declarations: [LongpressHoverDirective],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     TranslateModule,
     RouterModule.forRoot(routes, { anchorScrolling: 'enabled' }),

@@ -5,16 +5,96 @@ header {
     url(./../../../assets/backgrounds/header.png) no-repeat center/cover,
     20px 5vw 50px
   );
-  color: #f8f9fa;
-  font-family: "Bricolage";
   height: 100vh;
   overflow: hidden;
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  color: #f8f9fa;
+  font-family: "Bricolage";
+
+  @include respond-from($bp-desktop) {
+    height: 90vh;
+  }
 }
 
-header .container {
-  max-width: 1440px;
-  margin: 0 auto;
-  position: relative;
+.header-links {
+  position: absolute;
+  top: 80%;
+  left: 5rem;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+
+    a {
+      color: #fff;
+      font-size: 30px;
+      width: 35px;
+      height: 35px;
+      display: inline-grid;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-radius: 50%;
+      overflow: hidden;
+      text-decoration: none;
+      transition: all 0.4s ease-in-out;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: -11%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, #3355ff);
+        z-index: -1;
+        border-radius: 50%;
+        transform: translate(150%, 150%);
+        transition: all 125ms ease-in-out;
+      }
+
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: 0px 0px 30px #ffffff;
+
+        &:before {
+          transform: scaleX(1.9);
+          animation: animate 0.4s ease-in-out linear;
+        }
+      }
+    }
+  }
+
+  @keyframes animate {
+    0%,
+    100% {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  @include respond-from($bp-phone) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
 }
 
 .navbar {
@@ -23,7 +103,6 @@ header .container {
   align-items: center;
 }
 
-/* Logo mit Farbwechsel */
 .header-logo img {
   width: 38.54px;
   height: 40px;
@@ -64,8 +143,8 @@ header .container {
 
 .greeting {
   position: absolute;
-  top: 30vh;
-  left: 21vw;
+  top: 25%;
+  left: 27%;
   display: inline-flex;
   width: auto;
   max-width: 100%;
@@ -100,7 +179,7 @@ header .container {
       top: 0;
       bottom: 0;
       width: 100%;
-      background-color: #009246;
+      background-color: #3355ff;
       transform: translateX(-50%) scaleX(0);
       transform-origin: center;
       transition: transform 180ms ease;
@@ -159,7 +238,7 @@ header .container {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 128px;
+  font-size: clamp(2rem, 8vw, 8rem);
   font-weight: 700;
   line-height: 100%;
   text-align: center;
@@ -241,11 +320,11 @@ header .container {
 .profile {
   position: absolute;
   bottom: auto;
-  left: 67%;
+  left: 70%;
   transform: translateX(-50%) rotate(10deg);
   width: 203.57px;
   height: 244px;
-  top: 22vh;
+  top: 20%;
 
   .profile-frame {
     position: relative;
@@ -320,69 +399,15 @@ header .container {
   background: url("./../../../assets/buttons/get-In-Touch-Default.png")
     no-repeat center/cover;
   transition: background 75ms ease;
-  position: relative;
-  left: 60vw;
   right: auto;
-  top: clamp(40vh, 60vh, 60vh);
+  position: relative;
+  top: 1100%;
+  left: 67%;
 }
 
 .get-In-Touch:hover {
   background: url("./../../../assets/buttons/get-In-Touch-Hover.png") no-repeat
     center/cover;
-}
-
-.social-links {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  top: 550px;
-  gap: 10px;
-
-  a {
-    color: #fff;
-    font-size: 30px;
-    width: 35px;
-    height: 35px;
-    display: inline-grid;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-    text-decoration: none;
-    transition: all 0.4s ease-in-out;
-
-    &:before {
-      content: "";
-      position: absolute;
-      left: -11%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, #009246, #47ad83);
-      z-index: -1;
-      border-radius: 50%;
-      transform: translate(150%, 150%);
-      transition: all 125ms ease-in-out;
-    }
-
-    &:hover {
-      transform: scale(1.2);
-      box-shadow: 0px 0px 30px #ffffff;
-
-      &:before {
-        transform: scaleX(1.9);
-        animation: animate 0.4s ease-in-out linear;
-      }
-    }
-  }
-}
-
-@keyframes animate {
-  0%,
-  100% {
-    width: 100%;
-    height: 100%;
-  }
 }
 
 .icon {

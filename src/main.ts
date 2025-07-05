@@ -7,6 +7,7 @@ import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from './assets/i18n/translate-http-loader';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 const storedLang =
   typeof localStorage !== 'undefined' ? localStorage.getItem('language') : null;
@@ -16,6 +17,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
+    provideAnimations(),
     importProvidersFrom(
       TranslateModule.forRoot({
         defaultLanguage: defaultLang,
