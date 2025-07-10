@@ -1,16 +1,26 @@
-<div class="mobile-header">
-  <!-- Logo links -->
-  <a (click)="goHome()" class="logo">
-    <img src="./../../assets/logo/ap-logo.png" alt="Logo" />
-  </a>
-  <!-- Close-X rechts -->
-  <button class="close-btn" (click)="goBack()" aria-label="Schließen">
-    <img src="./../../assets/icons/closeProject.png" alt="Close" />
-  </button>
-</div>
-
 <div class="project-details-container">
   <div class="container">
+    <div class="mobile-header">
+      <!-- Logo links -->
+      <a (click)="goHome()" class="logo">
+        <img src="./../../assets/logo/ap-logo.png" alt="Logo" />
+      </a>
+
+      <!-- Hamburger Menü -->
+      <button class="hamburger" (click)="toggleNav()">
+        <img
+          *ngIf="!isNavOpen"
+          src="./../../assets/icons/mobileNavBar.png"
+          alt="Open Menu"
+        />
+      </button>
+
+      <!-- Close-X rechts -->
+      <button class="close-btn" (click)="goBack()" aria-label="Schließen">
+        <img src="./../../assets/icons/closeProject.png" alt="Close" />
+      </button>
+    </div>
+
     <img
       class="bg-rotated"
       src="./../../assets/backgrounds/note_Book_Paper.png"
@@ -215,5 +225,143 @@
         />
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" [class.open]="isNavOpen">
+  <div class="mobile-menu-header">
+    <!-- Logo links -->
+    <a (click)="goHome()" class="mobile-logo">
+      <img src="./../../assets/logo/ap-logo.png" alt="Logo" />
+    </a>
+
+    <!-- Close Button rechts -->
+    <button class="hamburger" (click)="toggleNav()">
+      <img src="./../../assets/icons/mobileClose.png" alt="Close Menu" />
+    </button>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="mobile-nav-links">
+    <a (click)="scrollToSection('about-me'); toggleNav()">{{
+      "HEADER.NAV.ABOUT" | translate
+    }}</a>
+    <a (click)="scrollToSection('skills'); toggleNav()">{{
+      "HEADER.NAV.SKILLS" | translate
+    }}</a>
+    <a (click)="scrollToSection('projects'); toggleNav()">{{
+      "HEADER.NAV.PROJECTS" | translate
+    }}</a>
+    <a (click)="scrollToSection('contact'); toggleNav()">{{
+      "HEADER.NAV.CONTACT" | translate
+    }}</a>
+  </nav>
+
+  <!-- Sprache -->
+  <div class="mobile-language-switch">
+    <button
+      class="lang-btn en"
+      [class.active]="currentLanguage === 'en'"
+      (click)="switchLanguage('en')"
+    >
+      EN
+    </button>
+    <div class="toggle-container">
+      <div class="toggle-switch">
+        <img [src]="currentSwitchImage" alt="Toggle Switch" />
+      </div>
+    </div>
+    <button
+      class="lang-btn de"
+      [class.active]="currentLanguage === 'de'"
+      (click)="switchLanguage('de')"
+    >
+      DE
+    </button>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="mobile-social-links">
+    <a href="https://github.com/AnthonyPizzuti" target="_blank"
+      ><img src="./../../assets/icons/github.png" alt="GitHub" class="icon"
+    /></a>
+    <a
+      href="https://www.linkedin.com/in/anthony-pizzuti-6937b9355/"
+      target="_blank"
+      ><img src="./../../assets/icons/linkedin.png" alt="LinkedIn" class="icon"
+    /></a>
+    <a href="mailto:anthony.pizzuti@gmx.de"
+      ><img src="./../../assets/icons/mail.png" alt="Mail" class="icon"
+    /></a>
+  </div>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" [class.open]="isNavOpen">
+  <div class="mobile-menu-header">
+    <!-- Logo links -->
+    <a (click)="goHome()" class="mobile-logo">
+      <img src="./../../assets/logo/ap-logo.png" alt="Logo" />
+    </a>
+
+    <!-- Close Button rechts -->
+    <button class="hamburger" (click)="toggleNav()">
+      <img src="./../../assets/icons/mobileClose.png" alt="Close Menu" />
+    </button>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="mobile-nav-links">
+    <a (click)="scrollToSection('about-me'); toggleNav()">{{
+      "HEADER.NAV.ABOUT" | translate
+    }}</a>
+    <a (click)="scrollToSection('skills'); toggleNav()">{{
+      "HEADER.NAV.SKILLS" | translate
+    }}</a>
+    <a (click)="scrollToSection('projects'); toggleNav()">{{
+      "HEADER.NAV.PROJECTS" | translate
+    }}</a>
+    <a (click)="scrollToSection('contact'); toggleNav()">{{
+      "HEADER.NAV.CONTACT" | translate
+    }}</a>
+  </nav>
+
+  <!-- Sprache -->
+  <div class="mobile-language-switch">
+    <button
+      class="lang-btn en"
+      [class.active]="currentLanguage === 'en'"
+      (click)="switchLanguage('en')"
+    >
+      EN
+    </button>
+    <div class="toggle-container">
+      <div class="toggle-switch">
+        <img [src]="currentSwitchImage" alt="Toggle Switch" />
+      </div>
+    </div>
+    <button
+      class="lang-btn de"
+      [class.active]="currentLanguage === 'de'"
+      (click)="switchLanguage('de')"
+    >
+      DE
+    </button>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="mobile-social-links">
+    <a href="https://github.com/AnthonyPizzuti" target="_blank"
+      ><img src="./../../assets/icons/github.png" alt="GitHub" class="icon"
+    /></a>
+    <a
+      href="https://www.linkedin.com/in/anthony-pizzuti-6937b9355/"
+      target="_blank"
+      ><img src="./../../assets/icons/linkedin.png" alt="LinkedIn" class="icon"
+    /></a>
+    <a href="mailto:anthony.pizzuti@gmx.de"
+      ><img src="./../../assets/icons/mail.png" alt="Mail" class="icon"
+    /></a>
   </div>
 </div>

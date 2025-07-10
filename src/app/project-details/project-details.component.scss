@@ -1,5 +1,6 @@
 @import "./../../styles.scss";
 @import "./project-details.component.nav-links.scss";
+@import "./project-details.component.responsive.scss";
 
 .project-details-container {
   position: relative;
@@ -238,7 +239,7 @@ h1 {
   }
 
   &:hover {
-    color: #F7C518;
+    color: #f7c518;
   }
 }
 

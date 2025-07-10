@@ -9,7 +9,7 @@
   background-image: url(./../../../assets/backgrounds/footer.png);
   background-size: cover;
   background-position: center;
-  padding: 20px 5vw;
+  padding: 64px 5vw 0;
   font-family: "Bricolage";
   color: #f8f9fa;
   height: auto;
@@ -58,7 +58,6 @@
   }
 }
 
-/* Footer Links */
 .footer-links {
   display: flex;
   gap: 250px;
@@ -72,7 +71,6 @@
   transition: color 0.3s ease;
 }
 
-/* Logo Hover (Farbe wechseln) */
 .footer-logo {
   text-decoration: none;
   width: 50px;
@@ -84,7 +82,6 @@
   }
 }
 
-/* Legal Notice Hover Effekt */
 .legal-notice {
   position: relative;
   text-decoration: none;
@@ -119,7 +116,6 @@
   }
 }
 
-/* Keyframes für das Einblenden */
 @keyframes arrowAppear {
   0% {
     clip-path: inset(0 100% 0 0);
@@ -129,7 +125,6 @@
   }
 }
 
-/* Keyframes für das Rückwärts-Ausblenden */
 @keyframes arrowDisappear {
   0% {
     clip-path: inset(0 0 0 0);
@@ -139,7 +134,6 @@
   }
 }
 
-/* Social Icons Hover Animation */
 .social-link {
   position: relative;
   text-decoration: none;
@@ -160,7 +154,6 @@
     color: black !important;
   }
 
-  /* Icon-Animation */
   .icon {
     position: absolute;
     left: 50%;
@@ -180,10 +173,70 @@
 
 @import "./../../../styles.scss";
 
-// ===== FOOTER RESPONSIVE BREAKPOINTS =====
-// Mobile First Approach
+@media (max-width: 1120px) {
+  .footer {
+    padding: 40px 3vw 30px;
 
-// ===== DESKTOP LAYOUT (Standard) =====
+    .container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      max-width: 100%;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+      bottom: 0;
+      position: static;
+    }
+
+    .footer-left-text-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+
+      span {
+        font-size: 16px;
+      }
+
+      .legal-notice {
+        font-size: 14px;
+
+        .underline {
+          width: 75px;
+          height: 30px;
+          bottom: -8px;
+        }
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .social-link {
+      padding: 8px 18px;
+      font-size: 14px;
+
+      .icon {
+        top: -22px;
+        width: 26px;
+        height: 26px;
+      }
+    }
+    .footer-logo {
+      width: 45px;
+    }
+  }
+}
+
 .footer {
   .container {
     display: flex;
@@ -192,15 +245,12 @@
     gap: 40px;
 
     @include respond-until($bp-laptop) {
-      // <992px
       gap: 30px;
     }
   }
 }
 
-// ===== TABLET LAYOUT =====
 @include respond-until($bp-laptop) {
-  // <992px
   .footer {
     padding: 30px 3vw;
 
@@ -251,9 +301,7 @@
   }
 }
 
-// ===== MOBILE LAYOUT =====
 @include respond-until($bp-tablet) {
-  // <768px
   .footer {
     padding: 25px 20px 35px;
 
@@ -266,7 +314,6 @@
       max-width: 100%;
     }
 
-    // Logo und Text Bereich - Mobile Layout wie im Bild
     .footer-left {
       display: flex;
       flex-direction: column;
@@ -275,7 +322,6 @@
       gap: 15px;
       position: static;
 
-      // Logo zentriert oben
       .footer-logo {
         width: 45px;
         height: auto;
@@ -283,7 +329,6 @@
       }
     }
 
-    // Text Gruppe unter Logo
     .footer-left-text-group {
       display: flex;
       flex-direction: column;
@@ -309,7 +354,6 @@
       }
     }
 
-    // Social Links unten zentriert wie im Bild
     .footer-links {
       display: flex;
       flex-direction: row;
@@ -334,9 +378,7 @@
   }
 }
 
-// ===== SMALL MOBILE LAYOUT =====
 @include respond-until($bp-phone) {
-  // <600px
   .footer {
     padding: 20px 15px 30px;
 
@@ -386,7 +428,6 @@
   }
 }
 
-// ===== VERY SMALL SCREENS =====
 @media (max-width: 400px) {
   .footer {
     padding: 18px 12px 25px;
@@ -410,7 +451,6 @@
   }
 }
 
-// ===== LANDSCAPE ORIENTATION FIX =====
 @media only screen and (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
   .footer {
     padding: 15px 20px 20px;
@@ -456,7 +496,6 @@
   }
 }
 
-// ===== HOVER EFFECTS DEAKTIVIERUNG AUF TOUCH DEVICES =====
 @media (hover: none) and (pointer: coarse) {
   .social-link:hover {
     background: transparent;
@@ -478,25 +517,15 @@
   }
 }
 
-// ===== SPEZIELLE MOBILE ANPASSUNGEN =====
 @include respond-until($bp-tablet) {
-  // Sicherstellen, dass der Footer das Layout aus dem Bild hat
   .footer {
-    // Flexbox Layout für Mobile
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
-      // Reihenfolge wie im Bild:
-      // 1. Logo (oben)
-      // 2. Copyright Text
-      // 3. Legal Notice
-      // 4. Social Links (unten)
     }
 
-    // Logo Bereich
     .footer-left {
       order: 1;
       width: 100%;
@@ -505,7 +534,6 @@
       align-items: center;
     }
 
-    // Social Links Bereich
     .footer-links {
       order: 2;
       width: 100%;
@@ -515,15 +543,12 @@
   }
 }
 
-// ===== BACKGROUND UND SPACING ANPASSUNGEN =====
 @include respond-until($bp-tablet) {
   .footer {
-    // Hintergrund Anpassungen für Mobile
     background-size: cover;
     background-position: center center;
     min-height: auto;
 
-    // Container Anpassungen
     .container {
       width: 100%;
       max-width: 100%;
@@ -532,7 +557,6 @@
   }
 }
 
-// ===== ACCESSIBILITY IMPROVEMENTS =====
 @media (prefers-reduced-motion: reduce) {
   .social-link .icon {
     transition: none;

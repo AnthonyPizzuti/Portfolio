@@ -2,15 +2,17 @@
 
 header {
   @include section-bg(
-    url(./../../../assets/backgrounds/header.png) no-repeat center/cover,
-    20px 5vw 50px
+    url(./../../../assets/backgrounds/header.png) no-repeat top center/cover,
+    40px 4vw 50px
   );
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   overflow: hidden;
 
   .container {
     max-width: 1440px;
     margin: 0 auto;
+    z-index: 2;
     position: relative;
     height: 100%;
     display: flex;
@@ -401,7 +403,7 @@ header {
   transition: background 75ms ease;
   right: auto;
   position: relative;
-  top: 1100%;
+  top: 1200%;
   left: 67%;
 }
 

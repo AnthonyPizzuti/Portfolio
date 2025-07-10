@@ -1,5 +1,5 @@
 :host ::ng-deep .legal-notice-content a {
-  color: #f8f9fa !important;
+  color: black !important;
 }
 
 .legal-notice-container {
@@ -9,9 +9,7 @@
   margin-left: -50vw;
   margin-right: -50vw;
   min-height: 120vh;
-  background-image: url(./../../assets/backgrounds/header.png);
-  background-size: cover;
-  background-position: center;
+  background-color: #f8f9fa;
   font-family: "Bricolage";
   overflow: hidden;
 }
@@ -44,9 +42,10 @@
     display: flex;
     align-items: center;
     flex: none;
+    color: black;
 
     &:hover {
-      color: #F87A55;
+      color: #f87a55;
     }
   }
 
@@ -62,7 +61,7 @@
   font-family: "Bricolage";
   flex-direction: column;
   gap: 20px;
-  color: #f8f9fa;
+  color: black;
   padding-left: 80px;
 
   h1 {
@@ -83,6 +82,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 80px;
+  background-image: url(./../../assets/backgrounds/header.png);
+  background-size: contain;
+  height: 6%;
 }
 
 /* Logo mit Farbwechsel */
@@ -346,7 +348,7 @@
 
   &.active {
     cursor: default;
-    color: #24dd80;
+    color: #f87a55;
   }
 
   &:not(.active):hover {

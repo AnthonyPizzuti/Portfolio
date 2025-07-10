@@ -9,7 +9,8 @@
   background: url(./../../assets/backgrounds/contact.png) center/cover no-repeat;
   font-family: "Bricolage";
   overflow: hidden;
-  height: 100vh;
+  background-position: top;
+  background-color: #f8f9fa;
 }
 
 .contact-section .container {
@@ -19,7 +20,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 90px;
-  padding: 100px 0px;
+  padding: 100px 5vw;
 }
 
 .success-message {
@@ -50,7 +51,7 @@
   }
   .arrow-container {
     position: relative;
-    width: 280px;
+    left: 200px;
     height: 45px;
     .arrow-yellow {
       position: absolute;
@@ -323,11 +324,11 @@
 
 .sticker {
   position: absolute;
-  width: 150px;
-  height: 150px;
-  left: 80%;
-  transform: translateX(-50%);
-  bottom: 500px;
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  right: 18%;
+  bottom: 20%;
   background: url("./../../assets/backgrounds/crumpled-paper.png") no-repeat
     center/cover;
   border-radius: 50%;
@@ -335,11 +336,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 10;
 }
 
 /* Logo mittig platzieren */
 .logo {
-  width: 65px;
+  width: 50px;
   height: auto;
   position: absolute;
   z-index: 2;

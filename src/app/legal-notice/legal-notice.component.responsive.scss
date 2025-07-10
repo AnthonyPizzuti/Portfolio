@@ -1,25 +1,258 @@
-@media (max-width: 1024px) {
+@media (max-width: 1290px) {
   .legal-notice-container {
-    overflow: hidden;
+    min-height: 120vh;
   }
 
-  .navbar,
-  .language-switch {
-    display: none !important;
+  .navbar {
+    padding: 20px 60px;
+
+    .nav-links {
+      gap: 100px;
+    }
   }
-  .mobile-header {
+
+  .noticeBack {
+    padding: 50px 0 0 60px;
+  }
+
+  .legal-notice-content {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .legal-notice-page {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .legal-notice-container {
+    min-height: 110vh;
+  }
+
+  .navbar {
+    padding: 20px 40px;
+
+    .nav-links {
+      gap: 80px;
+
+      a {
+        font-size: 14px;
+      }
+    }
+
+    .language-switch {
+      gap: 8px;
+
+      button {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .noticeBack {
+    padding: 40px 0 0 40px;
+    font-size: 16px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .legal-notice-content {
+    padding-left: 40px;
+    padding-right: 40px;
+    gap: 18px;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 14px;
+      margin: 15px 0;
+    }
+  }
+
+  .legal-notice-page {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 860px) {
+  .legal-notice-container {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .mobile-header {
+    background: url(./../../assets/backgrounds/header.png);
+    background-size: contain;
+    display: flex;
+    top: 15px;
+    left: 30px;
+    right: 30px;
+    height: 6%;
+
     .close-btn {
       display: block;
     }
   }
+
+  .noticeBack {
+    display: none;
+  }
+
+  .legal-notice-content {
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 16px;
+
+    h1 {
+      font-size: 26px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 13px;
+      margin: 12px 0;
+    }
+  }
+
+  .legal-notice-page {
+    padding: 68px 30px 40px;
+    flex: 1;
+  }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 768px) {
+  .legal-notice-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   .mobile-header {
-    left: 0 !important;
-    right: 0 !important;
-    padding: 0 20px !important;
-    justify-content: space-between !important;
+    left: 20px;
+    right: 20px;
+    top: 12px;
+  }
+
+  .legal-notice-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 14px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 12px;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .legal-notice-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-header {
+    left: 15px;
+    right: 15px;
+    top: 10px;
+  }
+
+  .legal-notice-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-notice-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-header {
+    left: 12px;
+    right: 12px;
+    top: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .legal-notice-container {
+    min-height: 100vh;
+  }
+
+  .mobile-header {
+    left: 10px;
+    right: 10px;
+    top: 6px;
+  }
+
+  .legal-notice-content {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .legal-notice-container {
+    min-height: 100vh;
+  }
+
+  .mobile-header {
+    left: 8px;
+    right: 8px;
+    top: 5px;
+  }
+
+  .legal-notice-content {
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 6px;
+  }
+}
+
+// Touch-Geräte spezifische Anpassungen
+@media (hover: none) and (pointer: coarse) {
+  .nav-links a:hover {
+    color: #f8f9fa;
+  }
+
+  .language-switch button:not(.active):hover {
+    color: #f8f9fa;
+  }
+
+  .noticeBack a:hover {
+    color: black;
   }
 }

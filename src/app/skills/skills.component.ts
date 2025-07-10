@@ -7,7 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss'],
+  styleUrls: ['./skills.component.scss', './skills.component.responsive.scss'],
 })
 export class SkillsComponent {
   animationState: 'closed' | 'opening' | 'open' | 'closing' = 'closed';

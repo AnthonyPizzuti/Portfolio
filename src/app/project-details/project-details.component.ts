@@ -24,6 +24,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
   project: Project | undefined;
   currentLanguage: 'en' | 'de' = 'en';
   currentSwitchImage = '/assets/animations/switch_left.png';
+  isNavOpen: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -60,6 +61,10 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
 
   goHome(): void {
     this.router.navigate(['/']);
+  }
+
+  toggleNav(): void {
+    this.isNavOpen = !this.isNavOpen;
   }
 
   scrollToSection(sectionId: string): void {

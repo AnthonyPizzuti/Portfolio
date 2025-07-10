@@ -39,7 +39,7 @@ body.no-body-padding {
   }
 
   .white-section {
-    background-color: #fff;
+    background-color: #F8F9FA
   }
 
 @font-face {
@@ -160,6 +160,6 @@ select:-webkit-autofill {
   margin-right: -50vw;
   background: $bg;
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   padding: $padding;
 }
