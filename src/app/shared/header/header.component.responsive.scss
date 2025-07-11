@@ -178,7 +178,7 @@
     top: 60%;
   }
 
-    @media (max-width: 440px) {
+  @media (max-width: 440px) {
     transform: translateX(-57%) rotate(5deg);
   }
 
@@ -241,7 +241,7 @@
 
 .navbar {
   @include respond-until($bp-laptop) {
-    padding: 1rem 0;
+    padding: 2rem 0;
     position: relative;
   }
 
@@ -363,10 +363,6 @@ header {
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .greeting:hover {
-    width: auto;
-  }
-
   .title .letter-small:hover,
   .title .letter-big:hover {
     transform: none;

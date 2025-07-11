@@ -29,9 +29,9 @@ header {
 .header-links {
   position: absolute;
   top: 80%;
-  left: 5rem;
   transform: translateY(-50%);
   z-index: 10;
+  margin-left: 70px;
 
   .social-links {
     display: flex;
@@ -103,6 +103,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 40px;
 }
 
 .header-logo img {
@@ -321,12 +325,11 @@ header {
 
 .profile {
   position: absolute;
-  bottom: auto;
+  bottom: 52vh;
   left: 70%;
   transform: translateX(-50%) rotate(10deg);
   width: 203.57px;
   height: 244px;
-  top: 20%;
 
   .profile-frame {
     position: relative;
@@ -401,10 +404,10 @@ header {
   background: url("./../../../assets/buttons/get-In-Touch-Default.png")
     no-repeat center/cover;
   transition: background 75ms ease;
-  right: auto;
-  position: relative;
-  top: 1200%;
-  left: 67%;
+  position: absolute;
+  bottom: 30vh;
+  left: 71%;
+  transform: translateX(-50%);
 }
 
 .get-In-Touch:hover {

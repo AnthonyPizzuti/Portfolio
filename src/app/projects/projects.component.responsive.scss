@@ -1,3 +1,31 @@
+@media (min-width: 1921px) {
+  .projects-section {
+    // Background kann sich ausdehnen
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .projects-section .container {
+    // Container bleibt zentriert und begrenzt
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 40px;
+  }
+
+  .projects-content,
+  .mobile-projects-wrapper,
+  .laptop-container,
+  .projects-row,
+  .colleagues,
+  .three-cards-wrapper {
+    // Alle Inhalte bleiben innerhalb des zentrierten Containers
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 1290px) {
   .projects-section {
     padding: 80px 4vw 100px 4vw;

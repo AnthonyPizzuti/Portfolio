@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 90px;
-  padding: 100px 5vw;
+  padding: 120px 5vw 50px;
 }
 
 .success-message {
@@ -33,7 +33,6 @@
   text-align: center;
 }
 
-/* Linke Textseite */
 .contact-text {
   flex: 1 1 45%;
   color: #fff;
@@ -64,7 +63,6 @@
   }
 }
 
-/* Rechte Formularseite */
 .contact-form {
   width: 70%;
   font-family: Bricolage;
@@ -170,7 +168,6 @@
   outline: none;
 }
 
-/* Datenschutz Checkbox */
 .checkbox-button-container {
   display: flex;
   flex-direction: column;
@@ -227,7 +224,6 @@
     height: 24px;
   }
 
-  /* Fehlertext */
   .error-message {
     color: #f87a55;
     font-size: 14px;
@@ -241,7 +237,6 @@
   }
 }
 
-/* Button */
 .send-btn {
   margin-top: 60px;
   font-size: 18px;
@@ -263,7 +258,6 @@
   right: 0;
 }
 
-/* Hover-Effekt nur wenn nicht disabled */
 .send-btn:not(:disabled):hover {
   background: #f87a55;
   color: #f8f9fa;
@@ -271,7 +265,6 @@
   box-shadow: 0px 0px 0px #f8f9fa;
 }
 
-/* Disabled-Styling */
 .send-btn:disabled {
   cursor: not-allowed;
   opacity: 0.5;
@@ -285,7 +278,6 @@
   overflow: hidden;
 }
 
-/* Der gelbe Pfeil bleibt fest */
 .arrow-yellow {
   position: absolute;
   top: 0;
@@ -297,7 +289,6 @@
   height: 45px;
 }
 
-/* Animation für das Erscheinen */
 @keyframes arrowAppear {
   0% {
     clip-path: inset(0 100% 0 0);
@@ -326,7 +317,7 @@
   position: absolute;
   width: 120px;
   height: 120px;
-  top: 10%;
+  top: 18%;
   right: 18%;
   bottom: 20%;
   background: url("./../../assets/backgrounds/crumpled-paper.png") no-repeat
@@ -339,7 +330,6 @@
   z-index: 10;
 }
 
-/* Logo mittig platzieren */
 .logo {
   width: 50px;
   height: auto;
@@ -348,7 +338,6 @@
   transform: rotate(15deg);
 }
 
-/* Kreisförmiger Text */
 .circle-text {
   position: absolute;
   width: 100%;
@@ -359,12 +348,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: rotateText 8s linear infinite; // Dreht sich langsam
+  animation: rotateText 8s linear infinite;
   transform-origin: center;
   font-family: Bricolage;
 }
 
-/* Trick für kreisförmigen Text */
 .circle-text::before {
   content: "Anthony Pizzuti - Frontend Developer - ";
   position: absolute;

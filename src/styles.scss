@@ -30,6 +30,7 @@ body {
   background: black;
   min-height: 100vh;
   max-width: 1920px;
+  margin: 0 auto;
   overflow-x: hidden;
 }
 
@@ -120,23 +121,20 @@ select:-webkit-autofill {
     }
   }
 
-  /* ===== disable mobile landscape ===== */
 @media only screen
-  and (max-width: 768px)   /* oder dein Mobil-Break-Point */
+  and (max-width: 768px)
   and (orientation: landscape) {
   html, body {
     height: 100%;
-    overflow: hidden;      /* kein scrollen im Landscape */
+    overflow: hidden;
   }
 
-  /* Haupt-Content ausblenden */
   app-root, 
   .project-details-container,
   .details-content-wrapper {
     display: none !important;
   }
 
-  /* stattdessen ein Layer mit Rotation-Hinweis */
   body::before {
     content: "Bitte drehen Sie Ihr Gerät ins Hochformat 📱";
     position: fixed;
@@ -162,4 +160,94 @@ select:-webkit-autofill {
   background-size: cover;
   background-position: bottom;
   padding: $padding;
+}
+
+@media (min-width: 2000px) {
+  body {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .footer,
+  .header, 
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .contact-section,
+  [class*="-section"] {
+    width: 100vw;
+    max-width: none;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      position: relative;
+      left: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1440px !important;
+    margin: 0 auto;
+  }
+}
+
+body {
+  padding: 0 150px;
+  background: black;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+body.no-body-padding {
+  padding: 0;
+}
+
+@media (min-width: 2000px) {
+  body {
+    max-width: none;
+    width: 100vw;
+    margin: 0;
+    padding: 0 5vw;
+  }
+  
+  .container {
+    max-width: none;
+    width: 100%;
+    padding: 0 2vw;
+  }
+  
+  .section-bg, 
+  [class*="full-width"],
+  .footer {
+    width: 100vw;
+    max-width: none;
+  }
+}
+
+@media (min-width: 2560px) {
+  body {
+    padding: 0 8vw;
+  }
+  
+  .container {
+    padding: 0 3vw;
+  }
 }
