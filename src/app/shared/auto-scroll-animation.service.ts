@@ -26,6 +26,7 @@ export class AutoScrollAnimationService {
       entries.forEach((entry) => {
         const element = entry.target;
         const isVisible = entry.isIntersecting && entry.intersectionRatio > 0.1;
+
         if (isVisible) {
           this.enterElement(element);
         } else {
@@ -36,6 +37,7 @@ export class AutoScrollAnimationService {
   }
 
   private autoInitialize(): void {
+    // Warte bis DOM geladen ist
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => this.scanAndAnimateElements(), 100);
@@ -43,9 +45,12 @@ export class AutoScrollAnimationService {
     } else {
       setTimeout(() => this.scanAndAnimateElements(), 100);
     }
+
+    // Beobachte auch dynamische Änderungen
     const mutationObserver = new MutationObserver(() => {
       setTimeout(() => this.scanAndAnimateElements(), 50);
     });
+
     mutationObserver.observe(document.body, {
       childList: true,
       subtree: true,
@@ -54,24 +59,35 @@ export class AutoScrollAnimationService {
 
   private scanAndAnimateElements(): void {
     if (!isPlatformBrowser(this.platformId)) return;
+
+    // Definiere welche Elemente automatisch animiert werden sollen
     const selectors = [
+      // Hauptsektionen
       'section',
       '.hero-section',
       '.about-section',
       '.skills-section',
       '.projects-section',
       '.contact-section',
+
+      // Überschriften
       'h1:not(.no-animate)',
       'h2:not(.no-animate)',
       'h3:not(.no-animate)',
+
+      // Karten und Container
       '.project-card',
       '.skill-card',
       '.card',
       '.feature-box',
+
+      // Spezielle Portfolio Elemente
       '.project-preview',
       '.skill-item',
       '.timeline-item',
       '.testimonial',
+
+      // Formulare und Buttons
       '.contact-form',
       '.cta-button',
       '.social-links',
@@ -80,9 +96,13 @@ export class AutoScrollAnimationService {
     selectors.forEach((selector) => {
       const elements = document.querySelectorAll(selector);
       elements.forEach((element, index) => {
+        // Überspringe bereits animierte Elemente
         if (element.classList.contains('scroll-animated')) return;
+
+        // Bestimme Animation basierend auf Element-Typ und Position
         const animationType = this.getAnimationTypeForElement(element, index);
         const delay = this.getDelayForElement(element, index);
+
         this.applyAnimationToElement(
           element as HTMLElement,
           animationType,
@@ -95,21 +115,29 @@ export class AutoScrollAnimationService {
   private getAnimationTypeForElement(element: Element, index: number): string {
     const tagName = element.tagName.toLowerCase();
     const className = element.className;
+
+    // Spezielle Behandlung für Three-Cards - nur auf Desktop
     if (element.closest('.three-cards-wrapper')) {
-      if (window.innerWidth <= 768) {
-        return 'none';
+      // Prüfe Bildschirmgröße - auf Tablet/Mobile keine Animation
+      if (window.innerWidth <= 1200) {
+        return 'none'; // Keine Animation auf Mobile
       }
-      return 'fade';
+      return 'fade'; // Nur Opacity-Animation für Three-Cards auf Desktop
     }
+
+    // Spezifische Animationen basierend auf Element-Typ
     if (tagName === 'h1') return 'slide-up';
     if (tagName === 'h2') return index % 2 === 0 ? 'slide-left' : 'slide-right';
     if (tagName === 'h3') return 'fade';
+
     if (className.includes('project-card')) return 'fade';
     if (className.includes('skill-card')) return 'slide-up';
     if (className.includes('hero')) return 'fade';
     if (className.includes('about')) return 'slide-left';
     if (className.includes('skills')) return 'slide-right';
     if (className.includes('contact')) return 'slide-up';
+
+    // Standard Animation basierend auf Position
     return index % 3 === 0
       ? 'slide-up'
       : index % 3 === 1
@@ -118,10 +146,14 @@ export class AutoScrollAnimationService {
   }
 
   private getDelayForElement(element: Element, index: number): number {
-    const baseDelay = Math.min(index * 100, 800);
+    // Gestaffelte Delays für besseren Effekt
+    const baseDelay = Math.min(index * 100, 800); // Max 800ms delay
+
+    // Zusätzliche Delays für bestimmte Elemente
     if (element.classList.contains('project-card')) {
       return baseDelay + (index % 4) * 150;
     }
+
     return baseDelay;
   }
 
@@ -130,9 +162,12 @@ export class AutoScrollAnimationService {
     animationType: string,
     delay: number
   ): void {
+    // Keine Animation anwenden wenn 'none' zurückgegeben wird
     if (animationType === 'none') {
       return;
     }
+
+    // Füge Animation-Klassen hinzu
     element.classList.add('scroll-animated', `scroll-${animationType}`);
     if (delay > 0) {
       element.style.setProperty('--animation-delay', `${delay}ms`);

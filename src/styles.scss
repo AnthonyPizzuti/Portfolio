@@ -210,14 +210,6 @@ select:-webkit-autofill {
   }
 }
 
-body {
-  padding: 0 150px;
-  background: black;
-  min-height: 100vh;
-  overflow-x: hidden;
-  margin: 0 auto;
-}
-
 body.no-body-padding {
   padding: 0;
 }
@@ -473,6 +465,42 @@ form.scroll-animated {
   }
 }
 
+@media (max-width: 992px) {
+  .three-cards-wrapper .card.scroll-animated {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .three-cards-wrapper .card-1.scroll-animated,
+  .three-cards-wrapper .card-2.scroll-animated,
+  .three-cards-wrapper .card-3.scroll-animated {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .three-cards-wrapper .card.scroll-animated {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .three-cards-wrapper .card-1.scroll-animated,
+  .three-cards-wrapper .card-2.scroll-animated,
+  .three-cards-wrapper .card-3.scroll-animated {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 @media (max-width: 480px) {
   .three-cards-wrapper .card.scroll-animated {
     opacity: 1 !important;
@@ -620,4 +648,3 @@ form.scroll-animated {
     animation: none !important;
   }
 }
-
