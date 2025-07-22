@@ -8,10 +8,17 @@
   left: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  height: 210vh;
+  min-height: 100vh;
+  background: url(./../../assets/backgrounds/skillsDescription.png) no-repeat
+    content-box;
   background-color: #f8f9fa;
   font-family: "Bricolage";
   overflow: hidden;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-size: contain;
+  background-size: 100% 100%;
 }
 
 .privacy-policy-container .container {
@@ -23,7 +30,7 @@
 
 .privacy-policy-page.scrollable {
   display: flex;
-  padding: 50px;
+  padding: 115px;
   overflow-y: auto;
   flex-direction: column;
 }
@@ -65,7 +72,6 @@
   flex-direction: column;
   gap: 20px;
   color: black;
-  padding-left: 80px;
 
   p {
     gap: 10px;
@@ -80,7 +86,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 80px;
-  background: url(./../../assets/backgrounds/header.png);
+  background-image: url(./../../assets/backgrounds/header.png);
+  background-size: contain;
+  height: 6%;
 }
 
 .logo {

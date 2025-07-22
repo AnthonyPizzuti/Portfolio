@@ -26,12 +26,24 @@ header {
   }
 }
 
+.header-positioned-content {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
 .header-links {
   position: absolute;
-  top: 80%;
+  top: 70%;
   transform: translateY(-50%);
   z-index: 10;
-  margin-left: 70px;
+  margin-left: 40px;
 
   .social-links {
     display: flex;
@@ -326,7 +338,7 @@ header {
 .profile {
   position: absolute;
   bottom: 52vh;
-  left: 70%;
+  left: 73%;
   transform: translateX(-50%) rotate(10deg);
   width: 203.57px;
   height: 244px;

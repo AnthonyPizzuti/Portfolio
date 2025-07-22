@@ -65,18 +65,19 @@ export class LegalNoticeComponent implements OnInit, OnDestroy {
 
   scrollToSection(sectionId: string): void {
     if (!isPlatformBrowser(this.platformId)) {
-      const path = window.location.pathname;
-      if (path !== '/home') {
-        this.router.navigate(['/home']).then(() => {
-          setTimeout(() => {
-            const el = this.document.getElementById(sectionId);
-            el?.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        });
-      } else {
-        const el = this.document.getElementById(sectionId);
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }
+      return;
+    }
+
+    if (window.location.pathname !== '/home') {
+      this.router.navigate(['/home']).then(() => {
+        setTimeout(() => {
+          const el = this.document.getElementById(sectionId);
+          el?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      });
+    } else {
+      const el = this.document.getElementById(sectionId);
+      el?.scrollIntoView({ behavior: 'smooth' });
     }
   }
 

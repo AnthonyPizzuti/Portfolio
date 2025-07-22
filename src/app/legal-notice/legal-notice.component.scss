@@ -8,10 +8,17 @@
   left: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  min-height: 120vh;
+  min-height: 100vh;
+  background: url(./../../assets/backgrounds/skillsDescription.png) no-repeat
+    content-box;
   background-color: #f8f9fa;
   font-family: "Bricolage";
   overflow: hidden;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-size: contain;
+  background-size: 100% 100%;
 }
 
 .legal-notice-container .container {
@@ -60,19 +67,22 @@
   justify-content: center;
   font-family: "Bricolage";
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   color: black;
-  padding-left: 80px;
 
   h1 {
+    font-size: xxx-large;
     margin: 20px 0;
   }
 
   h2 {
+    font-size: xx-large;
     margin: 20px 0;
   }
 
   p {
+    font-size: x-large;
     margin: 10px 0;
   }
 }
@@ -87,7 +97,7 @@
   height: 6%;
 }
 
-/* Logo mit Farbwechsel */
+
 .logo {
   width: 38.54px;
   height: 40px;
@@ -100,7 +110,7 @@
   }
 }
 
-/* Navigation */
+
 .nav-links {
   display: flex;
   gap: 150px;
@@ -113,7 +123,6 @@
     transition: color 0.3s ease-in-out;
   }
 
-  /* Spezifischer Effekt nur für About-Me */
   .about-link {
     position: relative;
     cursor: pointer;
@@ -143,7 +152,6 @@
     z-index: 1;
   }
 
-  /* Animation: Kreis entsteht von oben in der Mitte und erweitert sich */
   @keyframes drawCircle {
     0% {
       clip-path: circle(0% at 50% 0%);
@@ -160,7 +168,6 @@
     }
   }
 
-  /* Umkehrung der Animation */
   @keyframes eraseCircle {
     0% {
       clip-path: circle(100% at 50% 50%);
@@ -178,7 +185,6 @@
     }
   }
 
-  /* Spezifischer Effekt nur für Skills */
   .skills-link {
     position: relative;
     cursor: pointer;
@@ -207,7 +213,6 @@
     }
   }
 
-  /* Keyframes für das Einblenden */
   @keyframes arrowAppear {
     0% {
       clip-path: inset(0 100% 0 0);
@@ -217,7 +222,6 @@
     }
   }
 
-  /* Keyframes für das Rückwärts-Ausblenden */
   @keyframes arrowDisappear {
     0% {
       clip-path: inset(0 0 0 0);
@@ -227,7 +231,6 @@
     }
   }
 
-  /* Spezifischer Effekt nur für Projects */
   .projects-link {
     position: relative;
     cursor: pointer;
@@ -258,7 +261,6 @@
     }
   }
 
-  /* Keyframes für das Einblenden */
   @keyframes arrowAppear {
     0% {
       clip-path: inset(0 100% 0 0);
@@ -268,7 +270,6 @@
     }
   }
 
-  /* Keyframes für das Rückwärts-Ausblenden */
   @keyframes arrowDisappear {
     0% {
       clip-path: inset(0 0 0 0);
@@ -278,7 +279,6 @@
     }
   }
 
-  /* Spezifischer Effekt nur für Contact */
   .contact-link {
     position: relative;
     cursor: pointer;
@@ -308,7 +308,6 @@
   }
 }
 
-/* Keyframes für das Einblenden */
 @keyframes arrowAppear {
   0% {
     clip-path: inset(0 100% 0 0);
@@ -318,7 +317,6 @@
   }
 }
 
-/* Keyframes für das Rückwärts-Ausblenden */
 @keyframes arrowDisappear {
   0% {
     clip-path: inset(0 0 0 0);
@@ -328,7 +326,6 @@
   }
 }
 
-/* Sprachumschaltung */
 .language-switch {
   display: flex;
   align-items: center;
@@ -336,7 +333,6 @@
   position: relative;
 }
 
-/* EN & DE Buttons */
 .language-switch button {
   background: transparent;
   border: none;
@@ -356,7 +352,6 @@
   }
 }
 
-/* Aktive Sprache mit Hover-Effekt */
 .language-switch .lang-btn {
   position: relative;
   display: flex;
@@ -385,7 +380,6 @@
   background-image: url("./../../assets/animations/deutsch_Hover.png");
 }
 
-/* Keyframe für das Zeichnen des Hover-Kreises */
 @keyframes drawLangHover {
   0% {
     transform: translate(-50%, -50%) scale(0);
@@ -397,7 +391,6 @@
   }
 }
 
-/* Toggle Switch Animation */
 .toggle-container {
   position: relative;
   width: 45px;

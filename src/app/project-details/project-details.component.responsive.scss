@@ -1,4 +1,10 @@
-@media (max-width: 1415px) {
+@media (min-width: 2320px) {
+  .nav-links .skills-link {
+    color: #f8f9fa !important;
+  }
+}
+
+@media (max-width: 1415px) and (min-width: 1291px) {
   .project-details-container {
     padding: 20px 4vw 0;
   }
@@ -28,10 +34,8 @@
     padding: 50px 0 0 0;
   }
 
-  .navbar {
-    .nav-links {
-      gap: 120px;
-    }
+  .navbar .nav-links {
+    gap: 120px;
   }
 
   .description,
@@ -53,14 +57,12 @@
     }
   }
 
-  .technologies {
-    li {
-      font-size: 17px;
+  .technologies li {
+    font-size: 17px;
 
-      img {
-        width: 19px;
-        height: 19px;
-      }
+    img {
+      width: 19px;
+      height: 19px;
     }
   }
 
@@ -85,6 +87,19 @@
 
   .sticker_logo {
     width: 35px;
+  }
+}
+
+@media (min-width: 1416px) and (max-width: 2749px) {
+  .project-title {
+    h1 {
+      font-size: 75px;
+    }
+  }
+}
+@media (min-width: 1416px) and (max-width: 2749px) {
+  .project-title h1 {
+    font-size: 75px;
   }
 }
 
@@ -117,6 +132,7 @@
     .nav-links {
       gap: 80px;
     }
+
     a {
       color: #000000 !important;
     }
@@ -181,17 +197,14 @@
     color: #000000;
   }
 
-  .technologies {
-    li {
-      color: #000000;
-    }
+  .technologies li {
+    color: #000000;
   }
 
   .project-preview {
     width: 100%;
     max-width: fit-content;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
 
     img {
       width: auto;
@@ -200,10 +213,7 @@
     }
   }
 
-  .project-ring-container {
-    display: none;
-  }
-
+  .project-ring-container,
   .sticker {
     display: none;
   }
@@ -234,18 +244,15 @@
   position: static;
   background: transparent;
   border: none;
-  margin-top: 0px;
+  margin-top: 0;
 
-  .go-back {
+  .go-back,
+  .next-project {
     display: flex;
     padding: 0;
     color: #f8f9fa;
     font-size: 16px;
     position: static;
-
-    &:hover {
-      color: #f87a55;
-    }
 
     img {
       height: 20px;
@@ -253,21 +260,16 @@
     }
   }
 
+  .go-back:hover {
+    color: #f87a55;
+  }
+
   .next-project {
-    display: flex;
-    position: static;
     left: auto;
     top: auto;
-    color: #f8f9fa;
-    font-size: 16px;
 
     &:hover {
       color: #f7c518;
-    }
-
-    img {
-      height: 20px;
-      width: 20px;
     }
   }
 }
@@ -283,10 +285,8 @@
 }
 
 @media (max-width: 1024px) {
-  .navbar {
-    .nav-links {
-      gap: 60px;
-    }
+  .navbar .nav-links {
+    gap: 60px;
   }
 
   .project-info {
@@ -294,10 +294,8 @@
     padding: 30px 0 15px 0;
   }
 
-  .project-title {
-    h1 {
-      font-size: 60px;
-    }
+  .project-title h1 {
+    font-size: 60px;
   }
 
   .description,
@@ -319,10 +317,16 @@
     }
   }
 
-  .technologies {
-    li {
-      font-size: 16px;
-    }
+  .technologies li {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 861px) {
+  .mobile-header,
+  .mobile-menu,
+  .mobile-menu-header {
+    display: none !important;
   }
 }
 
@@ -395,7 +399,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 20px 20px;
+    padding: 20px;
     z-index: 1002;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -426,18 +430,11 @@
         }
       }
 
-      .close-btn {
-        background: transparent;
-        border: none;
-        img {
-          width: 32px;
-          height: 32px;
-        }
-      }
-
+      .close-btn,
       .hamburger {
         background: transparent;
         border: none;
+
         img {
           width: 32px;
           height: 32px;
@@ -460,13 +457,13 @@
         font-weight: bold;
         text-decoration: none;
         cursor: pointer;
-      }
-    }
 
-    .mobile-nav-links a.longpress-hover {
-      color: #24dd80;
-      transform: scale(1.05);
-      transition: all 0.3s ease;
+        &.longpress-hover {
+          color: #24dd80;
+          transform: scale(1.05);
+          transition: all 0.3s ease;
+        }
+      }
     }
 
     .mobile-language-switch {
@@ -482,16 +479,15 @@
         font-size: 16px;
         cursor: pointer;
         color: #f8f9fa;
+
         &.active {
           color: #24dd80;
         }
       }
 
-      .toggle-container {
-        .toggle-switch img {
-          width: 40px;
-          height: 20px;
-        }
+      .toggle-container .toggle-switch img {
+        width: 40px;
+        height: 20px;
       }
     }
 
@@ -507,7 +503,7 @@
   }
 
   .project-title {
-    padding: 10px 0 10px 0;
+    padding: 10px 0;
     margin-top: -20px;
 
     h1 {
@@ -519,17 +515,11 @@
     padding: 20px 0 15px 0;
     margin-top: -10px;
   }
-
-  .navbar {
-    margin-bottom: -10px;
-  }
 }
 
 @media (max-width: 768px) {
-  .project-details-container {
-    .container {
-      padding: 0 15px;
-    }
+  .project-details-container .container {
+    padding: 0 15px;
   }
 
   .mobile-header {
@@ -799,54 +789,6 @@
       }
     }
   }
-
-  .mobile-menu {
-    .mobile-menu-header {
-      padding: 10px 12px;
-
-      .mobile-logo img {
-        width: 28px;
-        height: 30px;
-      }
-
-      .hamburger img {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
-    .mobile-nav-links {
-      padding: 30px 12px;
-      gap: 22px;
-
-      a {
-        font-size: 20px;
-      }
-    }
-
-    .mobile-language-switch {
-      padding: 12px;
-
-      .lang-btn {
-        font-size: 15px;
-      }
-
-      .toggle-container .toggle-switch img {
-        width: 32px;
-        height: 16px;
-      }
-    }
-
-    .mobile-social-links {
-      padding: 12px;
-      gap: 15px;
-
-      .icon {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
 }
 
 @media (max-width: 480px) {
@@ -854,6 +796,7 @@
     &::before {
       height: 120%;
     }
+
     .container {
       padding: 0 10px;
     }
@@ -881,6 +824,10 @@
 
     h1 {
       font-size: 36px;
+    }
+
+    .underline {
+      width: 300px !important;
     }
   }
 
@@ -960,54 +907,6 @@
       }
     }
   }
-
-  .mobile-menu {
-    .mobile-menu-header {
-      padding: 8px 10px;
-
-      .mobile-logo img {
-        width: 26px;
-        height: 28px;
-      }
-
-      .hamburger img {
-        width: 18px;
-        height: 18px;
-      }
-    }
-
-    .mobile-nav-links {
-      padding: 25px 10px;
-      gap: 20px;
-
-      a {
-        font-size: 18px;
-      }
-    }
-
-    .mobile-language-switch {
-      padding: 10px;
-
-      .lang-btn {
-        font-size: 14px;
-      }
-
-      .toggle-container .toggle-switch img {
-        width: 28px;
-        height: 14px;
-      }
-    }
-
-    .mobile-social-links {
-      padding: 10px;
-      gap: 12px;
-
-      .icon {
-        width: 18px;
-        height: 18px;
-      }
-    }
-  }
 }
 
 @media (max-width: 360px) {
@@ -1015,6 +914,7 @@
     &::before {
       height: 140%;
     }
+
     .container {
       padding: 0 8px;
     }
@@ -1114,58 +1014,11 @@
     .go-back,
     .next-project {
       font-size: 12px;
+      color: #000000;
 
       img {
         height: 12px;
         width: 12px;
-      }
-    }
-  }
-
-  .mobile-menu {
-    .mobile-menu-header {
-      padding: 6px 8px;
-
-      .mobile-logo img {
-        width: 24px;
-        height: 26px;
-      }
-
-      .hamburger img {
-        width: 16px;
-        height: 16px;
-      }
-    }
-
-    .mobile-nav-links {
-      padding: 20px 8px;
-      gap: 18px;
-
-      a {
-        font-size: 16px;
-      }
-    }
-
-    .mobile-language-switch {
-      padding: 8px;
-
-      .lang-btn {
-        font-size: 13px;
-      }
-
-      .toggle-container .toggle-switch img {
-        width: 24px;
-        height: 12px;
-      }
-    }
-
-    .mobile-social-links {
-      padding: 8px;
-      gap: 10px;
-
-      .icon {
-        width: 16px;
-        height: 16px;
       }
     }
   }
@@ -1202,5 +1055,31 @@
 
   .language-switch .lang-btn:not(.active):hover::after {
     display: none;
+  }
+}
+
+@media (min-width: 2750px) {
+  .project-details-container {
+    padding: 20px 6vw 0;
+  }
+
+  .project-title {
+    text-align: left;
+
+    h1 {
+      font-size: 55px;
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .project-details-container .container {
+    max-width: 2600px;
+    margin: 0 auto;
+    padding: 0 40px;
   }
 }

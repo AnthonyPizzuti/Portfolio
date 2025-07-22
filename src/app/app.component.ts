@@ -4,6 +4,7 @@ import { filter } from 'rxjs/operators';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AutoScrollAnimationService } from './shared/auto-scroll-animation.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent {
   currentSwitchImage: string = '/assets/animations/switch_left.png';
   isDetailRoute = false;
 
-  constructor(private router: Router, private translate: TranslateService) {
+  constructor(private router: Router, private translate: TranslateService, private autoScrollService: AutoScrollAnimationService) {
     const storedLang = (typeof localStorage !== 'undefined') ? localStorage.getItem('language') as 'en' | 'de' : null;
     const lang = storedLang ? storedLang : 'en';
     this.currentLanguage = lang;

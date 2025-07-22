@@ -50,12 +50,12 @@
 
 .greeting {
   @include respond-until($bp-laptop) {
-    top: 14%;
+    top: 3%;
     transform: translateX(-50%);
   }
 
   @media (max-width: 440px) {
-    transform: translateX(-35%);
+    transform: translateX(-60%);
   }
 
   @media (max-width: 319px) {

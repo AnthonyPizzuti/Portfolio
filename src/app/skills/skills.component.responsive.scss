@@ -1,7 +1,48 @@
-@media (min-width: 1921px) {
+@import "./../../styles.scss";
+
+@media (min-width: 2560px) {
+  .skills-container {
+    max-width: 1800px;
+    gap: 60px;
+  }
+
+  .skill {
+    img {
+      width: 120px;
+    }
+
+    span {
+      font-size: 20px;
+      margin-top: 16px;
+    }
+  }
+}
+
+@media (min-width: 1921px) and (max-width: 5000px) {
+  .skills-section {
+    min-height: 80vh;
+  }
+
   .peel-sticker {
     right: auto;
     left: calc(50% + 520px);
+  }
+
+  .skills-container {
+    max-width: 1200px;
+    gap: 40px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .skill {
+    img {
+      width: 100px;
+    }
+
+    span {
+      font-size: 18px;
+      margin-top: 12px;
+    }
   }
 }
 
