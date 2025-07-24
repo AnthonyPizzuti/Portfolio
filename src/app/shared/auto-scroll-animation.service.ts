@@ -7,15 +7,88 @@ import { isPlatformBrowser } from '@angular/common';
 export class AutoScrollAnimationService {
   private observer!: IntersectionObserver;
   private animatedElements = new Map<Element, boolean>();
+  private isAnimationEnabled = true;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
       this.initializeObserver();
       this.autoInitialize();
+      this.addResizeListener();
     }
   }
 
+  private checkScreenSize(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.isAnimationEnabled = window.innerWidth > 1290;
+
+    // Wenn Animationen deaktiviert werden sollen, entferne alle bestehenden
+    if (!this.isAnimationEnabled) {
+      this.disableAllAnimations();
+    }
+  }
+
+  private addResizeListener(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    window.addEventListener('resize', () => {
+      const wasEnabled = this.isAnimationEnabled;
+      this.checkScreenSize();
+
+      // Wenn sich der Status geändert hat
+      if (wasEnabled !== this.isAnimationEnabled) {
+        if (this.isAnimationEnabled) {
+          // Animationen wieder aktivieren
+          setTimeout(() => this.scanAndAnimateElements(), 100);
+        } else {
+          // Animationen deaktivieren
+          this.disableAllAnimations();
+        }
+      }
+    });
+  }
+
+  private disableAllAnimations(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    // Alle animierten Elemente finden und Animationen entfernen
+    const animatedElements = document.querySelectorAll('.scroll-animated');
+    animatedElements.forEach((element) => {
+      element.classList.remove(
+        'scroll-animated',
+        'scroll-fade',
+        'scroll-slide-up',
+        'scroll-slide-down',
+        'scroll-slide-left',
+        'scroll-slide-right',
+        'scroll-zoom',
+        'scroll-rotate',
+        'animate-out',
+        'animate-in',
+        'animate-enter',
+        'animate-leave'
+      );
+
+      // Style zurücksetzen
+      (element as HTMLElement).style.removeProperty('--animation-delay');
+      (element as HTMLElement).style.opacity = '1';
+      (element as HTMLElement).style.transform = '';
+      (element as HTMLElement).style.pointerEvents = 'auto';
+
+      // Observer entfernen
+      if (this.observer) {
+        this.observer.unobserve(element);
+      }
+    });
+
+    // Map leeren
+    this.animatedElements.clear();
+  }
+
   private initializeObserver(): void {
+    if (!this.isAnimationEnabled) return;
+
     const options = {
       root: null,
       rootMargin: '-10% 0px -10% 0px',
@@ -23,6 +96,8 @@ export class AutoScrollAnimationService {
     };
 
     this.observer = new IntersectionObserver((entries) => {
+      if (!this.isAnimationEnabled) return;
+
       entries.forEach((entry) => {
         const element = entry.target;
         const isVisible = entry.isIntersecting && entry.intersectionRatio > 0.1;
@@ -37,6 +112,8 @@ export class AutoScrollAnimationService {
   }
 
   private autoInitialize(): void {
+    if (!this.isAnimationEnabled) return;
+
     // Warte bis DOM geladen ist
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
@@ -48,7 +125,9 @@ export class AutoScrollAnimationService {
 
     // Beobachte auch dynamische Änderungen
     const mutationObserver = new MutationObserver(() => {
-      setTimeout(() => this.scanAndAnimateElements(), 50);
+      if (this.isAnimationEnabled) {
+        setTimeout(() => this.scanAndAnimateElements(), 50);
+      }
     });
 
     mutationObserver.observe(document.body, {
@@ -58,7 +137,7 @@ export class AutoScrollAnimationService {
   }
 
   private scanAndAnimateElements(): void {
-    if (!isPlatformBrowser(this.platformId)) return;
+    if (!isPlatformBrowser(this.platformId) || !this.isAnimationEnabled) return;
 
     // Definiere welche Elemente automatisch animiert werden sollen
     const selectors = [
@@ -116,13 +195,9 @@ export class AutoScrollAnimationService {
     const tagName = element.tagName.toLowerCase();
     const className = element.className;
 
-    // Spezielle Behandlung für Three-Cards - nur auf Desktop
+    // Spezielle Behandlung für Three-Cards
     if (element.closest('.three-cards-wrapper')) {
-      // Prüfe Bildschirmgröße - auf Tablet/Mobile keine Animation
-      if (window.innerWidth <= 1200) {
-        return 'none'; // Keine Animation auf Mobile
-      }
-      return 'fade'; // Nur Opacity-Animation für Three-Cards auf Desktop
+      return 'fade'; // Nur Opacity-Animation für Three-Cards
     }
 
     // Spezifische Animationen basierend auf Element-Typ
@@ -162,10 +237,7 @@ export class AutoScrollAnimationService {
     animationType: string,
     delay: number
   ): void {
-    // Keine Animation anwenden wenn 'none' zurückgegeben wird
-    if (animationType === 'none') {
-      return;
-    }
+    if (!this.isAnimationEnabled) return;
 
     // Füge Animation-Klassen hinzu
     element.classList.add('scroll-animated', `scroll-${animationType}`);
@@ -177,6 +249,8 @@ export class AutoScrollAnimationService {
   }
 
   private enterElement(element: Element): void {
+    if (!this.isAnimationEnabled) return;
+
     element.classList.remove('animate-leave', 'animate-out');
     element.classList.add('animate-enter', 'animate-in');
     this.animatedElements.set(element, true);
@@ -188,6 +262,8 @@ export class AutoScrollAnimationService {
   }
 
   private leaveElement(element: Element): void {
+    if (!this.isAnimationEnabled) return;
+
     if (this.animatedElements.get(element)) {
       const keepVisible =
         element.tagName.toLowerCase() === 'h1' ||
@@ -209,12 +285,15 @@ export class AutoScrollAnimationService {
     element: HTMLElement,
     animationType: string = 'fade'
   ): void {
+    if (!this.isAnimationEnabled) return;
     this.applyAnimationToElement(element, animationType, 0);
   }
 
   public disableAnimationForElement(element: HTMLElement): void {
     element.classList.add('no-animate');
-    this.observer.unobserve(element);
+    if (this.observer) {
+      this.observer.unobserve(element);
+    }
   }
 
   public destroy(): void {
